@@ -1,0 +1,252 @@
+2021-09-04T08:12:26.9506670+07:00 0HMBF83LI05RR:00000005 [INF] Capturing event. (18dd7e66)
+2021-09-04T08:12:27.2499210+07:00 0HMBF83LI05RR:00000005 [ERR] {"ExceptionType":"System.NullReferenceException","ExceptionDate":"2021-09-04T01:12:26.910308Z","Url":"/api/Test/GetConfigureStripe","QueryString":"","RequestBody":null,"Message":"Object reference not set to an instance of an object.","InnerException":null,"StackTrace":"   at CORE_API.ServicesExtension.\u003C\u003Ec.\u003CConfigureAuthentication\u003Eb__7_2(JwtBearerOptions options) in /Users/nexle-user/Projects/Rebatebus/core-api/CORE-API/ServicesExtension.cs:line 92\n   at Microsoft.Extensions.Options.ConfigureNamedOptions\u00601.Configure(String name, TOptions options)\n   at Microsoft.Extensions.Options.OptionsFactory\u00601.Create(String name)\n   at Microsoft.Extensions.Options.OptionsMonitor\u00601.\u003C\u003Ec__DisplayClass11_0.\u003CGet\u003Eb__0()\n   at System.Lazy\u00601.ViaFactory(LazyThreadSafetyMode mode)\n   at System.Lazy\u00601.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)\n   at System.Lazy\u00601.CreateValue()\n   at Microsoft.AspNetCore.Authentication.AuthenticationHandler\u00601.InitializeAsync(AuthenticationScheme scheme, HttpContext context)\n   at Microsoft.AspNetCore.Authentication.AuthenticationHandlerProvider.GetHandlerAsync(HttpContext context, String authenticationScheme)\n   at Microsoft.AspNetCore.Authentication.AuthenticationService.AuthenticateAsync(HttpContext context, String scheme)\n   at Microsoft.AspNetCore.Authorization.Policy.PolicyEvaluator.AuthenticateAsync(AuthorizationPolicy policy, HttpContext context)\n   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)\n   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)\n   at CORE_API.CORE.Exceptions.ExceptionHandlingMiddleware.InvokeAsync(HttpContext httpContext) in /Users/nexle-user/Projects/Rebatebus/core-api/CORE-API/CORE/Exceptions/ExceptionHandlingMiddleware.cs:line 24","UserAgent":null,"UserName":null,"Tag":null,"LogLevel":"Error"} (6f1e7604)
+2021-09-04T13:05:14.9378350+07:00 0HMBFD7L671B4:00000005 [INF] Capturing event. (18dd7e66)
+2021-09-04T13:05:15.2283480+07:00 0HMBFD7L671B4:00000005 [ERR] {"ExceptionType":"System.NullReferenceException","ExceptionDate":"2021-09-04T06:05:14.826737Z","Url":"/api/Test/GetConfigureStripe","QueryString":"","RequestBody":null,"Message":"Object reference not set to an instance of an object.","InnerException":null,"StackTrace":"   at CORE_API.CORE.Authorization.SubscriptionAuthorizationHandler.HandleRequirementAsync(AuthorizationHandlerContext context, RoleTypeRequirement requirement) in /Users/nexle-user/Projects/Rebatebus/core-api/CORE-API/CORE/Authorization/SubscriptionAuthorizationHandler.cs:line 50\n   at Microsoft.AspNetCore.Authorization.AuthorizationHandler\u00601.HandleAsync(AuthorizationHandlerContext context)\n   at Microsoft.AspNetCore.Authorization.DefaultAuthorizationService.AuthorizeAsync(ClaimsPrincipal user, Object resource, IEnumerable\u00601 requirements)\n   at Microsoft.AspNetCore.Authorization.Policy.PolicyEvaluator.AuthorizeAsync(AuthorizationPolicy policy, AuthenticateResult authenticationResult, HttpContext context, Object resource)\n   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)\n   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)\n   at CORE_API.CORE.Exceptions.ExceptionHandlingMiddleware.InvokeAsync(HttpContext httpContext) in /Users/nexle-user/Projects/Rebatebus/core-api/CORE-API/CORE/Exceptions/ExceptionHandlingMiddleware.cs:line 24","UserAgent":null,"UserName":null,"Tag":null,"LogLevel":"Error"} (4810b78b)
+2021-09-04T13:11:38.2104270+07:00 0HMBFDB871T3K:00000005 [INF] Capturing event. (18dd7e66)
+2021-09-04T13:11:38.4646790+07:00 0HMBFDB871T3K:00000005 [ERR] {"ExceptionType":"System.NullReferenceException","ExceptionDate":"2021-09-04T06:11:38.108382Z","Url":"/api/Test/GetConfigureStripe","QueryString":"","RequestBody":null,"Message":"Object reference not set to an instance of an object.","InnerException":null,"StackTrace":"   at CORE_API.CORE.Authorization.SubscriptionAuthorizationHandler.HandleRequirementAsync(AuthorizationHandlerContext context, RoleTypeRequirement requirement) in /Users/nexle-user/Projects/Rebatebus/core-api/CORE-API/CORE/Authorization/SubscriptionAuthorizationHandler.cs:line 20\n   at Microsoft.AspNetCore.Authorization.AuthorizationHandler\u00601.HandleAsync(AuthorizationHandlerContext context)\n   at Microsoft.AspNetCore.Authorization.DefaultAuthorizationService.AuthorizeAsync(ClaimsPrincipal user, Object resource, IEnumerable\u00601 requirements)\n   at Microsoft.AspNetCore.Authorization.Policy.PolicyEvaluator.AuthorizeAsync(AuthorizationPolicy policy, AuthenticateResult authenticationResult, HttpContext context, Object resource)\n   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)\n   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)\n   at CORE_API.CORE.Exceptions.ExceptionHandlingMiddleware.InvokeAsync(HttpContext httpContext) in /Users/nexle-user/Projects/Rebatebus/core-api/CORE-API/CORE/Exceptions/ExceptionHandlingMiddleware.cs:line 24","UserAgent":null,"UserName":null,"Tag":null,"LogLevel":"Error"} (c1b8610e)
+2021-09-04T13:20:36.4190790+07:00 0HMBFDG8GR8TB:00000005 [INF] Capturing event. (18dd7e66)
+2021-09-04T13:20:36.5151920+07:00 0HMBFDG8GR8TB:00000005 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.InvalidOperationException: Headers are read-only, response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.ThrowHeadersReadOnlyException()
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.Microsoft.AspNetCore.Http.IHeaderDictionary.set_Item(String key, StringValues value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.set_ContentType(String value)
+   at CORE_API.CORE.Exceptions.ExceptionHandlingMiddleware.HandleExceptionAsync(HttpContext httpContext, Exception exception) in /Users/nexle-user/Projects/Rebatebus/core-api/CORE-API/CORE/Exceptions/ExceptionHandlingMiddleware.cs:line 34
+   at CORE_API.CORE.Exceptions.ExceptionHandlingMiddleware.InvokeAsync(HttpContext httpContext) in /Users/nexle-user/Projects/Rebatebus/core-api/CORE-API/CORE/Exceptions/ExceptionHandlingMiddleware.cs:line 28
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-09-04T13:20:36.5437890+07:00 0HMBFDG8GR8TB:00000005 [INF] Capturing event. (18dd7e66)
+2021-09-04T13:20:37.3143820+07:00 0HMBFDG8GR8TB:00000005 [WRN] The response has already started, the error page middleware will not be executed. (e1dd4c0d)
+2021-09-04T13:20:37.3370720+07:00 0HMBFDG8GR8TB:00000005 [INF] Capturing event. (18dd7e66)
+2021-09-04T13:20:37.4679320+07:00 0HMBFDG8GR8TB:00000005 [INF] Event dropped by processor "DuplicateEventDetectionEventProcessor" (b62d3287)
+2021-09-04T13:20:37.4728390+07:00 0HMBFDG8GR8TB:00000005 [INF] Event '"00000000000000000000000000000000"' queued. (344d5602)
+2021-09-04T13:20:37.4877940+07:00 0HMBFDG8GR8TB:00000005 [ERR] Connection id ""0HMBFDG8GR8TB"", Request id ""0HMBFDG8GR8TB:00000005"": An unhandled exception was thrown by the application. (560e7d32)
+System.InvalidOperationException: Headers are read-only, response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.ThrowHeadersReadOnlyException()
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.Microsoft.AspNetCore.Http.IHeaderDictionary.set_Item(String key, StringValues value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.set_ContentType(String value)
+   at CORE_API.CORE.Exceptions.ExceptionHandlingMiddleware.HandleExceptionAsync(HttpContext httpContext, Exception exception) in /Users/nexle-user/Projects/Rebatebus/core-api/CORE-API/CORE/Exceptions/ExceptionHandlingMiddleware.cs:line 34
+   at CORE_API.CORE.Exceptions.ExceptionHandlingMiddleware.InvokeAsync(HttpContext httpContext) in /Users/nexle-user/Projects/Rebatebus/core-api/CORE-API/CORE/Exceptions/ExceptionHandlingMiddleware.cs:line 28
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Sentry.AspNetCore.SentryMiddleware.InvokeAsync(HttpContext context) in /_/src/Sentry.AspNetCore/SentryMiddleware.cs:line 112
+   at Sentry.AspNetCore.SentryMiddleware.InvokeAsync(HttpContext context) in /_/src/Sentry.AspNetCore/SentryMiddleware.cs:line 125
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2021-09-04T13:21:45.3132360+07:00 0HMBFDGSQ0T4M:00000005 [INF] Capturing event. (18dd7e66)
+2021-09-04T13:21:45.4075020+07:00 0HMBFDGSQ0T4M:00000005 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.InvalidOperationException: Headers are read-only, response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.ThrowHeadersReadOnlyException()
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.Microsoft.AspNetCore.Http.IHeaderDictionary.set_Item(String key, StringValues value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.set_ContentType(String value)
+   at CORE_API.CORE.Exceptions.ExceptionHandlingMiddleware.HandleExceptionAsync(HttpContext httpContext, Exception exception) in /Users/nexle-user/Projects/Rebatebus/core-api/CORE-API/CORE/Exceptions/ExceptionHandlingMiddleware.cs:line 34
+   at CORE_API.CORE.Exceptions.ExceptionHandlingMiddleware.InvokeAsync(HttpContext httpContext) in /Users/nexle-user/Projects/Rebatebus/core-api/CORE-API/CORE/Exceptions/ExceptionHandlingMiddleware.cs:line 28
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-09-04T13:21:45.4132320+07:00 0HMBFDGSQ0T4M:00000005 [INF] Capturing event. (18dd7e66)
+2021-09-04T13:21:46.1672550+07:00 0HMBFDGSQ0T4M:00000005 [WRN] The response has already started, the error page middleware will not be executed. (e1dd4c0d)
+2021-09-04T13:21:46.1723880+07:00 0HMBFDGSQ0T4M:00000005 [INF] Capturing event. (18dd7e66)
+2021-09-04T13:21:46.3283470+07:00 0HMBFDGSQ0T4M:00000005 [INF] Event dropped by processor "DuplicateEventDetectionEventProcessor" (b62d3287)
+2021-09-04T13:21:46.3338080+07:00 0HMBFDGSQ0T4M:00000005 [INF] Event '"00000000000000000000000000000000"' queued. (344d5602)
+2021-09-04T13:21:46.3472290+07:00 0HMBFDGSQ0T4M:00000005 [ERR] Connection id ""0HMBFDGSQ0T4M"", Request id ""0HMBFDGSQ0T4M:00000005"": An unhandled exception was thrown by the application. (560e7d32)
+System.InvalidOperationException: Headers are read-only, response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.ThrowHeadersReadOnlyException()
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.Microsoft.AspNetCore.Http.IHeaderDictionary.set_Item(String key, StringValues value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.set_ContentType(String value)
+   at CORE_API.CORE.Exceptions.ExceptionHandlingMiddleware.HandleExceptionAsync(HttpContext httpContext, Exception exception) in /Users/nexle-user/Projects/Rebatebus/core-api/CORE-API/CORE/Exceptions/ExceptionHandlingMiddleware.cs:line 34
+   at CORE_API.CORE.Exceptions.ExceptionHandlingMiddleware.InvokeAsync(HttpContext httpContext) in /Users/nexle-user/Projects/Rebatebus/core-api/CORE-API/CORE/Exceptions/ExceptionHandlingMiddleware.cs:line 28
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Sentry.AspNetCore.SentryMiddleware.InvokeAsync(HttpContext context) in /_/src/Sentry.AspNetCore/SentryMiddleware.cs:line 112
+   at Sentry.AspNetCore.SentryMiddleware.InvokeAsync(HttpContext context) in /_/src/Sentry.AspNetCore/SentryMiddleware.cs:line 125
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2021-09-04T13:23:51.9382210+07:00 0HMBFDI1VEA4C:00000005 [INF] Capturing event. (18dd7e66)
+2021-09-04T13:23:52.0323070+07:00 0HMBFDI1VEA4C:00000005 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.InvalidOperationException: Headers are read-only, response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.ThrowHeadersReadOnlyException()
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.Microsoft.AspNetCore.Http.IHeaderDictionary.set_Item(String key, StringValues value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.set_ContentType(String value)
+   at CORE_API.CORE.Exceptions.ExceptionHandlingMiddleware.HandleExceptionAsync(HttpContext httpContext, Exception exception) in /Users/nexle-user/Projects/Rebatebus/core-api/CORE-API/CORE/Exceptions/ExceptionHandlingMiddleware.cs:line 34
+   at CORE_API.CORE.Exceptions.ExceptionHandlingMiddleware.InvokeAsync(HttpContext httpContext) in /Users/nexle-user/Projects/Rebatebus/core-api/CORE-API/CORE/Exceptions/ExceptionHandlingMiddleware.cs:line 28
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-09-04T13:23:52.0807010+07:00 0HMBFDI1VEA4C:00000005 [INF] Capturing event. (18dd7e66)
+2021-09-04T13:23:52.8787810+07:00 0HMBFDI1VEA4C:00000005 [WRN] The response has already started, the error page middleware will not be executed. (e1dd4c0d)
+2021-09-04T13:23:52.9029930+07:00 0HMBFDI1VEA4C:00000005 [INF] Capturing event. (18dd7e66)
+2021-09-04T13:23:53.0604590+07:00 0HMBFDI1VEA4C:00000005 [INF] Event dropped by processor "DuplicateEventDetectionEventProcessor" (b62d3287)
+2021-09-04T13:23:53.0658180+07:00 0HMBFDI1VEA4C:00000005 [INF] Event '"00000000000000000000000000000000"' queued. (344d5602)
+2021-09-04T13:23:53.0789540+07:00 0HMBFDI1VEA4C:00000005 [ERR] Connection id ""0HMBFDI1VEA4C"", Request id ""0HMBFDI1VEA4C:00000005"": An unhandled exception was thrown by the application. (560e7d32)
+System.InvalidOperationException: Headers are read-only, response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.ThrowHeadersReadOnlyException()
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.Microsoft.AspNetCore.Http.IHeaderDictionary.set_Item(String key, StringValues value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.set_ContentType(String value)
+   at CORE_API.CORE.Exceptions.ExceptionHandlingMiddleware.HandleExceptionAsync(HttpContext httpContext, Exception exception) in /Users/nexle-user/Projects/Rebatebus/core-api/CORE-API/CORE/Exceptions/ExceptionHandlingMiddleware.cs:line 34
+   at CORE_API.CORE.Exceptions.ExceptionHandlingMiddleware.InvokeAsync(HttpContext httpContext) in /Users/nexle-user/Projects/Rebatebus/core-api/CORE-API/CORE/Exceptions/ExceptionHandlingMiddleware.cs:line 28
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Sentry.AspNetCore.SentryMiddleware.InvokeAsync(HttpContext context) in /_/src/Sentry.AspNetCore/SentryMiddleware.cs:line 112
+   at Sentry.AspNetCore.SentryMiddleware.InvokeAsync(HttpContext context) in /_/src/Sentry.AspNetCore/SentryMiddleware.cs:line 125
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2021-09-04T13:26:56.4828930+07:00 0HMBFDJNGE4LE:00000005 [INF] Capturing event. (18dd7e66)
+2021-09-04T13:26:56.7636820+07:00 0HMBFDJNGE4LE:00000005 [ERR] {"ExceptionType":"System.InvalidOperationException","ExceptionDate":"2021-09-04T06:26:56.378645Z","Url":"/api/Test/GetConfigureStripe","QueryString":"","RequestBody":null,"Message":"Unable to resolve service for type \u0027Microsoft.AspNetCore.Http.HttpContext\u0027 while attempting to activate \u0027CORE_API.CORE.Authorization.SubscriptionAuthorizationHandler\u0027.","InnerException":null,"StackTrace":"   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)\n   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)\n   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)\n   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateEnumerable(Type serviceType, CallSiteChain callSiteChain)\n   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)\n   at System.Collections.Concurrent.ConcurrentDictionary\u00602.GetOrAdd(TKey key, Func\u00602 valueFactory)\n   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)\n   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)\n   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)\n   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)\n   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)\n   at System.Collections.Concurrent.ConcurrentDictionary\u00602.GetOrAdd(TKey key, Func\u00602 valueFactory)\n   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)\n   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)\n   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)\n   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)\n   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)\n   at System.Collections.Concurrent.ConcurrentDictionary\u00602.GetOrAdd(TKey key, Func\u00602 valueFactory)\n   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)\n   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)\n   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)\n   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)\n   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)\n   at System.Collections.Concurrent.ConcurrentDictionary\u00602.GetOrAdd(TKey key, Func\u00602 valueFactory)\n   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.CreateServiceAccessor(Type serviceType)\n   at System.Collections.Concurrent.ConcurrentDictionary\u00602.GetOrAdd(TKey key, Func\u00602 valueFactory)\n   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)\n   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)\n   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)\n   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)\n   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)\n   at CORE_API.CORE.Exceptions.ExceptionHandlingMiddleware.InvokeAsync(HttpContext httpContext) in /Users/nexle-user/Projects/Rebatebus/core-api/CORE-API/CORE/Exceptions/ExceptionHandlingMiddleware.cs:line 24","UserAgent":null,"UserName":null,"Tag":null,"LogLevel":"Error"} (8ace3e48)
+2021-09-04T13:32:00.7188020+07:00 0HMBFDMJDTSOG:00000005 [INF] Capturing event. (18dd7e66)
+2021-09-04T13:32:00.8195650+07:00 0HMBFDMJDTSOG:00000005 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.InvalidOperationException: Headers are read-only, response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.ThrowHeadersReadOnlyException()
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.Microsoft.AspNetCore.Http.IHeaderDictionary.set_Item(String key, StringValues value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.set_ContentType(String value)
+   at CORE_API.CORE.Exceptions.ExceptionHandlingMiddleware.HandleExceptionAsync(HttpContext httpContext, Exception exception) in /Users/nexle-user/Projects/Rebatebus/core-api/CORE-API/CORE/Exceptions/ExceptionHandlingMiddleware.cs:line 34
+   at CORE_API.CORE.Exceptions.ExceptionHandlingMiddleware.InvokeAsync(HttpContext httpContext) in /Users/nexle-user/Projects/Rebatebus/core-api/CORE-API/CORE/Exceptions/ExceptionHandlingMiddleware.cs:line 28
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-09-04T13:32:00.8256320+07:00 0HMBFDMJDTSOG:00000005 [INF] Capturing event. (18dd7e66)
+2021-09-04T13:32:01.6308520+07:00 0HMBFDMJDTSOG:00000005 [WRN] The response has already started, the error page middleware will not be executed. (e1dd4c0d)
+2021-09-04T13:32:01.6564020+07:00 0HMBFDMJDTSOG:00000005 [INF] Capturing event. (18dd7e66)
+2021-09-04T13:32:01.8121250+07:00 0HMBFDMJDTSOG:00000005 [INF] Event dropped by processor "DuplicateEventDetectionEventProcessor" (b62d3287)
+2021-09-04T13:32:01.8435490+07:00 0HMBFDMJDTSOG:00000005 [INF] Event '"00000000000000000000000000000000"' queued. (344d5602)
+2021-09-04T13:32:01.8627330+07:00 0HMBFDMJDTSOG:00000005 [ERR] Connection id ""0HMBFDMJDTSOG"", Request id ""0HMBFDMJDTSOG:00000005"": An unhandled exception was thrown by the application. (560e7d32)
+System.InvalidOperationException: Headers are read-only, response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.ThrowHeadersReadOnlyException()
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.Microsoft.AspNetCore.Http.IHeaderDictionary.set_Item(String key, StringValues value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.set_ContentType(String value)
+   at CORE_API.CORE.Exceptions.ExceptionHandlingMiddleware.HandleExceptionAsync(HttpContext httpContext, Exception exception) in /Users/nexle-user/Projects/Rebatebus/core-api/CORE-API/CORE/Exceptions/ExceptionHandlingMiddleware.cs:line 34
+   at CORE_API.CORE.Exceptions.ExceptionHandlingMiddleware.InvokeAsync(HttpContext httpContext) in /Users/nexle-user/Projects/Rebatebus/core-api/CORE-API/CORE/Exceptions/ExceptionHandlingMiddleware.cs:line 28
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Sentry.AspNetCore.SentryMiddleware.InvokeAsync(HttpContext context) in /_/src/Sentry.AspNetCore/SentryMiddleware.cs:line 112
+   at Sentry.AspNetCore.SentryMiddleware.InvokeAsync(HttpContext context) in /_/src/Sentry.AspNetCore/SentryMiddleware.cs:line 125
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2021-09-04T13:34:25.8594540+07:00 0HMBFDNVO0HV4:00000005 [INF] Capturing event. (18dd7e66)
+2021-09-04T13:34:25.9539260+07:00 0HMBFDNVO0HV4:00000005 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.InvalidOperationException: Headers are read-only, response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.ThrowHeadersReadOnlyException()
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.Microsoft.AspNetCore.Http.IHeaderDictionary.set_Item(String key, StringValues value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.set_ContentType(String value)
+   at CORE_API.CORE.Exceptions.ExceptionHandlingMiddleware.HandleExceptionAsync(HttpContext httpContext, Exception exception) in /Users/nexle-user/Projects/Rebatebus/core-api/CORE-API/CORE/Exceptions/ExceptionHandlingMiddleware.cs:line 34
+   at CORE_API.CORE.Exceptions.ExceptionHandlingMiddleware.InvokeAsync(HttpContext httpContext) in /Users/nexle-user/Projects/Rebatebus/core-api/CORE-API/CORE/Exceptions/ExceptionHandlingMiddleware.cs:line 28
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-09-04T13:34:25.9804040+07:00 0HMBFDNVO0HV4:00000005 [INF] Capturing event. (18dd7e66)
+2021-09-04T13:34:26.7908130+07:00 0HMBFDNVO0HV4:00000005 [WRN] The response has already started, the error page middleware will not be executed. (e1dd4c0d)
+2021-09-04T13:34:26.8162990+07:00 0HMBFDNVO0HV4:00000005 [INF] Capturing event. (18dd7e66)
+2021-09-04T13:34:26.9663210+07:00 0HMBFDNVO0HV4:00000005 [INF] Event dropped by processor "DuplicateEventDetectionEventProcessor" (b62d3287)
+2021-09-04T13:34:26.9713340+07:00 0HMBFDNVO0HV4:00000005 [INF] Event '"00000000000000000000000000000000"' queued. (344d5602)
+2021-09-04T13:34:26.9852160+07:00 0HMBFDNVO0HV4:00000005 [ERR] Connection id ""0HMBFDNVO0HV4"", Request id ""0HMBFDNVO0HV4:00000005"": An unhandled exception was thrown by the application. (560e7d32)
+System.InvalidOperationException: Headers are read-only, response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.ThrowHeadersReadOnlyException()
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.Microsoft.AspNetCore.Http.IHeaderDictionary.set_Item(String key, StringValues value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.set_ContentType(String value)
+   at CORE_API.CORE.Exceptions.ExceptionHandlingMiddleware.HandleExceptionAsync(HttpContext httpContext, Exception exception) in /Users/nexle-user/Projects/Rebatebus/core-api/CORE-API/CORE/Exceptions/ExceptionHandlingMiddleware.cs:line 34
+   at CORE_API.CORE.Exceptions.ExceptionHandlingMiddleware.InvokeAsync(HttpContext httpContext) in /Users/nexle-user/Projects/Rebatebus/core-api/CORE-API/CORE/Exceptions/ExceptionHandlingMiddleware.cs:line 28
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Sentry.AspNetCore.SentryMiddleware.InvokeAsync(HttpContext context) in /_/src/Sentry.AspNetCore/SentryMiddleware.cs:line 112
+   at Sentry.AspNetCore.SentryMiddleware.InvokeAsync(HttpContext context) in /_/src/Sentry.AspNetCore/SentryMiddleware.cs:line 125
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2021-09-04T13:35:28.9148120+07:00 0HMBFDOHJ8UQN:00000005 [INF] Capturing event. (18dd7e66)
+2021-09-04T13:35:29.0074240+07:00 0HMBFDOHJ8UQN:00000005 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.InvalidOperationException: Headers are read-only, response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.ThrowHeadersReadOnlyException()
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.Microsoft.AspNetCore.Http.IHeaderDictionary.set_Item(String key, StringValues value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.set_ContentType(String value)
+   at CORE_API.CORE.Exceptions.ExceptionHandlingMiddleware.HandleExceptionAsync(HttpContext httpContext, Exception exception) in /Users/nexle-user/Projects/Rebatebus/core-api/CORE-API/CORE/Exceptions/ExceptionHandlingMiddleware.cs:line 34
+   at CORE_API.CORE.Exceptions.ExceptionHandlingMiddleware.InvokeAsync(HttpContext httpContext) in /Users/nexle-user/Projects/Rebatebus/core-api/CORE-API/CORE/Exceptions/ExceptionHandlingMiddleware.cs:line 28
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-09-04T13:35:29.0132830+07:00 0HMBFDOHJ8UQN:00000005 [INF] Capturing event. (18dd7e66)
+2021-09-04T13:35:29.8042020+07:00 0HMBFDOHJ8UQN:00000005 [WRN] The response has already started, the error page middleware will not be executed. (e1dd4c0d)
+2021-09-04T13:35:29.8286750+07:00 0HMBFDOHJ8UQN:00000005 [INF] Capturing event. (18dd7e66)
+2021-09-04T13:35:29.9546870+07:00 0HMBFDOHJ8UQN:00000005 [INF] Event dropped by processor "DuplicateEventDetectionEventProcessor" (b62d3287)
+2021-09-04T13:35:29.9601810+07:00 0HMBFDOHJ8UQN:00000005 [INF] Event '"00000000000000000000000000000000"' queued. (344d5602)
+2021-09-04T13:35:29.9732550+07:00 0HMBFDOHJ8UQN:00000005 [ERR] Connection id ""0HMBFDOHJ8UQN"", Request id ""0HMBFDOHJ8UQN:00000005"": An unhandled exception was thrown by the application. (560e7d32)
+System.InvalidOperationException: Headers are read-only, response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.ThrowHeadersReadOnlyException()
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.Microsoft.AspNetCore.Http.IHeaderDictionary.set_Item(String key, StringValues value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.set_ContentType(String value)
+   at CORE_API.CORE.Exceptions.ExceptionHandlingMiddleware.HandleExceptionAsync(HttpContext httpContext, Exception exception) in /Users/nexle-user/Projects/Rebatebus/core-api/CORE-API/CORE/Exceptions/ExceptionHandlingMiddleware.cs:line 34
+   at CORE_API.CORE.Exceptions.ExceptionHandlingMiddleware.InvokeAsync(HttpContext httpContext) in /Users/nexle-user/Projects/Rebatebus/core-api/CORE-API/CORE/Exceptions/ExceptionHandlingMiddleware.cs:line 28
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Sentry.AspNetCore.SentryMiddleware.InvokeAsync(HttpContext context) in /_/src/Sentry.AspNetCore/SentryMiddleware.cs:line 112
+   at Sentry.AspNetCore.SentryMiddleware.InvokeAsync(HttpContext context) in /_/src/Sentry.AspNetCore/SentryMiddleware.cs:line 125
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2021-09-04T13:40:06.6098630+07:00 0HMBFDR4OJIS3:00000005 [INF] Capturing event. (18dd7e66)
+2021-09-04T13:40:06.7008430+07:00 0HMBFDR4OJIS3:00000005 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.InvalidOperationException: Headers are read-only, response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.ThrowHeadersReadOnlyException()
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.Microsoft.AspNetCore.Http.IHeaderDictionary.set_Item(String key, StringValues value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.set_ContentType(String value)
+   at CORE_API.CORE.Exceptions.ExceptionHandlingMiddleware.HandleExceptionAsync(HttpContext httpContext, Exception exception) in /Users/nexle-user/Projects/Rebatebus/core-api/CORE-API/CORE/Exceptions/ExceptionHandlingMiddleware.cs:line 34
+   at CORE_API.CORE.Exceptions.ExceptionHandlingMiddleware.InvokeAsync(HttpContext httpContext) in /Users/nexle-user/Projects/Rebatebus/core-api/CORE-API/CORE/Exceptions/ExceptionHandlingMiddleware.cs:line 28
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-09-04T13:40:06.7071690+07:00 0HMBFDR4OJIS3:00000005 [INF] Capturing event. (18dd7e66)
+2021-09-04T13:40:07.4248310+07:00 0HMBFDR4OJIS3:00000005 [WRN] The response has already started, the error page middleware will not be executed. (e1dd4c0d)
+2021-09-04T13:40:07.4518960+07:00 0HMBFDR4OJIS3:00000005 [INF] Capturing event. (18dd7e66)
+2021-09-04T13:40:07.6567960+07:00 0HMBFDR4OJIS3:00000005 [INF] Event dropped by processor "DuplicateEventDetectionEventProcessor" (b62d3287)
+2021-09-04T13:40:07.6621700+07:00 0HMBFDR4OJIS3:00000005 [INF] Event '"00000000000000000000000000000000"' queued. (344d5602)
+2021-09-04T13:40:07.6753620+07:00 0HMBFDR4OJIS3:00000005 [ERR] Connection id ""0HMBFDR4OJIS3"", Request id ""0HMBFDR4OJIS3:00000005"": An unhandled exception was thrown by the application. (560e7d32)
+System.InvalidOperationException: Headers are read-only, response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.ThrowHeadersReadOnlyException()
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.Microsoft.AspNetCore.Http.IHeaderDictionary.set_Item(String key, StringValues value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.set_ContentType(String value)
+   at CORE_API.CORE.Exceptions.ExceptionHandlingMiddleware.HandleExceptionAsync(HttpContext httpContext, Exception exception) in /Users/nexle-user/Projects/Rebatebus/core-api/CORE-API/CORE/Exceptions/ExceptionHandlingMiddleware.cs:line 34
+   at CORE_API.CORE.Exceptions.ExceptionHandlingMiddleware.InvokeAsync(HttpContext httpContext) in /Users/nexle-user/Projects/Rebatebus/core-api/CORE-API/CORE/Exceptions/ExceptionHandlingMiddleware.cs:line 28
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Sentry.AspNetCore.SentryMiddleware.InvokeAsync(HttpContext context) in /_/src/Sentry.AspNetCore/SentryMiddleware.cs:line 112
+   at Sentry.AspNetCore.SentryMiddleware.InvokeAsync(HttpContext context) in /_/src/Sentry.AspNetCore/SentryMiddleware.cs:line 125
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2021-09-04T13:41:53.5335470+07:00 0HMBFDS4O2SED:00000005 [INF] Capturing event. (18dd7e66)
+2021-09-04T13:41:53.6323760+07:00 0HMBFDS4O2SED:00000005 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.InvalidOperationException: Headers are read-only, response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.ThrowHeadersReadOnlyException()
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.Microsoft.AspNetCore.Http.IHeaderDictionary.set_Item(String key, StringValues value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.set_ContentType(String value)
+   at CORE_API.CORE.Exceptions.ExceptionHandlingMiddleware.HandleExceptionAsync(HttpContext httpContext, Exception exception) in /Users/nexle-user/Projects/Rebatebus/core-api/CORE-API/CORE/Exceptions/ExceptionHandlingMiddleware.cs:line 34
+   at CORE_API.CORE.Exceptions.ExceptionHandlingMiddleware.InvokeAsync(HttpContext httpContext) in /Users/nexle-user/Projects/Rebatebus/core-api/CORE-API/CORE/Exceptions/ExceptionHandlingMiddleware.cs:line 28
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-09-04T13:41:53.6591820+07:00 0HMBFDS4O2SED:00000005 [INF] Capturing event. (18dd7e66)
+2021-09-04T13:41:54.3504550+07:00 0HMBFDS4O2SED:00000005 [WRN] The response has already started, the error page middleware will not be executed. (e1dd4c0d)
+2021-09-04T13:41:54.3557050+07:00 0HMBFDS4O2SED:00000005 [INF] Capturing event. (18dd7e66)
+2021-09-04T13:41:54.4130270+07:00 0HMBFDS4O2SED:00000005 [INF] Event dropped by processor "DuplicateEventDetectionEventProcessor" (b62d3287)
+2021-09-04T13:41:54.4194920+07:00 0HMBFDS4O2SED:00000005 [INF] Event '"00000000000000000000000000000000"' queued. (344d5602)
+2021-09-04T13:41:54.4336570+07:00 0HMBFDS4O2SED:00000005 [ERR] Connection id ""0HMBFDS4O2SED"", Request id ""0HMBFDS4O2SED:00000005"": An unhandled exception was thrown by the application. (560e7d32)
+System.InvalidOperationException: Headers are read-only, response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.ThrowHeadersReadOnlyException()
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.Microsoft.AspNetCore.Http.IHeaderDictionary.set_Item(String key, StringValues value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.set_ContentType(String value)
+   at CORE_API.CORE.Exceptions.ExceptionHandlingMiddleware.HandleExceptionAsync(HttpContext httpContext, Exception exception) in /Users/nexle-user/Projects/Rebatebus/core-api/CORE-API/CORE/Exceptions/ExceptionHandlingMiddleware.cs:line 34
+   at CORE_API.CORE.Exceptions.ExceptionHandlingMiddleware.InvokeAsync(HttpContext httpContext) in /Users/nexle-user/Projects/Rebatebus/core-api/CORE-API/CORE/Exceptions/ExceptionHandlingMiddleware.cs:line 28
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Sentry.AspNetCore.SentryMiddleware.InvokeAsync(HttpContext context) in /_/src/Sentry.AspNetCore/SentryMiddleware.cs:line 112
+   at Sentry.AspNetCore.SentryMiddleware.InvokeAsync(HttpContext context) in /_/src/Sentry.AspNetCore/SentryMiddleware.cs:line 125
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2021-09-04T14:41:25.3367440+07:00 0HMBFEQKQD5HR:00000005 [INF] Capturing event. (18dd7e66)
+2021-09-04T14:41:25.6210590+07:00 0HMBFEQKQD5HR:00000005 [ERR] {"ExceptionType":"System.NullReferenceException","ExceptionDate":"2021-09-04T07:41:25.293283Z","Url":"/api/Test/GetConfigureStripe","QueryString":"","RequestBody":null,"Message":"Object reference not set to an instance of an object.","InnerException":null,"StackTrace":"   at CORE_API.CORE.Authorization.SubscriptionAuthorizationHandler.HandleRequirementAsync(AuthorizationHandlerContext context, RoleTypeRequirement requirement) in /Users/nexle-user/Projects/Rebatebus/core-api/CORE-API/CORE/Authorization/SubscriptionAuthorizationHandler.cs:line 36\n   at Microsoft.AspNetCore.Authorization.AuthorizationHandler\u00601.HandleAsync(AuthorizationHandlerContext context)\n   at Microsoft.AspNetCore.Authorization.DefaultAuthorizationService.AuthorizeAsync(ClaimsPrincipal user, Object resource, IEnumerable\u00601 requirements)\n   at Microsoft.AspNetCore.Authorization.Policy.PolicyEvaluator.AuthorizeAsync(AuthorizationPolicy policy, AuthenticateResult authenticationResult, HttpContext context, Object resource)\n   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)\n   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)\n   at CORE_API.CORE.Exceptions.ExceptionHandlingMiddleware.InvokeAsync(HttpContext httpContext) in /Users/nexle-user/Projects/Rebatebus/core-api/CORE-API/CORE/Exceptions/ExceptionHandlingMiddleware.cs:line 24","UserAgent":null,"UserName":null,"Tag":null,"LogLevel":"Error"} (52557b13)
+2021-09-04T14:51:33.3235850+07:00 0HMBFF300B5ES:00000005 [INF] Capturing event. (18dd7e66)
+2021-09-04T14:51:33.6218930+07:00 0HMBFF300B5ES:00000005 [ERR] {"ExceptionType":"System.NullReferenceException","ExceptionDate":"2021-09-04T07:51:33.281431Z","Url":"/api/Test/Claims","QueryString":"","RequestBody":null,"Message":"Object reference not set to an instance of an object.","InnerException":null,"StackTrace":"   at CORE_API.ServicesExtension.\u003C\u003Ec.\u003CConfigureAuthentication\u003Eb__7_2(JwtBearerOptions options) in /Users/nexle-user/Projects/Rebatebus/core-api/CORE-API/ServicesExtension.cs:line 92\n   at Microsoft.Extensions.Options.ConfigureNamedOptions\u00601.Configure(String name, TOptions options)\n   at Microsoft.Extensions.Options.OptionsFactory\u00601.Create(String name)\n   at Microsoft.Extensions.Options.OptionsMonitor\u00601.\u003C\u003Ec__DisplayClass11_0.\u003CGet\u003Eb__0()\n   at System.Lazy\u00601.ViaFactory(LazyThreadSafetyMode mode)\n   at System.Lazy\u00601.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)\n   at System.Lazy\u00601.CreateValue()\n   at Microsoft.AspNetCore.Authentication.AuthenticationHandler\u00601.InitializeAsync(AuthenticationScheme scheme, HttpContext context)\n   at Microsoft.AspNetCore.Authentication.AuthenticationHandlerProvider.GetHandlerAsync(HttpContext context, String authenticationScheme)\n   at Microsoft.AspNetCore.Authentication.AuthenticationService.AuthenticateAsync(HttpContext context, String scheme)\n   at Microsoft.AspNetCore.Authorization.Policy.PolicyEvaluator.AuthenticateAsync(AuthorizationPolicy policy, HttpContext context)\n   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)\n   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)\n   at CORE_API.CORE.Exceptions.ExceptionHandlingMiddleware.InvokeAsync(HttpContext httpContext) in /Users/nexle-user/Projects/Rebatebus/core-api/CORE-API/CORE/Exceptions/ExceptionHandlingMiddleware.cs:line 24","UserAgent":null,"UserName":null,"Tag":null,"LogLevel":"Error"} (44f221d2)

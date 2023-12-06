@@ -1,0 +1,438 @@
+2023-12-05T13:22:23.3527884+07:00 0HMVLB9H47143:00000013 [INF] Capturing event. (18dd7e66)
+2023-12-05T13:22:23.4571439+07:00 0HMVLB9H47143:00000013 [INF] Envelope queued up: '"3a93a01488b24850b181a0ea656e46ac"' (733a38dc)
+2023-12-05T13:22:23.4624624+07:00 0HMVLB9H47143:00000013 [ERR] Exception occurred while processing message. (d37e9c4d)
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at CORE_API.ServicesExtension.OnTokenValidated(TokenValidatedContext context) in E:\Projects\Personal\tms-api\CORE-API\ServicesExtension.cs:line 122
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-12-05T13:22:28.4364373+07:00 0HMVLB9H47143:00000013 [INF] Capturing event. (18dd7e66)
+2023-12-05T13:22:28.5108747+07:00 0HMVLB9H47143:00000013 [INF] Envelope queued up: '"159e979d7fbd4d25ba23168644b37e49"' (733a38dc)
+2023-12-05T13:22:28.5109391+07:00 0HMVLB9H47143:00000013 [ERR] {"ExceptionType":"System.NullReferenceException","ExceptionDate":"2023-12-05T06:22:28.4249426Z","Url":"/api/Authentication","QueryString":"?skip=0\u0026count=20","RequestBody":null,"Message":"Object reference not set to an instance of an object.","InnerException":null,"StackTrace":"   at CORE_API.ServicesExtension.OnTokenValidated(TokenValidatedContext context) in E:\\Projects\\Personal\\tms-api\\CORE-API\\ServicesExtension.cs:line 122\r\n   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()\r\n   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()\r\n   at Microsoft.AspNetCore.Authentication.AuthenticationHandler\u00601.AuthenticateAsync()\r\n   at Microsoft.AspNetCore.Authentication.AuthenticationService.AuthenticateAsync(HttpContext context, String scheme)\r\n   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)\r\n   at CORE_API.CORE.Exceptions.ExceptionHandlingMiddleware.InvokeAsync(HttpContext httpContext) in E:\\Projects\\Personal\\tms-api\\CORE-API\\CORE\\Exceptions\\ExceptionHandlingMiddleware.cs:line 24","UserAgent":null,"UserName":null,"Tag":null,"LogLevel":"Error"} (ac45a452)
+2023-12-05T13:22:28.6701668+07:00  [INF] Envelope '"3a93a01488b24850b181a0ea656e46ac"' successfully received by Sentry. (bcc79586)
+2023-12-05T13:22:28.7614569+07:00  [INF] Envelope '"159e979d7fbd4d25ba23168644b37e49"' successfully received by Sentry. (bcc79586)
+2023-12-05T14:10:21.8341408+07:00 0HMVLC3OKVTDH:00000013 [INF] Capturing event. (18dd7e66)
+2023-12-05T14:10:21.9471365+07:00 0HMVLC3OKVTDH:00000013 [INF] Envelope queued up: '"a4cdd0c9b6a0439ebf09b03fe026f1ed"' (733a38dc)
+2023-12-05T14:10:21.9536309+07:00 0HMVLC3OKVTDH:00000013 [ERR] Exception occurred while processing message. (d37e9c4d)
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at CORE_API.ServicesExtension.OnTokenValidated(TokenValidatedContext context) in E:\Projects\Personal\tms-api\CORE-API\ServicesExtension.cs:line 122
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-12-05T14:10:23.3705010+07:00 0HMVLC3OKVTDH:00000013 [INF] Capturing event. (18dd7e66)
+2023-12-05T14:10:23.5093192+07:00 0HMVLC3OKVTDH:00000013 [INF] Envelope queued up: '"c97d86f858ef458a918e46e0cd361dd3"' (733a38dc)
+2023-12-05T14:10:23.5094646+07:00 0HMVLC3OKVTDH:00000013 [ERR] {"ExceptionType":"System.NullReferenceException","ExceptionDate":"2023-12-05T07:10:23.351455Z","Url":"/api/Authentication","QueryString":"?skip=0\u0026count=20","RequestBody":null,"Message":"Object reference not set to an instance of an object.","InnerException":null,"StackTrace":"   at CORE_API.ServicesExtension.OnTokenValidated(TokenValidatedContext context) in E:\\Projects\\Personal\\tms-api\\CORE-API\\ServicesExtension.cs:line 122\r\n   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()\r\n   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()\r\n   at Microsoft.AspNetCore.Authentication.AuthenticationHandler\u00601.AuthenticateAsync()\r\n   at Microsoft.AspNetCore.Authentication.AuthenticationService.AuthenticateAsync(HttpContext context, String scheme)\r\n   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)\r\n   at CORE_API.CORE.Exceptions.ExceptionHandlingMiddleware.InvokeAsync(HttpContext httpContext) in E:\\Projects\\Personal\\tms-api\\CORE-API\\CORE\\Exceptions\\ExceptionHandlingMiddleware.cs:line 24","UserAgent":null,"UserName":null,"Tag":null,"LogLevel":"Error"} (f8d51f12)
+2023-12-05T14:10:23.6305374+07:00  [INF] Envelope '"a4cdd0c9b6a0439ebf09b03fe026f1ed"' successfully received by Sentry. (bcc79586)
+2023-12-05T14:10:23.7284256+07:00  [INF] Envelope '"c97d86f858ef458a918e46e0cd361dd3"' successfully received by Sentry. (bcc79586)
+2023-12-05T14:56:48.2615202+07:00 0HMVLCUBO1E33:00000013 [INF] Capturing event. (18dd7e66)
+2023-12-05T14:56:48.3380906+07:00 0HMVLCUBO1E33:00000013 [INF] Envelope queued up: '"3538e12037cd4edd8c158a653e70be2e"' (733a38dc)
+2023-12-05T14:56:48.3442903+07:00 0HMVLCUBO1E33:00000013 [ERR] Exception occurred while processing message. (d37e9c4d)
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at CORE_API.ServicesExtension.OnTokenValidated(TokenValidatedContext context) in E:\Projects\Personal\tms-api\CORE-API\ServicesExtension.cs:line 122
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-12-05T14:56:50.3209517+07:00 0HMVLCUBO1E33:00000013 [INF] Capturing event. (18dd7e66)
+2023-12-05T14:56:50.3973004+07:00 0HMVLCUBO1E33:00000013 [INF] Envelope queued up: '"0d9c8613961942069e28c3748bf2ce6e"' (733a38dc)
+2023-12-05T14:56:50.3973682+07:00 0HMVLCUBO1E33:00000013 [ERR] {"ExceptionType":"System.NullReferenceException","ExceptionDate":"2023-12-05T07:56:50.3063212Z","Url":"/api/Authentication","QueryString":"?skip=0\u0026count=20","RequestBody":null,"Message":"Object reference not set to an instance of an object.","InnerException":null,"StackTrace":"   at CORE_API.ServicesExtension.OnTokenValidated(TokenValidatedContext context) in E:\\Projects\\Personal\\tms-api\\CORE-API\\ServicesExtension.cs:line 122\r\n   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()\r\n   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()\r\n   at Microsoft.AspNetCore.Authentication.AuthenticationHandler\u00601.AuthenticateAsync()\r\n   at Microsoft.AspNetCore.Authentication.AuthenticationService.AuthenticateAsync(HttpContext context, String scheme)\r\n   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)\r\n   at CORE_API.CORE.Exceptions.ExceptionHandlingMiddleware.InvokeAsync(HttpContext httpContext) in E:\\Projects\\Personal\\tms-api\\CORE-API\\CORE\\Exceptions\\ExceptionHandlingMiddleware.cs:line 24","UserAgent":null,"UserName":null,"Tag":null,"LogLevel":"Error"} (0f03e322)
+2023-12-05T14:56:50.5674465+07:00  [INF] Envelope '"3538e12037cd4edd8c158a653e70be2e"' successfully received by Sentry. (bcc79586)
+2023-12-05T14:56:50.6600147+07:00  [INF] Envelope '"0d9c8613961942069e28c3748bf2ce6e"' successfully received by Sentry. (bcc79586)
+2023-12-05T14:57:30.3459289+07:00 0HMVLCUBO1E33:00000019 [INF] Capturing event. (18dd7e66)
+2023-12-05T14:57:30.3517051+07:00 0HMVLCUBO1E33:00000019 [INF] Envelope queued up: '"0a5fcca128554bc2ac67629d73a3a7d6"' (733a38dc)
+2023-12-05T14:57:30.3517648+07:00 0HMVLCUBO1E33:00000019 [ERR] Exception occurred while processing message. (d37e9c4d)
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at CORE_API.ServicesExtension.OnTokenValidated(TokenValidatedContext context) in E:\Projects\Personal\tms-api\CORE-API\ServicesExtension.cs:line 122
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-12-05T14:57:34.7378966+07:00 0HMVLCUBO1E33:00000019 [INF] Capturing event. (18dd7e66)
+2023-12-05T14:57:34.7734305+07:00 0HMVLCUBO1E33:00000019 [INF] Envelope queued up: '"a039713a267b45778d3492d007bfb20b"' (733a38dc)
+2023-12-05T14:57:34.7734995+07:00 0HMVLCUBO1E33:00000019 [ERR] {"ExceptionType":"System.NullReferenceException","ExceptionDate":"2023-12-05T07:57:34.7332878Z","Url":"/api/Authentication","QueryString":"?skip=0\u0026count=20","RequestBody":null,"Message":"Object reference not set to an instance of an object.","InnerException":null,"StackTrace":"   at CORE_API.ServicesExtension.OnTokenValidated(TokenValidatedContext context) in E:\\Projects\\Personal\\tms-api\\CORE-API\\ServicesExtension.cs:line 122\r\n   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()\r\n   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()\r\n   at Microsoft.AspNetCore.Authentication.AuthenticationHandler\u00601.AuthenticateAsync()\r\n   at Microsoft.AspNetCore.Authentication.AuthenticationService.AuthenticateAsync(HttpContext context, String scheme)\r\n   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)\r\n   at CORE_API.CORE.Exceptions.ExceptionHandlingMiddleware.InvokeAsync(HttpContext httpContext) in E:\\Projects\\Personal\\tms-api\\CORE-API\\CORE\\Exceptions\\ExceptionHandlingMiddleware.cs:line 24","UserAgent":null,"UserName":null,"Tag":null,"LogLevel":"Error"} (88087896)
+2023-12-05T14:57:34.8265497+07:00  [INF] Envelope '"0a5fcca128554bc2ac67629d73a3a7d6"' successfully received by Sentry. (bcc79586)
+2023-12-05T14:57:34.9209218+07:00  [INF] Envelope '"a039713a267b45778d3492d007bfb20b"' successfully received by Sentry. (bcc79586)
+2023-12-05T14:59:00.0601254+07:00 0HMVLCUBO1E33:0000001B [INF] Capturing event. (18dd7e66)
+2023-12-05T14:59:00.0649322+07:00 0HMVLCUBO1E33:0000001B [INF] Envelope queued up: '"1f6d51a381a446548625e022ab3140e8"' (733a38dc)
+2023-12-05T14:59:00.0650399+07:00 0HMVLCUBO1E33:0000001B [ERR] Exception occurred while processing message. (d37e9c4d)
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at CORE_API.ServicesExtension.OnTokenValidated(TokenValidatedContext context) in E:\Projects\Personal\tms-api\CORE-API\ServicesExtension.cs:line 122
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-12-05T14:59:05.0912232+07:00  [INF] Envelope '"1f6d51a381a446548625e022ab3140e8"' successfully received by Sentry. (bcc79586)
+2023-12-05T14:59:05.0945445+07:00 0HMVLCUBO1E33:0000001B [INF] Capturing event. (18dd7e66)
+2023-12-05T14:59:05.1064737+07:00 0HMVLCUBO1E33:0000001B [INF] Envelope queued up: '"9de7b09d45ce4bfd8d83370d85787a4c"' (733a38dc)
+2023-12-05T14:59:05.1065143+07:00 0HMVLCUBO1E33:0000001B [ERR] {"ExceptionType":"System.NullReferenceException","ExceptionDate":"2023-12-05T07:59:05.0869897Z","Url":"/api/Authentication","QueryString":"?skip=0\u0026count=20","RequestBody":null,"Message":"Object reference not set to an instance of an object.","InnerException":null,"StackTrace":"   at CORE_API.ServicesExtension.OnTokenValidated(TokenValidatedContext context) in E:\\Projects\\Personal\\tms-api\\CORE-API\\ServicesExtension.cs:line 122\r\n   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()\r\n   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()\r\n   at Microsoft.AspNetCore.Authentication.AuthenticationHandler\u00601.AuthenticateAsync()\r\n   at Microsoft.AspNetCore.Authentication.AuthenticationService.AuthenticateAsync(HttpContext context, String scheme)\r\n   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)\r\n   at CORE_API.CORE.Exceptions.ExceptionHandlingMiddleware.InvokeAsync(HttpContext httpContext) in E:\\Projects\\Personal\\tms-api\\CORE-API\\CORE\\Exceptions\\ExceptionHandlingMiddleware.cs:line 24","UserAgent":null,"UserName":null,"Tag":null,"LogLevel":"Error"} (1c88a85a)
+2023-12-05T14:59:05.2036135+07:00  [INF] Envelope '"9de7b09d45ce4bfd8d83370d85787a4c"' successfully received by Sentry. (bcc79586)
+2023-12-05T15:03:16.6482725+07:00 0HMVLD15T7U80:00000013 [INF] Capturing event. (18dd7e66)
+2023-12-05T15:03:16.7404898+07:00 0HMVLD15T7U80:00000013 [INF] Envelope queued up: '"5d5d525b248d4f81a63bf7dd5cd64548"' (733a38dc)
+2023-12-05T15:03:16.7445781+07:00 0HMVLD15T7U80:00000013 [ERR] Exception occurred while processing message. (d37e9c4d)
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at CORE_API.ServicesExtension.OnTokenValidated(TokenValidatedContext context) in E:\Projects\Personal\tms-api\CORE-API\ServicesExtension.cs:line 122
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-12-05T15:03:18.7625475+07:00 0HMVLD15T7U80:00000013 [INF] Capturing event. (18dd7e66)
+2023-12-05T15:03:18.9400974+07:00 0HMVLD15T7U80:00000013 [INF] Envelope queued up: '"4d16983836154a6a8abf329db4bbfc4e"' (733a38dc)
+2023-12-05T15:03:18.9401669+07:00 0HMVLD15T7U80:00000013 [ERR] {"ExceptionType":"System.NullReferenceException","ExceptionDate":"2023-12-05T08:03:18.7479927Z","Url":"/api/Authentication","QueryString":"?skip=0\u0026count=20","RequestBody":null,"Message":"Object reference not set to an instance of an object.","InnerException":null,"StackTrace":"   at CORE_API.ServicesExtension.OnTokenValidated(TokenValidatedContext context) in E:\\Projects\\Personal\\tms-api\\CORE-API\\ServicesExtension.cs:line 122\r\n   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()\r\n   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()\r\n   at Microsoft.AspNetCore.Authentication.AuthenticationHandler\u00601.AuthenticateAsync()\r\n   at Microsoft.AspNetCore.Authentication.AuthenticationService.AuthenticateAsync(HttpContext context, String scheme)\r\n   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)\r\n   at CORE_API.CORE.Exceptions.ExceptionHandlingMiddleware.InvokeAsync(HttpContext httpContext) in E:\\Projects\\Personal\\tms-api\\CORE-API\\CORE\\Exceptions\\ExceptionHandlingMiddleware.cs:line 24","UserAgent":null,"UserName":null,"Tag":null,"LogLevel":"Error"} (8ba361fe)
+2023-12-05T15:03:19.0164567+07:00  [INF] Envelope '"5d5d525b248d4f81a63bf7dd5cd64548"' successfully received by Sentry. (bcc79586)
+2023-12-05T15:03:19.1142597+07:00  [INF] Envelope '"4d16983836154a6a8abf329db4bbfc4e"' successfully received by Sentry. (bcc79586)
+2023-12-05T15:08:18.7126340+07:00 0HMVLD4TTQVKF:00000013 [WRN] Trying to close a span that was already garbage collected. QueryCompiler (39379138)
+2023-12-05T15:08:18.7431144+07:00 0HMVLD4TTQVKF:00000013 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T15:08:18.7452183+07:00 0HMVLD4TTQVKF:00000013 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T15:08:18.7949141+07:00 0HMVLD4TTQVKF:00000013 [WRN] Trying to close a span that was already garbage collected. QueryCompiler (39379138)
+2023-12-05T15:08:18.8006156+07:00 0HMVLD4TTQVKF:00000013 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T15:08:18.8027853+07:00 0HMVLD4TTQVKF:00000013 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T15:08:19.0450974+07:00 0HMVLD4TTQVKF:00000013 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T15:08:19.0566204+07:00 0HMVLD4TTQVKF:00000013 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T15:08:19.0734233+07:00 0HMVLD4TTQVKF:00000013 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T15:09:03.0427584+07:00 0HMVLD4TTQVKF:00000015 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T15:09:03.0456017+07:00 0HMVLD4TTQVKF:00000015 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T15:09:44.5352628+07:00 0HMVLD4TTQVKF:00000015 [WRN] Trying to close a span that was already garbage collected. QueryCompiler (39379138)
+2023-12-05T15:09:44.5382014+07:00 0HMVLD4TTQVKF:00000015 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T15:09:44.5397191+07:00 0HMVLD4TTQVKF:00000015 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T15:11:28.1867780+07:00 0HMVLD4TTQVKF:00000017 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T15:11:28.1886673+07:00 0HMVLD4TTQVKF:00000017 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T15:11:29.9238297+07:00 0HMVLD4TTQVKF:00000017 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T15:11:29.9264541+07:00 0HMVLD4TTQVKF:00000017 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T15:13:10.6336503+07:00 0HMVLD4TTQVKF:00000019 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T15:13:10.6352899+07:00 0HMVLD4TTQVKF:00000019 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T15:13:11.9496284+07:00 0HMVLD4TTQVKF:00000019 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T15:13:11.9512004+07:00 0HMVLD4TTQVKF:00000019 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T15:13:12.2232426+07:00 0HMVLD4TTQVKF:00000019 [WRN] Trying to close a span that was already garbage collected. QueryCompiler (39379138)
+2023-12-05T15:13:12.2401768+07:00 0HMVLD4TTQVKF:00000019 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T15:13:12.2443479+07:00 0HMVLD4TTQVKF:00000019 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T15:13:12.2641189+07:00 0HMVLD4TTQVKF:00000019 [WRN] Trying to close a span that was already garbage collected. QueryCompiler (39379138)
+2023-12-05T15:13:12.2683685+07:00 0HMVLD4TTQVKF:00000019 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T15:13:12.2706100+07:00 0HMVLD4TTQVKF:00000019 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T15:13:40.7404814+07:00 0HMVLD4TTQVKF:0000001B [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T15:13:40.7430179+07:00 0HMVLD4TTQVKF:0000001B [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T15:13:44.5821489+07:00 0HMVLD4TTQVKF:0000001B [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T15:13:44.5838005+07:00 0HMVLD4TTQVKF:0000001B [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T15:13:44.5902310+07:00 0HMVLD4TTQVKF:0000001B [WRN] Trying to close a span that was already garbage collected. QueryCompiler (39379138)
+2023-12-05T15:13:44.5960421+07:00 0HMVLD4TTQVKF:0000001B [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T15:13:44.5983081+07:00 0HMVLD4TTQVKF:0000001B [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T15:13:44.6058604+07:00 0HMVLD4TTQVKF:0000001B [WRN] Trying to close a span that was already garbage collected. QueryCompiler (39379138)
+2023-12-05T15:13:44.6083376+07:00 0HMVLD4TTQVKF:0000001B [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T15:13:44.6101589+07:00 0HMVLD4TTQVKF:0000001B [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T15:14:36.6724565+07:00 0HMVLD4TTQVKF:0000001D [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T15:14:36.6752706+07:00 0HMVLD4TTQVKF:0000001D [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T15:14:36.6805429+07:00 0HMVLD4TTQVKF:0000001D [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T15:14:36.6831306+07:00 0HMVLD4TTQVKF:0000001D [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T15:14:37.7523760+07:00 0HMVLD4TTQVKF:0000001D [WRN] Trying to close a span that was already garbage collected. QueryCompiler (39379138)
+2023-12-05T15:14:37.7596605+07:00 0HMVLD4TTQVKF:0000001D [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T15:14:37.7622147+07:00 0HMVLD4TTQVKF:0000001D [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T15:14:37.7774390+07:00 0HMVLD4TTQVKF:0000001D [WRN] Trying to close a span that was already garbage collected. QueryCompiler (39379138)
+2023-12-05T15:14:37.8163259+07:00 0HMVLD4TTQVKF:0000001D [INF] Capturing event. (18dd7e66)
+2023-12-05T15:14:37.9793712+07:00 0HMVLD4TTQVKF:0000001D [INF] Envelope queued up: '"58f03bec8a7441309533fca8ce41c3f0"' (733a38dc)
+2023-12-05T15:14:37.9830770+07:00 0HMVLD4TTQVKF:0000001D [ERR] Failed executing DbCommand ("12"ms) [Parameters=["@__get_Item_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `u`.`Id`, `u`.`Created`, `u`.`DeletedAt`, `u`.`Modified`, `u`.`OrganizationId`, `u`.`OrganizationUserRole`, `u`.`UserId`
+FROM `UserOrganization` AS `u`
+WHERE `u`.`DeletedAt` IS NULL AND (`u`.`UserId` = @__get_Item_0)" (627a98df)
+2023-12-05T15:14:37.9857817+07:00 0HMVLD4TTQVKF:0000001D [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T15:14:37.9897747+07:00 0HMVLD4TTQVKF:0000001D [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T15:14:38.0160037+07:00 0HMVLD4TTQVKF:0000001D [INF] Capturing event. (18dd7e66)
+2023-12-05T15:14:38.0341165+07:00 0HMVLD4TTQVKF:0000001D [INF] Envelope queued up: '"dafed7604ae6418b8dc87971804fe010"' (733a38dc)
+2023-12-05T15:14:38.0382022+07:00 0HMVLD4TTQVKF:0000001D [ERR] An exception occurred while iterating over the results of a query for context type '"CORE_API.CORE.Contexts.CoreContext"'."
+""MySqlConnector.MySqlException (0x80004005): Table 'transport.userorganization' doesn't exist
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 50
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 135
+   at MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 444
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(IReadOnlyList`1 commands, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 60
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 314
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in /_/src/MySqlConnector/MySqlCommand.cs:line 256
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()" (f5c7ac34)
+MySqlConnector.MySqlException (0x80004005): Table 'transport.userorganization' doesn't exist
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 50
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 135
+   at MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 444
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(IReadOnlyList`1 commands, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 60
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 314
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in /_/src/MySqlConnector/MySqlCommand.cs:line 256
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.Load[TSource](IQueryable`1 source)
+   at Microsoft.EntityFrameworkCore.Internal.EntityFinder`1.Load(INavigation navigation, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.Internal.EntityFinderCollectionLoaderAdapter.Load(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.CollectionEntry.Load()
+   at Microsoft.EntityFrameworkCore.Internal.LazyLoader.Load(Object entity, String navigationName)
+   at Microsoft.EntityFrameworkCore.Proxies.Internal.LazyLoadingInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.UserProxy.get_UserOrganizations()
+   at CORE_API.CORE.Models.Views.Mappings.UserOrganizationsToList.Resolve(User source, UserOutputResource destination, List`1 destMember, ResolutionContext context) in E:\Projects\Personal\tms-api\CORE-API\CORE\Models\Views\Mappings\CoreMappings.cs:line 83
+2023-12-05T15:17:59.2872203+07:00  [INF] Shutdown token triggered. Time to exit. #2 in queue. (125540e7)
+2023-12-05T15:17:59.3082186+07:00 0HMVLD4TTQVKF:0000001D [INF] Capturing event. (18dd7e66)
+2023-12-05T15:17:59.3254572+07:00 0HMVLD4TTQVKF:0000001D [ERR] An error occurred when capturing the event "a3b1996eeb014a3889064f8855484e6c". (d8b061c8)
+System.ObjectDisposedException: The semaphore has been disposed.
+   at System.Threading.SemaphoreSlim.CheckDispose()
+   at System.Threading.SemaphoreSlim.Release(Int32 releaseCount)
+   at Sentry.Internal.BackgroundWorker.EnqueueEnvelope(Envelope envelope) in /_/src/Sentry/Internal/BackgroundWorker.cs:line 66
+   at Sentry.SentryClient.CaptureEnvelope(Envelope envelope) in /_/src/Sentry/SentryClient.cs:line 252
+   at Sentry.SentryClient.DoSendEvent(SentryEvent event, Scope scope) in /_/src/Sentry/SentryClient.cs:line 237
+   at Sentry.SentryClient.CaptureEvent(SentryEvent event, Scope scope) in /_/src/Sentry/SentryClient.cs:line 77
+2023-12-05T15:17:59.3257833+07:00 0HMVLD4TTQVKF:0000001D [ERR] {"ExceptionType":"AutoMapper.AutoMapperMappingException","ExceptionDate":"2023-12-05T08:17:59.2827352Z","Url":"/api/User/CurrentUser","QueryString":"","RequestBody":null,"Message":"Error mapping types.\r\n\r\nMapping types:\r\nUser -\u003E UserOutputResource\r\nCORE_API.CORE.Models.Entities.User -\u003E CORE_API.CORE.Models.Views.UserOutputResource\r\n\r\nType Map configuration:\r\nUser -\u003E UserOutputResource\r\nCORE_API.CORE.Models.Entities.User -\u003E CORE_API.CORE.Models.Views.UserOutputResource\r\n\r\nDestination Member:\r\nOrganizations\r\n","InnerException":"MySqlConnector.MySqlException (0x80004005): Table \u0027transport.userorganization\u0027 doesn\u0027t exist\r\n   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 50\r\n   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 135\r\n   at MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary\u00602 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 444\r\n   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(IReadOnlyList\u00601 commands, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 60\r\n   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 314\r\n   at MySqlConnector.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in /_/src/MySqlConnector/MySqlCommand.cs:line 256\r\n   at System.Data.Common.DbCommand.ExecuteReader()\r\n   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)\r\n   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable\u00601.Enumerator.InitializeReader(DbContext _, Boolean result)\r\n   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func\u00603 operation, Func\u00603 verifySucceeded)\r\n   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable\u00601.Enumerator.MoveNext()\r\n   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.Load[TSource](IQueryable\u00601 source)\r\n   at Microsoft.EntityFrameworkCore.Internal.EntityFinder\u00601.Load(INavigation navigation, InternalEntityEntry entry)\r\n   at Microsoft.EntityFrameworkCore.Internal.EntityFinderCollectionLoaderAdapter.Load(InternalEntityEntry entry)\r\n   at Microsoft.EntityFrameworkCore.ChangeTracking.CollectionEntry.Load()\r\n   at Microsoft.EntityFrameworkCore.Internal.LazyLoader.Load(Object entity, String navigationName)\r\n   at Microsoft.EntityFrameworkCore.Proxies.Internal.LazyLoadingInterceptor.Intercept(IInvocation invocation)\r\n   at Castle.DynamicProxy.AbstractInvocation.Proceed()\r\n   at Castle.Proxies.UserProxy.get_UserOrganizations()\r\n   at CORE_API.CORE.Models.Views.Mappings.UserOrganizationsToList.Resolve(User source, UserOutputResource destination, List\u00601 destMember, ResolutionContext context) in E:\\Projects\\Personal\\tms-api\\CORE-API\\CORE\\Models\\Views\\Mappings\\CoreMappings.cs:line 83\r\n   at lambda_method448(Closure , User , UserOutputResource , ResolutionContext )","StackTrace":"   at lambda_method448(Closure , User , UserOutputResource , ResolutionContext )\r\n   at CORE_API.CORE.UserController.GetCurrentUserFromToken() in E:\\Projects\\Personal\\tms-api\\CORE-API\\CORE\\Controllers\\UserController.cs:line 128\r\n   at lambda_method438(Closure , Object , Object[] )\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State\u0026 next, Scope\u0026 scope, Object\u0026 state, Boolean\u0026 isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()\r\n--- End of stack trace from previous location ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State\u0026 next, Scope\u0026 scope, Object\u0026 state, Boolean\u0026 isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()\r\n--- End of stack trace from previous location ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.\u003CInvokeFilterPipelineAsync\u003Eg__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.\u003CInvokeAsync\u003Eg__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)\r\n   at Microsoft.AspNetCore.Routing.EndpointMiddleware.\u003CInvoke\u003Eg__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)\r\n   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)\r\n   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)\r\n   at CORE_API.CORE.Exceptions.ExceptionHandlingMiddleware.InvokeAsync(HttpContext httpContext) in E:\\Projects\\Personal\\tms-api\\CORE-API\\CORE\\Exceptions\\ExceptionHandlingMiddleware.cs:line 24","UserAgent":null,"UserName":null,"Tag":null,"LogLevel":"Error"} (d313d127)
+2023-12-05T15:18:39.2597639+07:00 0HMVLD4TTQVKF:0000001F [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T15:18:39.2942450+07:00 0HMVLD4TTQVKF:0000001F [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T15:18:39.3037165+07:00 0HMVLD4TTQVKF:0000001F [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T15:18:39.3052361+07:00 0HMVLD4TTQVKF:0000001F [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T15:18:39.8004636+07:00 0HMVLD4TTQVKF:0000001F [WRN] Trying to close a span that was already garbage collected. QueryCompiler (39379138)
+2023-12-05T15:18:39.8067929+07:00 0HMVLD4TTQVKF:0000001F [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T15:18:39.8089282+07:00 0HMVLD4TTQVKF:0000001F [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T15:18:39.8161363+07:00 0HMVLD4TTQVKF:0000001F [WRN] Trying to close a span that was already garbage collected. QueryCompiler (39379138)
+2023-12-05T15:18:39.8183384+07:00 0HMVLD4TTQVKF:0000001F [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T15:18:39.8198567+07:00 0HMVLD4TTQVKF:0000001F [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T15:18:39.8342797+07:00 0HMVLD4TTQVKF:0000001F [INF] Capturing event. (18dd7e66)
+2023-12-05T15:18:39.8844493+07:00 0HMVLD4TTQVKF:0000001F [ERR] An error occurred when capturing the event "67a645c367194d2380777dff3f8ec9b6". (d8b061c8)
+System.ObjectDisposedException: The semaphore has been disposed.
+   at System.Threading.SemaphoreSlim.CheckDispose()
+   at System.Threading.SemaphoreSlim.Release(Int32 releaseCount)
+   at Sentry.Internal.BackgroundWorker.EnqueueEnvelope(Envelope envelope) in /_/src/Sentry/Internal/BackgroundWorker.cs:line 66
+   at Sentry.SentryClient.CaptureEnvelope(Envelope envelope) in /_/src/Sentry/SentryClient.cs:line 252
+   at Sentry.SentryClient.DoSendEvent(SentryEvent event, Scope scope) in /_/src/Sentry/SentryClient.cs:line 237
+   at Sentry.SentryClient.CaptureEvent(SentryEvent event, Scope scope) in /_/src/Sentry/SentryClient.cs:line 77
+2023-12-05T15:18:39.8845454+07:00 0HMVLD4TTQVKF:0000001F [ERR] Failed executing DbCommand ("4"ms) [Parameters=["@__get_Item_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `u`.`Id`, `u`.`Created`, `u`.`DeletedAt`, `u`.`Modified`, `u`.`OrganizationId`, `u`.`OrganizationUserRole`, `u`.`UserId`
+FROM `UserOrganization` AS `u`
+WHERE `u`.`DeletedAt` IS NULL AND (`u`.`UserId` = @__get_Item_0)" (627a98df)
+2023-12-05T15:18:39.8872799+07:00 0HMVLD4TTQVKF:0000001F [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T15:18:39.8897569+07:00 0HMVLD4TTQVKF:0000001F [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T15:18:39.8969820+07:00 0HMVLD4TTQVKF:0000001F [INF] Capturing event. (18dd7e66)
+2023-12-05T15:18:39.9042481+07:00 0HMVLD4TTQVKF:0000001F [ERR] An error occurred when capturing the event "ae0339f1546e4394868ae4bafcfdfa86". (d8b061c8)
+System.ObjectDisposedException: The semaphore has been disposed.
+   at System.Threading.SemaphoreSlim.CheckDispose()
+   at System.Threading.SemaphoreSlim.Release(Int32 releaseCount)
+   at Sentry.Internal.BackgroundWorker.EnqueueEnvelope(Envelope envelope) in /_/src/Sentry/Internal/BackgroundWorker.cs:line 66
+   at Sentry.SentryClient.CaptureEnvelope(Envelope envelope) in /_/src/Sentry/SentryClient.cs:line 252
+   at Sentry.SentryClient.DoSendEvent(SentryEvent event, Scope scope) in /_/src/Sentry/SentryClient.cs:line 237
+   at Sentry.SentryClient.CaptureEvent(SentryEvent event, Scope scope) in /_/src/Sentry/SentryClient.cs:line 77
+2023-12-05T15:18:39.9051638+07:00 0HMVLD4TTQVKF:0000001F [ERR] An exception occurred while iterating over the results of a query for context type '"CORE_API.CORE.Contexts.CoreContext"'."
+""MySqlConnector.MySqlException (0x80004005): Table 'transport.userorganization' doesn't exist
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 50
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 135
+   at MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 444
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(IReadOnlyList`1 commands, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 60
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 314
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in /_/src/MySqlConnector/MySqlCommand.cs:line 256
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()" (f5c7ac34)
+MySqlConnector.MySqlException (0x80004005): Table 'transport.userorganization' doesn't exist
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 50
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 135
+   at MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 444
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(IReadOnlyList`1 commands, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 60
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 314
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in /_/src/MySqlConnector/MySqlCommand.cs:line 256
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.Load[TSource](IQueryable`1 source)
+   at Microsoft.EntityFrameworkCore.Internal.EntityFinder`1.Load(INavigation navigation, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.Internal.EntityFinderCollectionLoaderAdapter.Load(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.CollectionEntry.Load()
+   at Microsoft.EntityFrameworkCore.Internal.LazyLoader.Load(Object entity, String navigationName)
+   at Microsoft.EntityFrameworkCore.Proxies.Internal.LazyLoadingInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.UserProxy.get_UserOrganizations()
+   at CORE_API.CORE.Models.Views.Mappings.UserOrganizationsToList.Resolve(User source, UserOutputResource destination, List`1 destMember, ResolutionContext context) in E:\Projects\Personal\tms-api\CORE-API\CORE\Models\Views\Mappings\CoreMappings.cs:line 83
+   at lambda_method468(Closure , IEnumerable`1 , IList`1 , ResolutionContext )
+2023-12-05T15:18:40.1029441+07:00 0HMVLD4TTQVKF:0000001F [INF] Capturing event. (18dd7e66)
+2023-12-05T15:18:40.3085893+07:00 0HMVLD4TTQVKF:0000001F [ERR] An error occurred when capturing the event "04ba2b90a7474ca08737abc4f9442f7e". (d8b061c8)
+System.ObjectDisposedException: The semaphore has been disposed.
+   at System.Threading.SemaphoreSlim.CheckDispose()
+   at System.Threading.SemaphoreSlim.Release(Int32 releaseCount)
+   at Sentry.Internal.BackgroundWorker.EnqueueEnvelope(Envelope envelope) in /_/src/Sentry/Internal/BackgroundWorker.cs:line 66
+   at Sentry.SentryClient.CaptureEnvelope(Envelope envelope) in /_/src/Sentry/SentryClient.cs:line 252
+   at Sentry.SentryClient.DoSendEvent(SentryEvent event, Scope scope) in /_/src/Sentry/SentryClient.cs:line 237
+   at Sentry.SentryClient.CaptureEvent(SentryEvent event, Scope scope) in /_/src/Sentry/SentryClient.cs:line 77
+2023-12-05T15:18:40.3086987+07:00 0HMVLD4TTQVKF:0000001F [ERR] {"ExceptionType":"AutoMapper.AutoMapperMappingException","ExceptionDate":"2023-12-05T08:18:40.0922743Z","Url":"/api/User/Filter","QueryString":"?isDesc=true\u0026skip=0\u0026count=20","RequestBody":null,"Message":"Error mapping types.\r\n\r\nMapping types:\r\nIEnumerable\u00601 -\u003E IList\u00601\r\nSystem.Collections.Generic.IEnumerable\u00601[[CORE_API.CORE.Models.Entities.User, COREAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -\u003E System.Collections.Generic.IList\u00601[[CORE_API.CORE.Models.Views.UserOutputResource, COREAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]","InnerException":"AutoMapper.AutoMapperMappingException: Error mapping types.\r\n\r\nMapping types:\r\nUser -\u003E UserOutputResource\r\nCORE_API.CORE.Models.Entities.User -\u003E CORE_API.CORE.Models.Views.UserOutputResource\r\n\r\nType Map configuration:\r\nUser -\u003E UserOutputResource\r\nCORE_API.CORE.Models.Entities.User -\u003E CORE_API.CORE.Models.Views.UserOutputResource\r\n\r\nDestination Member:\r\nOrganizations\r\n\r\n ---\u003E MySqlConnector.MySqlException (0x80004005): Table \u0027transport.userorganization\u0027 doesn\u0027t exist\r\n   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 50\r\n   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 135\r\n   at MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary\u00602 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 444\r\n   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(IReadOnlyList\u00601 commands, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 60\r\n   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 314\r\n   at MySqlConnector.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in /_/src/MySqlConnector/MySqlCommand.cs:line 256\r\n   at System.Data.Common.DbCommand.ExecuteReader()\r\n   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)\r\n   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable\u00601.Enumerator.InitializeReader(DbContext _, Boolean result)\r\n   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func\u00603 operation, Func\u00603 verifySucceeded)\r\n   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable\u00601.Enumerator.MoveNext()\r\n   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.Load[TSource](IQueryable\u00601 source)\r\n   at Microsoft.EntityFrameworkCore.Internal.EntityFinder\u00601.Load(INavigation navigation, InternalEntityEntry entry)\r\n   at Microsoft.EntityFrameworkCore.Internal.EntityFinderCollectionLoaderAdapter.Load(InternalEntityEntry entry)\r\n   at Microsoft.EntityFrameworkCore.ChangeTracking.CollectionEntry.Load()\r\n   at Microsoft.EntityFrameworkCore.Internal.LazyLoader.Load(Object entity, String navigationName)\r\n   at Microsoft.EntityFrameworkCore.Proxies.Internal.LazyLoadingInterceptor.Intercept(IInvocation invocation)\r\n   at Castle.DynamicProxy.AbstractInvocation.Proceed()\r\n   at Castle.Proxies.UserProxy.get_UserOrganizations()\r\n   at CORE_API.CORE.Models.Views.Mappings.UserOrganizationsToList.Resolve(User source, UserOutputResource destination, List\u00601 destMember, ResolutionContext context) in E:\\Projects\\Personal\\tms-api\\CORE-API\\CORE\\Models\\Views\\Mappings\\CoreMappings.cs:line 83\r\n   at lambda_method468(Closure , IEnumerable\u00601 , IList\u00601 , ResolutionContext )\r\n   --- End of inner exception stack trace ---\r\n   at lambda_method468(Closure , IEnumerable\u00601 , IList\u00601 , ResolutionContext )","StackTrace":"   at lambda_method468(Closure , IEnumerable\u00601 , IList\u00601 , ResolutionContext )\r\n   at CORE_API.CORE.UserController.Filter(String SearchQuery, String byEmail, String byName, Nullable\u00601 orderBy, Boolean isDesc, Int32 skip, Int32 count) in E:\\Projects\\Personal\\tms-api\\CORE-API\\CORE\\Controllers\\UserController.cs:line 102\r\n   at lambda_method459(Closure , Object )\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.\u003CInvokeActionMethodAsync\u003Eg__Awaited|12_0(ControllerActionInvoker invoker, ValueTask\u00601 actionResultValueTask)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.\u003CInvokeNextActionFilterAsync\u003Eg__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State\u0026 next, Scope\u0026 scope, Object\u0026 state, Boolean\u0026 isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.\u003CInvokeInnerFilterAsync\u003Eg__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.\u003CInvokeFilterPipelineAsync\u003Eg__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.\u003CInvokeAsync\u003Eg__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)\r\n   at Microsoft.AspNetCore.Routing.EndpointMiddleware.\u003CInvoke\u003Eg__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)\r\n   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)\r\n   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)\r\n   at CORE_API.CORE.Exceptions.ExceptionHandlingMiddleware.InvokeAsync(HttpContext httpContext) in E:\\Projects\\Personal\\tms-api\\CORE-API\\CORE\\Exceptions\\ExceptionHandlingMiddleware.cs:line 24","UserAgent":null,"UserName":null,"Tag":null,"LogLevel":"Error"} (4b4902cd)
+2023-12-05T15:19:29.9199460+07:00 0HMVLD4TTQVKF:00000021 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T15:19:29.9258788+07:00 0HMVLD4TTQVKF:00000021 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T15:19:29.9319256+07:00 0HMVLD4TTQVKF:00000021 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T15:19:29.9361841+07:00 0HMVLD4TTQVKF:00000021 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T15:19:29.9449764+07:00 0HMVLD4TTQVKF:00000021 [WRN] Trying to close a span that was already garbage collected. QueryCompiler (39379138)
+2023-12-05T15:19:29.9606100+07:00 0HMVLD4TTQVKF:00000021 [INF] Capturing event. (18dd7e66)
+2023-12-05T15:19:30.0268597+07:00 0HMVLD4TTQVKF:00000021 [ERR] An error occurred when capturing the event "15855d89c00b40e58945794317df76d2". (d8b061c8)
+System.ObjectDisposedException: The semaphore has been disposed.
+   at System.Threading.SemaphoreSlim.CheckDispose()
+   at System.Threading.SemaphoreSlim.Release(Int32 releaseCount)
+   at Sentry.Internal.BackgroundWorker.EnqueueEnvelope(Envelope envelope) in /_/src/Sentry/Internal/BackgroundWorker.cs:line 66
+   at Sentry.SentryClient.CaptureEnvelope(Envelope envelope) in /_/src/Sentry/SentryClient.cs:line 252
+   at Sentry.SentryClient.DoSendEvent(SentryEvent event, Scope scope) in /_/src/Sentry/SentryClient.cs:line 237
+   at Sentry.SentryClient.CaptureEvent(SentryEvent event, Scope scope) in /_/src/Sentry/SentryClient.cs:line 77
+2023-12-05T15:19:30.0269397+07:00 0HMVLD4TTQVKF:00000021 [ERR] Failed executing DbCommand ("7"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM `UserOrganization` AS `u`
+WHERE `u`.`DeletedAt` IS NULL" (627a98df)
+2023-12-05T15:19:30.0304975+07:00 0HMVLD4TTQVKF:00000021 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T15:19:30.0357654+07:00 0HMVLD4TTQVKF:00000021 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T15:19:30.0493441+07:00 0HMVLD4TTQVKF:00000021 [INF] Capturing event. (18dd7e66)
+2023-12-05T15:19:30.0593898+07:00 0HMVLD4TTQVKF:00000021 [ERR] An error occurred when capturing the event "25c9f271da0b4fffbc0e9c56dc66112c". (d8b061c8)
+System.ObjectDisposedException: The semaphore has been disposed.
+   at System.Threading.SemaphoreSlim.CheckDispose()
+   at System.Threading.SemaphoreSlim.Release(Int32 releaseCount)
+   at Sentry.Internal.BackgroundWorker.EnqueueEnvelope(Envelope envelope) in /_/src/Sentry/Internal/BackgroundWorker.cs:line 66
+   at Sentry.SentryClient.CaptureEnvelope(Envelope envelope) in /_/src/Sentry/SentryClient.cs:line 252
+   at Sentry.SentryClient.DoSendEvent(SentryEvent event, Scope scope) in /_/src/Sentry/SentryClient.cs:line 237
+   at Sentry.SentryClient.CaptureEvent(SentryEvent event, Scope scope) in /_/src/Sentry/SentryClient.cs:line 77
+2023-12-05T15:19:30.0605762+07:00 0HMVLD4TTQVKF:00000021 [ERR] An exception occurred while iterating over the results of a query for context type '"CORE_API.CORE.Contexts.CoreContext"'."
+""MySqlConnector.MySqlException (0x80004005): Table 'transport.userorganization' doesn't exist
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsyncAwaited(ValueTask`1 task) in /_/src/MySqlConnector/Core/ServerSession.cs:line 888
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 50
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 135
+   at MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 444
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(IReadOnlyList`1 commands, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 60
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 315
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 307
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(DbContext _, Boolean result, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()" (f5c7ac34)
+MySqlConnector.MySqlException (0x80004005): Table 'transport.userorganization' doesn't exist
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsyncAwaited(ValueTask`1 task) in /_/src/MySqlConnector/Core/ServerSession.cs:line 888
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 50
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 135
+   at MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 444
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(IReadOnlyList`1 commands, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 60
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 315
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 307
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(DbContext _, Boolean result, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable`1.ConfiguredValueTaskAwaiter.GetResult()
+2023-12-05T15:19:30.2881786+07:00 0HMVLD4TTQVKF:00000021 [INF] Capturing event. (18dd7e66)
+2023-12-05T15:19:30.6481226+07:00 0HMVLD4TTQVKF:00000021 [ERR] An error occurred when capturing the event "35a16f3d9cdb4fa69f916f30d530a363". (d8b061c8)
+System.ObjectDisposedException: The semaphore has been disposed.
+   at System.Threading.SemaphoreSlim.CheckDispose()
+   at System.Threading.SemaphoreSlim.Release(Int32 releaseCount)
+   at Sentry.Internal.BackgroundWorker.EnqueueEnvelope(Envelope envelope) in /_/src/Sentry/Internal/BackgroundWorker.cs:line 66
+   at Sentry.SentryClient.CaptureEnvelope(Envelope envelope) in /_/src/Sentry/SentryClient.cs:line 252
+   at Sentry.SentryClient.DoSendEvent(SentryEvent event, Scope scope) in /_/src/Sentry/SentryClient.cs:line 237
+   at Sentry.SentryClient.CaptureEvent(SentryEvent event, Scope scope) in /_/src/Sentry/SentryClient.cs:line 77
+2023-12-05T15:19:30.6483528+07:00 0HMVLD4TTQVKF:00000021 [ERR] {"ExceptionType":"MySqlConnector.MySqlException","ExceptionDate":"2023-12-05T08:19:30.2780986Z","Url":"/api/UserOrganization","QueryString":"?skip=0\u0026count=20","RequestBody":null,"Message":"Table \u0027transport.userorganization\u0027 doesn\u0027t exist","InnerException":null,"StackTrace":"   at MySqlConnector.Core.ServerSession.ReceiveReplyAsyncAwaited(ValueTask\u00601 task) in /_/src/MySqlConnector/Core/ServerSession.cs:line 888\r\n   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 50\r\n   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 135\r\n   at MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary\u00602 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 444\r\n   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(IReadOnlyList\u00601 commands, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 60\r\n   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 315\r\n   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 307\r\n   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)\r\n   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)\r\n   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable\u00601.AsyncEnumerator.InitializeReaderAsync(DbContext _, Boolean result, CancellationToken cancellationToken)\r\n   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func\u00604 operation, Func\u00604 verifySucceeded, CancellationToken cancellationToken)\r\n   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable\u00601.AsyncEnumerator.MoveNextAsync()\r\n   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable\u00601 asyncEnumerable, CancellationToken cancellationToken)\r\n   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable\u00601 asyncEnumerable, CancellationToken cancellationToken)\r\n   at CORE_API.CORE.Repositories.GenericEntityRepository\u00601.CountAsync(Expression\u00601 where) in E:\\Projects\\Personal\\tms-api\\CORE-API\\CORE\\Repositories\\GenericEntityRepository.cs:line 73\r\n   at CORE_API.CORE.Services.GenericEntityService\u00601.Count(Expression\u00601 where) in E:\\Projects\\Personal\\tms-api\\CORE-API\\CORE\\Services\\GenericEntityService.cs:line 152\r\n   at CORE_API.CORE.Controllers.GenericEntityController\u00603.List(Int32 skip, Int32 count) in E:\\Projects\\Personal\\tms-api\\CORE-API\\CORE\\Controllers\\Abstract\\GenericEntityController.cs:line 44\r\n   at lambda_method474(Closure , Object )\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.\u003CInvokeActionMethodAsync\u003Eg__Awaited|12_0(ControllerActionInvoker invoker, ValueTask\u00601 actionResultValueTask)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.\u003CInvokeNextActionFilterAsync\u003Eg__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State\u0026 next, Scope\u0026 scope, Object\u0026 state, Boolean\u0026 isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.\u003CInvokeInnerFilterAsync\u003Eg__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.\u003CInvokeFilterPipelineAsync\u003Eg__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.\u003CInvokeAsync\u003Eg__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)\r\n   at Microsoft.AspNetCore.Routing.EndpointMiddleware.\u003CInvoke\u003Eg__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)\r\n   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)\r\n   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)\r\n   at CORE_API.CORE.Exceptions.ExceptionHandlingMiddleware.InvokeAsync(HttpContext httpContext) in E:\\Projects\\Personal\\tms-api\\CORE-API\\CORE\\Exceptions\\ExceptionHandlingMiddleware.cs:line 24","UserAgent":null,"UserName":null,"Tag":null,"LogLevel":"Error"} (7addb48e)
+2023-12-05T16:10:07.2802056+07:00 0HMVLE7CNO7H6:00000013 [WRN] Trying to close a span that was already garbage collected. QueryCompiler (39379138)
+2023-12-05T16:10:07.2975187+07:00 0HMVLE7CNO7H6:00000013 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T16:10:07.3013636+07:00 0HMVLE7CNO7H6:00000013 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T16:10:07.3599468+07:00 0HMVLE7CNO7H6:00000013 [WRN] Trying to close a span that was already garbage collected. QueryCompiler (39379138)
+2023-12-05T16:10:07.3636181+07:00 0HMVLE7CNO7H6:00000013 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T16:10:07.3664657+07:00 0HMVLE7CNO7H6:00000013 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T16:10:07.3923740+07:00 0HMVLE7CNO7H6:00000013 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T16:10:07.3976675+07:00 0HMVLE7CNO7H6:00000013 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T16:10:07.4028734+07:00 0HMVLE7CNO7H6:00000013 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T16:10:07.6885380+07:00 0HMVLE7CNO7H6:00000013 [WRN] Trying to close a span that was already garbage collected. QueryCompiler (39379138)
+2023-12-05T16:10:07.7064159+07:00 0HMVLE7CNO7H6:00000013 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T16:10:07.7144836+07:00 0HMVLE7CNO7H6:00000013 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T16:10:07.7496041+07:00 0HMVLE7CNO7H6:00000013 [WRN] Trying to close a span that was already garbage collected. QueryCompiler (39379138)
+2023-12-05T16:10:07.7536293+07:00 0HMVLE7CNO7H6:00000013 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T16:10:07.7573232+07:00 0HMVLE7CNO7H6:00000013 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T16:10:38.0712272+07:00 0HMVLE7CNO7H6:00000015 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T16:10:38.0848010+07:00 0HMVLE7CNO7H6:00000015 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T16:10:38.1162779+07:00 0HMVLE7CNO7H6:00000015 [WRN] Trying to close a span that was already garbage collected. QueryCompiler (39379138)
+2023-12-05T16:10:38.1195296+07:00 0HMVLE7CNO7H6:00000015 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T16:10:38.1231054+07:00 0HMVLE7CNO7H6:00000015 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T16:10:39.1350642+07:00 0HMVLE7CNO7H6:00000015 [WRN] Trying to close a span that was already garbage collected. QueryCompiler (39379138)
+2023-12-05T16:10:39.1428287+07:00 0HMVLE7CNO7H6:00000015 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T16:10:39.1457806+07:00 0HMVLE7CNO7H6:00000015 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T16:10:39.1615400+07:00 0HMVLE7CNO7H6:00000015 [WRN] Trying to close a span that was already garbage collected. QueryCompiler (39379138)
+2023-12-05T16:10:39.1674571+07:00 0HMVLE7CNO7H6:00000015 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T16:10:39.1696371+07:00 0HMVLE7CNO7H6:00000015 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T17:03:20.1225678+07:00 0HMVLF1TNRNV5:00000029 [WRN] Trying to close a span that was already garbage collected. QueryCompiler (39379138)
+2023-12-05T17:03:20.1469187+07:00 0HMVLF1TNRNV5:00000029 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T17:03:20.1489830+07:00 0HMVLF1TNRNV5:00000029 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T17:04:01.7350235+07:00 0HMVLF1TNRNV5:0000002F [WRN] Trying to close a span that was already garbage collected. QueryCompiler (39379138)
+2023-12-05T17:04:01.7426430+07:00 0HMVLF1TNRNV5:0000002F [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T17:04:01.7448572+07:00 0HMVLF1TNRNV5:0000002F [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T17:04:01.7649818+07:00 0HMVLF1TNRNV5:0000002F [WRN] Trying to close a span that was already garbage collected. QueryCompiler (39379138)
+2023-12-05T17:04:01.7677530+07:00 0HMVLF1TNRNV5:0000002F [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T17:04:01.7705159+07:00 0HMVLF1TNRNV5:0000002F [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T17:04:02.2324886+07:00 0HMVLF1TNRNV5:0000002F [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T17:04:02.2345378+07:00 0HMVLF1TNRNV5:0000002F [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T17:04:02.2468953+07:00 0HMVLF1TNRNV5:0000002F [WRN] Trying to close a span that was already garbage collected. QueryCompiler (39379138)
+2023-12-05T17:04:02.2509283+07:00 0HMVLF1TNRNV5:0000002F [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T17:04:02.2539038+07:00 0HMVLF1TNRNV5:0000002F [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T17:04:39.2287154+07:00 0HMVLF1TNRNV5:00000031 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T17:04:39.2308362+07:00 0HMVLF1TNRNV5:00000031 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T17:04:39.2468531+07:00 0HMVLF1TNRNV5:00000031 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T17:04:39.2504094+07:00 0HMVLF1TNRNV5:00000031 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T17:10:02.7305172+07:00 0HMVLF1TNRNV5:00000033 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T17:10:02.7322489+07:00 0HMVLF1TNRNV5:00000033 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T17:10:04.9307448+07:00 0HMVLF1TNRNV5:00000033 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T17:10:04.9326460+07:00 0HMVLF1TNRNV5:00000033 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T17:10:25.2152718+07:00 0HMVLF1TNRNV5:00000033 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T17:10:25.2174009+07:00 0HMVLF1TNRNV5:00000033 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T17:18:37.6429687+07:00 0HMVLFDLDSI6N:00000013 [WRN] Trying to close a span that was already garbage collected. QueryCompiler (39379138)
+2023-12-05T17:18:37.6633149+07:00 0HMVLFDLDSI6N:00000013 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T17:18:37.6722297+07:00 0HMVLFDLDSI6N:00000013 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T17:18:37.7364467+07:00 0HMVLFDLDSI6N:00000013 [WRN] Trying to close a span that was already garbage collected. QueryCompiler (39379138)
+2023-12-05T17:18:37.7410394+07:00 0HMVLFDLDSI6N:00000013 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T17:18:37.7438428+07:00 0HMVLFDLDSI6N:00000013 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T17:18:38.8098176+07:00 0HMVLFDLDSI6N:00000013 [WRN] Trying to close a span that was already garbage collected. QueryCompiler (39379138)
+2023-12-05T17:18:38.8284618+07:00 0HMVLFDLDSI6N:00000013 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T17:18:38.8341574+07:00 0HMVLFDLDSI6N:00000013 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T17:18:38.8452582+07:00 0HMVLFDLDSI6N:00000013 [WRN] Trying to close a span that was already garbage collected. QueryCompiler (39379138)
+2023-12-05T17:18:38.8498501+07:00 0HMVLFDLDSI6N:00000013 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T17:18:38.8549224+07:00 0HMVLFDLDSI6N:00000013 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T17:18:38.8995166+07:00 0HMVLFDLDSI6N:00000013 [WRN] Trying to close a span that was already garbage collected. QueryCompiler (39379138)
+2023-12-05T17:18:38.9057348+07:00 0HMVLFDLDSI6N:00000013 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T17:18:38.9086803+07:00 0HMVLFDLDSI6N:00000013 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T17:18:38.9179980+07:00 0HMVLFDLDSI6N:00000013 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T17:18:38.9218681+07:00 0HMVLFDLDSI6N:00000013 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T17:18:38.9336919+07:00 0HMVLFDLDSI6N:00000013 [WRN] Trying to close a span that was already garbage collected. QueryCompiler (39379138)
+2023-12-05T17:18:38.9390392+07:00 0HMVLFDLDSI6N:00000013 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T17:18:38.9428366+07:00 0HMVLFDLDSI6N:00000013 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T17:18:38.9474979+07:00 0HMVLFDLDSI6N:00000013 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T17:18:38.9502031+07:00 0HMVLFDLDSI6N:00000013 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T17:21:28.1575530+07:00 0HMVLFF9LTI6F:00000013 [WRN] Trying to close a span that was already garbage collected. QueryCompiler (39379138)
+2023-12-05T17:21:28.1724251+07:00 0HMVLFF9LTI6F:00000013 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T17:21:28.1742490+07:00 0HMVLFF9LTI6F:00000013 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T17:21:28.2283217+07:00 0HMVLFF9LTI6F:00000013 [WRN] Trying to close a span that was already garbage collected. QueryCompiler (39379138)
+2023-12-05T17:21:28.2315898+07:00 0HMVLFF9LTI6F:00000013 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T17:21:28.2432132+07:00 0HMVLFF9LTI6F:00000013 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T17:21:28.2684734+07:00 0HMVLFF9LTI6F:00000013 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T17:21:28.2848251+07:00 0HMVLFF9LTI6F:00000013 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T17:21:28.2901089+07:00 0HMVLFF9LTI6F:00000013 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T17:21:28.3119822+07:00 0HMVLFF9LTI6F:00000013 [WRN] Trying to close a span that was already garbage collected. QueryCompiler (39379138)
+2023-12-05T17:21:28.3148821+07:00 0HMVLFF9LTI6F:00000013 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T17:21:28.3180654+07:00 0HMVLFF9LTI6F:00000013 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T17:21:30.2667955+07:00 0HMVLFF9LTI6F:00000013 [WRN] Trying to close a span that was already garbage collected. QueryCompiler (39379138)
+2023-12-05T17:21:30.2699827+07:00 0HMVLFF9LTI6F:00000013 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T17:21:30.2722847+07:00 0HMVLFF9LTI6F:00000013 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T17:21:31.1826959+07:00 0HMVLFF9LTI6F:00000013 [WRN] Trying to close a span that was already garbage collected. QueryCompiler (39379138)
+2023-12-05T17:21:31.1998596+07:00 0HMVLFF9LTI6F:00000013 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T17:21:31.2046079+07:00 0HMVLFF9LTI6F:00000013 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T17:21:31.2102663+07:00 0HMVLFF9LTI6F:00000013 [WRN] Trying to close a span that was already garbage collected. QueryCompiler (39379138)
+2023-12-05T17:21:31.2148867+07:00 0HMVLFF9LTI6F:00000013 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T17:21:31.2170141+07:00 0HMVLFF9LTI6F:00000013 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T17:21:31.2477557+07:00 0HMVLFF9LTI6F:00000013 [WRN] Trying to close a span that was already garbage collected. QueryCompiler (39379138)
+2023-12-05T17:21:31.2538350+07:00 0HMVLFF9LTI6F:00000013 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T17:21:31.2558268+07:00 0HMVLFF9LTI6F:00000013 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T17:22:28.3885061+07:00 0HMVLFF9LTI6F:00000015 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T17:22:28.3920272+07:00 0HMVLFF9LTI6F:00000015 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T17:22:28.3949502+07:00 0HMVLFF9LTI6F:00000015 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T17:22:28.3966274+07:00 0HMVLFF9LTI6F:00000015 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T17:22:29.8579013+07:00 0HMVLFF9LTI6F:00000015 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T17:22:29.8603145+07:00 0HMVLFF9LTI6F:00000015 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T17:22:29.8734015+07:00 0HMVLFF9LTI6F:00000015 [WRN] Trying to close a span that was already garbage collected. QueryCompiler (39379138)
+2023-12-05T17:22:29.8839125+07:00 0HMVLFF9LTI6F:00000015 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T17:22:29.8858255+07:00 0HMVLFF9LTI6F:00000015 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T17:22:29.8972227+07:00 0HMVLFF9LTI6F:00000015 [WRN] Trying to close a span that was already garbage collected. QueryCompiler (39379138)
+2023-12-05T17:22:29.9017851+07:00 0HMVLFF9LTI6F:00000015 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T17:22:29.9037594+07:00 0HMVLFF9LTI6F:00000015 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T17:23:23.8567167+07:00 0HMVLFF9LTI6F:00000017 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T17:23:23.8593904+07:00 0HMVLFF9LTI6F:00000017 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T17:23:23.8623537+07:00 0HMVLFF9LTI6F:00000017 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T17:23:23.8639548+07:00 0HMVLFF9LTI6F:00000017 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T17:23:23.8669788+07:00 0HMVLFF9LTI6F:00000017 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T17:23:23.8698539+07:00 0HMVLFF9LTI6F:00000017 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T17:23:25.8039978+07:00 0HMVLFF9LTI6F:00000017 [WRN] Trying to close a span that was already garbage collected. QueryCompiler (39379138)
+2023-12-05T17:23:25.8100634+07:00 0HMVLFF9LTI6F:00000017 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T17:23:25.8135996+07:00 0HMVLFF9LTI6F:00000017 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T17:23:25.8192673+07:00 0HMVLFF9LTI6F:00000017 [WRN] Trying to close a span that was already garbage collected. QueryCompiler (39379138)
+2023-12-05T17:23:25.8369628+07:00 0HMVLFF9LTI6F:00000017 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T17:23:25.8393018+07:00 0HMVLFF9LTI6F:00000017 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
+2023-12-05T17:23:25.8489272+07:00 0HMVLFF9LTI6F:00000017 [WRN] Trying to close a span that was already garbage collected. QueryCompiler (39379138)
+2023-12-05T17:23:25.8530126+07:00 0HMVLFF9LTI6F:00000017 [WRN] Trying to close a span that was already garbage collected. QueryExecution (39379138)
+2023-12-05T17:23:25.8547649+07:00 0HMVLFF9LTI6F:00000017 [WRN] Trying to close a span that was already garbage collected. Connection (39379138)
