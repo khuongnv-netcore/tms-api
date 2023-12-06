@@ -23,7 +23,7 @@ namespace CORE_API.Contexts.DataSeeders
 
         private async Task InitialAdminUser()
         {
-            var adminUser = await _context.Set<User>().FirstOrDefaultAsync(r => r.EmailAddress == "khuongnv@myfriends.com");
+            var adminUser = await _context.Set<User>().FirstOrDefaultAsync(r => r.EmailAddress == "khuongnv1979@gmail.com");
             if (adminUser == null)
             {
                 adminUser = new User();
