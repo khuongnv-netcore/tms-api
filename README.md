@@ -3,7 +3,7 @@ Transport Management System
 
 Requirement System:
 1. VS 2022
-2. Runtime .Netframework 5.0
+2. Runtime .Netframework 8.0
 3. MySql 8.0
 4. Git command
 
