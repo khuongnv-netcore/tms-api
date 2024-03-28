@@ -247,9 +247,13 @@ namespace CORE_API
             if (!string.IsNullOrEmpty(_configurationOptions.ConnectionStrings.CoreConnection))
             {
                 services.AddDbContext<CoreContext>(options =>
-                    options.UseMySql(_configurationOptions.ConnectionStrings.CoreConnection,
-                    ServerVersion.AutoDetect(_configurationOptions.ConnectionStrings.CoreConnection)
-                    )
+                    options.UseSqlServer(_configurationOptions.ConnectionStrings.CoreConnection)
+                );
+            }
+            if (!string.IsNullOrEmpty(_configurationOptions.ConnectionStrings.BookingConnection))
+            {
+                services.AddDbContext<BookingContext>(options =>
+                    options.UseSqlServer(_configurationOptions.ConnectionStrings.BookingConnection)
                 );
             }
         }
@@ -282,7 +286,6 @@ namespace CORE_API
                 .AsMatchingInterface((service, filter) =>
                     filter.Where(implementation => implementation.Name.Equals($"I{service.Name}", StringComparison.OrdinalIgnoreCase)))
                 .WithTransientLifetime());
-
         }
         public static void RegisterRepositories(this IServiceCollection services)
         {

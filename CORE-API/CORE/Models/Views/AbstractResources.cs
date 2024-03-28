@@ -28,5 +28,17 @@ namespace CORE_API.CORE.Models.Views
         public int TotalEntities { get; set; }
     }
 
+    public class CoreListOutputResourceEx<TEntity>
+    {
+        public IEnumerable<TEntity> Entities { get; set; }
+        public int TotalEntities { get; set; }
+    }
+
+    public class CoreScheduleListOutputResource<TEntity>
+    {
+        public IEnumerable<TEntity> Entities { get; set; }
+        public int TotalEntities { get; set; }
+    }
+
 
 }

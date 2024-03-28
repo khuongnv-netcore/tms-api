@@ -1,4 +1,5 @@
 ﻿using CORE_API.CORE.Models.Entities;
+using CORE_API.Tms.Models.Entities;
 using CORE_API.CORE.Models.Entities.Abstract;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
@@ -32,15 +33,17 @@ namespace CORE_API.CORE.Contexts
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.UseCollation("utf8mb4_0900_ai_ci");
-            builder.HasCharSet("utf8mb4");
-            builder.UseGuidCollation("latin1_swedish_ci");
+            builder.UseCollation("SQL_Latin1_General_CP1_CS_AS");
+            //builder.HasCharSet("utf8mb4");
+            //builder.UseGuidCollation("latin1_swedish_ci");
 
             base.OnModelCreating(builder);
 
             User.OnModelCreating(builder);
 
             Role.OnModelCreating(builder);
+            
+            Schedule.OnModelCreating(builder);
 
             UserRole.OnModelCreating(builder);
 
@@ -54,7 +57,15 @@ namespace CORE_API.CORE.Contexts
 
             DistributedLock.OnModelCreating(builder);
 
-            
+            Booking.OnModelCreating(builder);
+
+            BookingContainer.OnModelCreating(builder);
+
+            BookingContainerDetail.OnModelCreating(builder);
+
+            Driver.OnModelCreating(builder);
+
+            FixedAsset.OnModelCreating(builder);
         }
 
         public override int SaveChanges()

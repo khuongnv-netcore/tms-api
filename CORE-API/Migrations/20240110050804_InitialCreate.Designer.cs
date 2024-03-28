@@ -4,6 +4,7 @@ using CORE_API.CORE.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CORE_API.Migrations
 {
     [DbContext(typeof(CoreContext))]
-    partial class CoreContextModelSnapshot : ModelSnapshot
+    [Migration("20240110050804_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -622,12 +625,6 @@ namespace CORE_API.Migrations
                     b.Property<string>("ST")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("ScheduleId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("ScheduleId1")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<bool>("Scheduled")
                         .HasColumnType("bit");
 
@@ -655,156 +652,7 @@ namespace CORE_API.Migrations
 
                     b.HasIndex("ModifiedUserId");
 
-                    b.HasIndex("ScheduleId1");
-
                     b.ToTable("BookingContainerDetail", (string)null);
-                });
-
-            modelBuilder.Entity("CORE_API.Tms.Models.Entities.Driver", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Address")
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
-
-                    b.Property<decimal>("BasicSalary")
-                        .HasMaxLength(30)
-                        .HasPrecision(16, 2)
-                        .HasColumnType("decimal(16,2)");
-
-                    b.Property<DateTime>("Birthday")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("CardNo")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("City")
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
-
-                    b.Property<string>("CountryCode")
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
-
-                    b.Property<DateTime>("Created")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("CreatedUserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("DriverCode")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("Email")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<DateTime>("Modified")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("ModifiedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("ModifiedUserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Name")
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<string>("Sex")
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
-
-                    b.Property<string>("TaxCode")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("Tel")
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
-
-                    b.Property<string>("ZipCode")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Created");
-
-                    b.HasIndex("CreatedUserId");
-
-                    b.HasIndex("Modified");
-
-                    b.HasIndex("ModifiedUserId");
-
-                    b.ToTable("Driver", (string)null);
-                });
-
-            modelBuilder.Entity("CORE_API.Tms.Models.Entities.FixedAsset", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("Created")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("CreatedUserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Desc")
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<string>("FixedAssetCode")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<int>("FixedAssetType")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Manuafacture")
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
-
-                    b.Property<DateTime>("Modified")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("ModifiedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("ModifiedUserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Created");
-
-                    b.HasIndex("CreatedUserId");
-
-                    b.HasIndex("Modified");
-
-                    b.HasIndex("ModifiedUserId");
-
-                    b.ToTable("FixedAsset", (string)null);
                 });
 
             modelBuilder.Entity("CORE_API.Tms.Models.Entities.Schedule", b =>
@@ -822,7 +670,7 @@ namespace CORE_API.Migrations
                     b.Property<DateTime?>("AssignedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("BookingContainerDetailId")
+                    b.Property<Guid?>("BookingContainerDetailId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("BookingContainerId")
@@ -926,8 +774,6 @@ namespace CORE_API.Migrations
                         .HasColumnType("decimal(16,2)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("BookingContainerId");
 
                     b.HasIndex("Created");
 
@@ -1040,50 +886,12 @@ namespace CORE_API.Migrations
 
             modelBuilder.Entity("CORE_API.Tms.Models.Entities.BookingContainerDetail", b =>
                 {
-                    b.HasOne("CORE_API.Tms.Models.Entities.BookingContainer", "BookingContainer")
+                    b.HasOne("CORE_API.Tms.Models.Entities.BookingContainer", null)
                         .WithMany("BookingContainerDetails")
                         .HasForeignKey("BookingContainerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CORE_API.CORE.Models.Entities.User", "CreatedUser")
-                        .WithMany()
-                        .HasForeignKey("CreatedUserId");
-
-                    b.HasOne("CORE_API.CORE.Models.Entities.User", "ModifiedUser")
-                        .WithMany()
-                        .HasForeignKey("ModifiedUserId");
-
-                    b.HasOne("CORE_API.Tms.Models.Entities.Schedule", "Schedule")
-                        .WithMany()
-                        .HasForeignKey("ScheduleId1");
-
-                    b.Navigation("BookingContainer");
-
-                    b.Navigation("CreatedUser");
-
-                    b.Navigation("ModifiedUser");
-
-                    b.Navigation("Schedule");
-                });
-
-            modelBuilder.Entity("CORE_API.Tms.Models.Entities.Driver", b =>
-                {
-                    b.HasOne("CORE_API.CORE.Models.Entities.User", "CreatedUser")
-                        .WithMany()
-                        .HasForeignKey("CreatedUserId");
-
-                    b.HasOne("CORE_API.CORE.Models.Entities.User", "ModifiedUser")
-                        .WithMany()
-                        .HasForeignKey("ModifiedUserId");
-
-                    b.Navigation("CreatedUser");
-
-                    b.Navigation("ModifiedUser");
-                });
-
-            modelBuilder.Entity("CORE_API.Tms.Models.Entities.FixedAsset", b =>
-                {
                     b.HasOne("CORE_API.CORE.Models.Entities.User", "CreatedUser")
                         .WithMany()
                         .HasForeignKey("CreatedUserId");
@@ -1099,12 +907,6 @@ namespace CORE_API.Migrations
 
             modelBuilder.Entity("CORE_API.Tms.Models.Entities.Schedule", b =>
                 {
-                    b.HasOne("CORE_API.Tms.Models.Entities.BookingContainer", "BookingContainer")
-                        .WithMany()
-                        .HasForeignKey("BookingContainerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("CORE_API.CORE.Models.Entities.User", "CreatedUser")
                         .WithMany()
                         .HasForeignKey("CreatedUserId");
@@ -1112,8 +914,6 @@ namespace CORE_API.Migrations
                     b.HasOne("CORE_API.CORE.Models.Entities.User", "ModifiedUser")
                         .WithMany()
                         .HasForeignKey("ModifiedUserId");
-
-                    b.Navigation("BookingContainer");
 
                     b.Navigation("CreatedUser");
 
