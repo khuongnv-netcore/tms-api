@@ -30,6 +30,10 @@ namespace CORE_API.Tms.Models.Entities
         public string SalesOffice { get; set; }
         public string SalesRepOffice {  get; set; }
 
+        public Guid CreatedBy { get; set; }
+
+        public Guid ModifiedBy { get; set; }
+
         internal static void OnModelCreating(ModelBuilder builder)
         {
             // Config
@@ -40,6 +44,8 @@ namespace CORE_API.Tms.Models.Entities
             builder.Entity<Customer>().HasKey(m => m.Id);
             builder.Entity<Customer>().Property(m => m.Id).IsRequired().ValueGeneratedOnAdd();
             builder.Entity<Customer>().HasIndex(m => m.Email).IsUnique(); // Unique email index
+            builder.Entity<FixedAsset>().HasIndex(m => m.Created);
+            builder.Entity<FixedAsset>().HasIndex(m => m.Modified);
 
 
             builder.Entity<Customer>()

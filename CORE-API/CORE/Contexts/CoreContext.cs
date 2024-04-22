@@ -66,6 +66,8 @@ namespace CORE_API.CORE.Contexts
             Driver.OnModelCreating(builder);
 
             FixedAsset.OnModelCreating(builder);
+
+            Customer.OnModelCreating(builder);
         }
 
         public override int SaveChanges()

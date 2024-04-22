@@ -39,7 +39,7 @@ namespace CORE_API.Tms.Controllers
 
         [HttpPost]
         [SwaggerSummary("Create Customer")]
-        //[Authorize(Roles = "Administrator")]
+        [Authorize(Roles = "Administrator")]
         public override Task<CustomerOutputResource> Create(CustomerInputResource resource)
         {
             return base.Create(resource);
@@ -47,7 +47,7 @@ namespace CORE_API.Tms.Controllers
 
         [HttpPut]
         [SwaggerSummary("Update Customer")]
-        //[Authorize(Roles = "Administrator")]
+        [Authorize(Roles = "Administrator")]
         public override Task<CustomerOutputResource> Update(Guid Id, CustomerInputResource resource)
         {
             return base.Update(Id, resource);
@@ -62,12 +62,19 @@ namespace CORE_API.Tms.Controllers
 
         [HttpGet]
         [SwaggerSummary("List Customers")]
-        //[Authorize(Roles = "Administrator")]
+        [Authorize(Roles = "Administrator")]
         public override Task<CoreListOutputResource<CustomerOutputResource>> List(int skip = 0, int count = 20)
         {
             return base.List(skip, count);
         }
 
-        
+        [HttpDelete]
+        [SwaggerSummary("Delete one customer")]
+        [Authorize(Roles = "Administrator")]
+        public override Task<CustomerOutputResource> Delete(Guid id)
+        {
+            return base.Delete(id);
+        }
+
     }
 }

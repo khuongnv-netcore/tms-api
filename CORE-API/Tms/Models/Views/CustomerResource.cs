@@ -26,6 +26,8 @@ namespace CORE_API.Tms.Models.Views
         public string Tel { get; set; }
         public string SalesOffice { get; set; }
         public string SalesRepOffice { get; set; }
+        public Guid CreatedBy { get; set; }
+        public Guid ModifiedBy { get; set; }
     }
 
     public class CustomerOutputResource : CoreOutputResource
@@ -46,5 +48,7 @@ namespace CORE_API.Tms.Models.Views
         public string Tel { get; set; }
         public string SalesOffice { get; set; }
         public string SalesRepOffice { get; set; }
+        public Guid CreatedBy { get; set; }
+        public Guid ModifiedBy { get; set; }
     }
 }
