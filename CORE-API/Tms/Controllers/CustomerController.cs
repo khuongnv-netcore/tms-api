@@ -76,5 +76,50 @@ namespace CORE_API.Tms.Controllers
             return base.Delete(id);
         }
 
+        [HttpGet("Filter")]
+        [AllowAnonymous]
+        [SwaggerSummary("Filter")]
+        public async Task<CoreListOutputResource<CustomerOutputResource>> Filter(string byCustomerCode,string byLocationCode, string byLegalName, string byLanguageName, string byTaxCode)
+        {
+
+            var where = PredicateBuilder.New<Customer>();
+
+            if (!byCustomerCode.IsNullOrEmpty())
+            {
+                where = where.And(m => m.Id.ToString().ToUpper().Contains(byCustomerCode.ToUpper()));
+            }
+
+            if (!byLocationCode.IsNullOrEmpty())
+            {
+                where = where.And(m => m.LocationCode.ToUpper().Contains(byLocationCode.ToUpper()));
+            }
+
+            if (!byLegalName.IsNullOrEmpty())
+            {
+                where = where.And(m => m.LegalName.ToUpper().Contains(byLegalName.ToUpper()));
+            }
+
+            if (!byLanguageName.IsNullOrEmpty())
+            {
+                where = where.And(m => m.LanguageName.ToUpper().Contains(byLanguageName.ToUpper()));
+            }
+
+            if (!byTaxCode.IsNullOrEmpty())
+            {
+                // Filter by tax code (case-insensitive substring match)
+                where = where.And(m => m.TaxCode.ToUpper().Contains(byTaxCode.ToUpper()));
+            }
+
+            var results = _entityService.FindAll(where).ToList();
+            var total = await _entityService.Count(where);
+
+            var output = new CoreListOutputResource<CustomerOutputResource>
+            {
+                Entities = _mapper.Map<IEnumerable<Customer>, IList<CustomerOutputResource>>(results),
+                TotalEntities = total
+            };
+
+            return output;
+        }
     }
 }

@@ -11,9 +11,8 @@ namespace CORE_API.Tms.Models.Views
     public class CustomerInputResource : CoreInputResource
     {
         public string LegalName { get; set; }
-
         public string LanguageName { get; set; }
-
+        public string LocationCode { get; set; }
         public string TaxCode { get; set; }
         [MaxLength(30)]
         public string Address { get; set; }
@@ -33,9 +32,8 @@ namespace CORE_API.Tms.Models.Views
     public class CustomerOutputResource : CoreOutputResource
     {
         public string LegalName { get; set; }
-
         public string LanguageName { get; set; }
-
+        public string LocationCode { get; set; }
         public string TaxCode { get; set; }
         [MaxLength(30)]
         public string Address { get; set; }

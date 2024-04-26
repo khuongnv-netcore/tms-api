@@ -10,13 +10,13 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 using CORE_API.Tms.Models.Enums;
 
-
 namespace CORE_API.Tms.Models.Entities
 {
     public class Customer : CoreEntity
     {
         public string LegalName { get; set; }
         public string LanguageName { get; set; }
+        public string LocationCode { get; set; }
         public string TaxCode { get; set; }
         [MaxLength(30)]
         public string Address { get; set; }
@@ -29,9 +29,7 @@ namespace CORE_API.Tms.Models.Entities
         public string Tel { get; set; }
         public string SalesOffice { get; set; }
         public string SalesRepOffice {  get; set; }
-
         public Guid CreatedBy { get; set; }
-
         public Guid ModifiedBy { get; set; }
 
         internal static void OnModelCreating(ModelBuilder builder)
@@ -46,7 +44,6 @@ namespace CORE_API.Tms.Models.Entities
             builder.Entity<Customer>().HasIndex(m => m.Email).IsUnique(); // Unique email index
             builder.Entity<FixedAsset>().HasIndex(m => m.Created);
             builder.Entity<FixedAsset>().HasIndex(m => m.Modified);
-
 
             builder.Entity<Customer>()
                 .HasQueryFilter(m => m.DeletedAt == null);
