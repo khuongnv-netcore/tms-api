@@ -65,6 +65,11 @@ namespace CORE_API.Tms.Models.Views.Mappings
             //Entity Output to Resource
             CreateMap<FixedAsset, FixedAssetOutputResource>();
             #endregion
+
+            #region Customer
+            CreateMap<CustomerInputResource,Customer>();
+            CreateMap<Customer, CustomerOutputResource>();
+            #endregion
         }
     }
 }
