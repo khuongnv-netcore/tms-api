@@ -39,7 +39,7 @@ namespace CORE_API.Tms.Controllers
 
         [HttpPost]
         [SwaggerSummary("Create Customer")]
-        [Authorize(Roles = "Administrator")]
+        //[Authorize(Roles = "Administrator")]
         public override Task<CustomerOutputResource> Create(CustomerInputResource resource)
         {
             return base.Create(resource);
@@ -62,7 +62,7 @@ namespace CORE_API.Tms.Controllers
 
         [HttpGet]
         [SwaggerSummary("List Customers")]
-        [Authorize(Roles = "Administrator")]
+        //[Authorize(Roles = "Administrator")]
         public override Task<CoreListOutputResource<CustomerOutputResource>> List(int skip = 0, int count = 20)
         {
             return base.List(skip, count);
@@ -86,7 +86,7 @@ namespace CORE_API.Tms.Controllers
 
             if (!byCustomerCode.IsNullOrEmpty())
             {
-                where = where.And(m => m.Id.ToString().ToUpper().Contains(byCustomerCode.ToUpper()));
+                where = where.And(m => m.CustomerCode.ToString().ToUpper().Contains(byCustomerCode.ToUpper()));
             }
 
             if (!byLocationCode.IsNullOrEmpty())
