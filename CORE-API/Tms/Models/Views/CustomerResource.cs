@@ -10,6 +10,7 @@ namespace CORE_API.Tms.Models.Views
 {
     public class CustomerInputResource : CoreInputResource
     {
+        public string CustomerCode { get; set; }
         public string LegalName { get; set; }
         public string LanguageName { get; set; }
         public string LocationCode { get; set; }
@@ -31,6 +32,7 @@ namespace CORE_API.Tms.Models.Views
 
     public class CustomerOutputResource : CoreOutputResource
     {
+        public string CustomerCode { get; set; }
         public string LegalName { get; set; }
         public string LanguageName { get; set; }
         public string LocationCode { get; set; }
