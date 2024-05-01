@@ -12,44 +12,54 @@ using CORE_API.Tms.Models.Enums;
 
 namespace CORE_API.Tms.Models.Entities
 {
-    public class Customer : CoreEntity
+    public class Employee : CoreEntity
     {
-        public string LegalName { get; set; }
-        public string LanguageName { get; set; }
-        public string LocationCode { get; set; }
+        [MaxLength(200)]
+        public string EmployeeName { get; set; }
+        [MaxLength(300)]
+        public string EmployeeAddress { get; set; }
+        [MaxLength(50)]
+        public string EmployeeCode { get; set; }
+        [MaxLength(100)]
+        public string Email { get; set; }
+        [MaxLength(30)]
+        public string Tel { get; set; }
+        public DateTime Birthday { get; set; }
+        [MaxLength(10)]
+        public string Sex { get; set; }
+        [MaxLength(50)]
+        public string CardNo { get; set; }
+        [MaxLength(50)]
         public string TaxCode { get; set; }
         [MaxLength(30)]
-        public string Address { get; set; }
         public string CountryCode { get; set; }
         [MaxLength(30)]
         public string City { get; set; }
         [MaxLength(50)]
         public string ZipCode { get; set; }
-        public string Email { get; set; }
-        public string Tel { get; set; }
-        public string SalesOffice { get; set; }
-        public string SalesRepOffice {  get; set; }
+        [MaxLength(30)]
+        public string DepartmentCode { get; set; }
+        public decimal BasicSalary { get; set; } = 0.00m;
         public Guid CreatedBy { get; set; }
         public Guid ModifiedBy { get; set; }
 
         internal static void OnModelCreating(ModelBuilder builder)
         {
             // Config
-            string tableName = "Customer";
+            string tableName = "Employee";
 
             // Generic
-            builder.Entity<Customer>().ToTable(tableName);
-            builder.Entity<Customer>().HasKey(m => m.Id);
-            builder.Entity<Customer>().Property(m => m.Id).IsRequired().ValueGeneratedOnAdd();
-            builder.Entity<Customer>().HasIndex(m => m.Email).IsUnique(); // Unique email index
-            builder.Entity<Customer>().HasIndex(m => m.Created);
-            builder.Entity<Customer>().HasIndex(m => m.Modified);
+            builder.Entity<Employee>().ToTable(tableName);
+            builder.Entity<Employee>().HasKey(m => m.Id);
+            builder.Entity<Employee>().Property(m => m.Id).IsRequired().ValueGeneratedOnAdd();
+            builder.Entity<Employee>().HasIndex(m => m.Created);
+            builder.Entity<Employee>().HasIndex(m => m.Modified);
+            builder.Entity<Employee>().Property(e => e.BasicSalary).HasPrecision(16, 2);
 
-            builder.Entity<Customer>()
+            builder.Entity<Employee>()
                 .HasQueryFilter(m => m.DeletedAt == null);
 
             // Relationship
-            
         }
         public override async Task OnSoftDeleteAsync(SoftDeletes.Core.DbContext context,
         CancellationToken cancellationToken = default)

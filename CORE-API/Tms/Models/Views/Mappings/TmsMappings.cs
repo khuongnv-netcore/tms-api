@@ -70,6 +70,11 @@ namespace CORE_API.Tms.Models.Views.Mappings
             CreateMap<CustomerInputResource,Customer>();
             CreateMap<Customer, CustomerOutputResource>();
             #endregion
+
+            #region Employee
+            CreateMap<EmployeeInputResource, Employee>();
+            CreateMap<Employee, EmployeeOutputResource>();
+            #endregion
         }
     }
 }
