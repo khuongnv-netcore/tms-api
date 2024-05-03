@@ -68,6 +68,8 @@ namespace CORE_API.CORE.Contexts
             FixedAsset.OnModelCreating(builder);
 
             Customer.OnModelCreating(builder);
+
+            Employee.OnModelCreating(builder);
         }
 
         public override int SaveChanges()

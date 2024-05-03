@@ -4,6 +4,7 @@ using CORE_API.CORE.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CORE_API.Migrations
 {
     [DbContext(typeof(CoreContext))]
-    partial class CoreContextModelSnapshot : ModelSnapshot
+    [Migration("20240501110255_addEmployee_Table")]
+    partial class addEmployee_Table
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -682,9 +685,6 @@ namespace CORE_API.Migrations
 
                     b.Property<Guid>("CreatedBy")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("CustomerCode")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("DeletedAt")
                         .HasColumnType("datetime2");
