@@ -14,6 +14,7 @@ namespace CORE_API.Tms.Models.Entities
 {
     public class Customer : CoreEntity
     {
+        public string CustomerCode { get; set; }
         public string LegalName { get; set; }
         public string LanguageName { get; set; }
         public string LocationCode { get; set; }

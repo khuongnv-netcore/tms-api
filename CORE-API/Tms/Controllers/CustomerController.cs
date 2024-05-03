@@ -86,7 +86,7 @@ namespace CORE_API.Tms.Controllers
 
             if (!byCustomerCode.IsNullOrEmpty())
             {
-                where = where.And(m => m.Id.ToString().ToUpper().Contains(byCustomerCode.ToUpper()));
+                where = where.And(m => m.CustomerCode.ToString().ToUpper().Contains(byCustomerCode.ToUpper()));
             }
 
             if (!byLocationCode.IsNullOrEmpty())
