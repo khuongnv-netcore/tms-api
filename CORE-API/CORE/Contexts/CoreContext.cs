@@ -69,6 +69,8 @@ namespace CORE_API.CORE.Contexts
 
             Customer.OnModelCreating(builder);
 
+            Location.OnModelCreating(builder);
+            
             Employee.OnModelCreating(builder);
         }
 
