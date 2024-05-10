@@ -80,6 +80,11 @@ namespace CORE_API.Tms.Models.Views.Mappings
             CreateMap<EmployeeInputResource, Employee>();
             CreateMap<Employee, EmployeeOutputResource>();
             #endregion
+
+            #region Container
+            CreateMap<ContainerInputResource, Container>();
+            CreateMap<Container, ContainerOutputResource>();
+            #endregion
         }
     }
 }
