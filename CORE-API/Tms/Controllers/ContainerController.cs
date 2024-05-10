@@ -77,18 +77,13 @@ namespace CORE_API.Tms.Controllers
         [HttpGet("Filter")]
         [AllowAnonymous]
         [SwaggerSummary("Filter Containers")]
-        public async Task<CoreListOutputResource<ContainerOutputResource>> Filter(string byContainerCode, string byContainerSize)
+        public async Task<CoreListOutputResource<ContainerOutputResource>> Filter(string byContainerCode)
         {
             var where = PredicateBuilder.New<Container>();
 
             if (!byContainerCode.IsNullOrEmpty())
             {
                 where = where.And(m => m.ContainerCode.ToUpper().Contains(byContainerCode.ToUpper()));
-            }
-
-            if (!byContainerSize.IsNullOrEmpty())
-            {
-                where = where.And(m => m.ContainerSize.ToUpper().Contains(byContainerSize.ToUpper()));
             }
 
             var results = _entityService.FindAll(where).ToList();
