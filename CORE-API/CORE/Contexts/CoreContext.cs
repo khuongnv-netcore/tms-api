@@ -72,6 +72,8 @@ namespace CORE_API.CORE.Contexts
             Location.OnModelCreating(builder);
             
             Employee.OnModelCreating(builder);
+
+            Container.OnModelCreating(builder);
         }
 
         public override int SaveChanges()
