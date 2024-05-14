@@ -37,8 +37,8 @@ namespace CORE_API.Tms.Controllers
         }
 
         [HttpPost]
-        [SwaggerSummary("Create Drvier")]
-        [Authorize(Roles = "Administrator")]
+        [SwaggerSummary("Create FixedAsset")]
+        //[Authorize(Roles = "Administrator")]
         public override Task<FixedAssetOutputResource> Create(FixedAssetInputResource resource)
         {
             return base.Create(resource);
@@ -46,14 +46,14 @@ namespace CORE_API.Tms.Controllers
 
         [HttpPut]
         [SwaggerSummary("Update FixedAsset")]
-        [Authorize(Roles = "Administrator")]
+        // [Authorize(Roles = "Administrator")]
         public override Task<FixedAssetOutputResource> Update(Guid Id, FixedAssetInputResource resource)
         {
             return base.Update(Id, resource);
         }
 
         [HttpGet("{id}")]
-        [SwaggerSummary("Read One Drvier")]
+        [SwaggerSummary("Read One FixedAsset")]
         public override FixedAssetOutputResource Read(Guid id)
         {
             return base.Read(id);
@@ -61,7 +61,7 @@ namespace CORE_API.Tms.Controllers
 
         [HttpGet]
         [SwaggerSummary("List FixedAssets")]
-        [Authorize(Roles = "Administrator")]
+        // [Authorize(Roles = "Administrator")]
         public override Task<CoreListOutputResource<FixedAssetOutputResource>> List(int skip = 0, int count = 20)
         {
             return base.List(skip, count);
@@ -79,6 +79,43 @@ namespace CORE_API.Tms.Controllers
             if (!containerTruckCode.IsNullOrEmpty())
             {
                 where = where.And(m => m.FixedAssetCode.ToUpper().Contains(containerTruckCode.ToUpper()));
+            }
+
+            var results = _entityService.FindAll(where).ToList();
+            var total = await _entityService.Count(where);
+
+            var output = new CoreListOutputResource<FixedAssetOutputResource>
+            {
+                Entities = _mapper.Map<IEnumerable<FixedAsset>, IList<FixedAssetOutputResource>>(results),
+                TotalEntities = total
+            };
+
+            return output;
+        }
+
+        [HttpDelete]
+        [SwaggerSummary("Delete one fixed asset")]
+        // [Authorize(Roles = "Administrator")] 
+        public override Task<FixedAssetOutputResource> Delete(Guid id)
+        {
+            return base.Delete(id);
+        }
+
+        [HttpGet("Filter")]
+        [SwaggerSummary("Filter Fixed Assets")]
+        // [Authorize(Roles = "Administrator")] 
+        public async Task<CoreListOutputResource<FixedAssetOutputResource>> Filter(string byFixedAssetCode, string byDriverName)
+        {
+            var where = PredicateBuilder.New<FixedAsset>();
+
+            if (!byFixedAssetCode.IsNullOrEmpty())
+            {
+                where = where.And(m => m.FixedAssetCode.ToUpper().Contains(byFixedAssetCode.ToUpper()));
+            }
+
+            if (!byDriverName.IsNullOrEmpty())
+            {
+                where = where.And(m => m.DriverName.ToUpper().Contains(byDriverName.ToUpper()));
             }
 
             var results = _entityService.FindAll(where).ToList();
