@@ -85,6 +85,11 @@ namespace CORE_API.Tms.Models.Views.Mappings
             CreateMap<ContainerInputResource, Container>();
             CreateMap<Container, ContainerOutputResource>();
             #endregion
+
+            #region PricingMaster
+            CreateMap<PricingMasterInputResource, PricingMaster>();
+            CreateMap<PricingMaster , PricingMasterOutputResource>();
+            #endregion
         }
     }
 }
