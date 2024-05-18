@@ -76,6 +76,8 @@ namespace CORE_API.CORE.Contexts
             Container.OnModelCreating(builder);
 
             PricingMaster.OnModelCreating(builder);
+
+            PricingForCustomer.OnModelCreating(builder);
         }
 
         public override int SaveChanges()
