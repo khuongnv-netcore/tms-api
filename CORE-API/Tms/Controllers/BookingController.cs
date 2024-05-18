@@ -85,7 +85,7 @@ namespace CORE_API.Tms.Controllers
         public async Task<CoreListOutputResource<BookingOutputResource>> Filter(DateTime? Start, DateTime? End, [FromQuery(Name = "bookingNos[]")] List<string> bookingNos, int skip = 0, int count = 20)
         {
 
-            var where = PredicateBuilder.New<Booking>();
+            var where = PredicateBuilder.New<Booking>(true);
             if (Start.HasValue && End.HasValue)
             {
                 where = where.And(m => m.Created >= Start && m.Created <= End);
