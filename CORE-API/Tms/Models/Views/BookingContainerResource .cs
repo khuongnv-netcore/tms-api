@@ -21,6 +21,7 @@ namespace CORE_API.Tms.Models.Views
         public virtual User CreatedUser { get; set; }
         public Guid ModifiedBy { get; set; }
         public virtual User ModifiedUser { get; set; }
+        public List<BookingContainerDetailInputResource> bookingContainerDetails { get; set; }
     }
 
     public class BookingContainerOutputResource : CoreOutputResource
@@ -35,5 +36,6 @@ namespace CORE_API.Tms.Models.Views
         public virtual User CreatedUser { get; set; }
         public Guid ModifiedBy { get; set; }
         public virtual User ModifiedUser { get; set; }
+        public List<BookingContainerDetailOutputResource> bookingContainerDetails { get; set; }
     }
 }
