@@ -42,6 +42,14 @@ namespace CORE_API.Tms.Models.Views.Mappings
             CreateMap<BookingContainer, BookingContainerOutputResource>();
             #endregion
 
+            #region BookingCharge
+            // Resource Input to Entity
+            CreateMap<BookingChargeInputResource, BookingCharge>();
+
+            //Entity Output to Resource
+            CreateMap<BookingCharge, BookingChargeOutputResource>();
+            #endregion
+
             #region BookingContainerDetail
             // Resource Input to Entity
             CreateMap<BookingContainerDetailInputResource, BookingContainerDetail>();

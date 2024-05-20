@@ -84,6 +84,7 @@ namespace CORE_API.Tms.Models.Entities
         //public List<RefundMoney>? RefundMoneys { get; set; }
         //public List<ShipperBooking>? ShipperBookings { get; set; }
         public virtual IList<BookingContainer> BookingContainers { get; set; }
+        public virtual IList<BookingCharge> BookingCharges { get; set; }
 
         internal static void OnModelCreating(ModelBuilder builder)
         {
@@ -108,7 +109,8 @@ namespace CORE_API.Tms.Models.Entities
         {
             var taskList = new List<Task>
             {
-                context.RemoveRangeAsync(BookingContainers, cancellationToken)
+                context.RemoveRangeAsync(BookingContainers, cancellationToken),
+                context.RemoveRangeAsync(BookingCharges, cancellationToken),
             };
 
             await Task.WhenAll(taskList);
@@ -117,6 +119,7 @@ namespace CORE_API.Tms.Models.Entities
         public override void OnSoftDelete(SoftDeletes.Core.DbContext context)
         {
             context.RemoveRange(BookingContainers);
+            context.RemoveRange(BookingCharges);
         }
 
         public override async Task LoadRelationsAsync(SoftDeletes.Core.DbContext context,
@@ -126,6 +129,9 @@ namespace CORE_API.Tms.Models.Entities
             {
                 context.Entry(this)
                     .Collection(m => m.BookingContainers)
+                    .LoadAsync(cancellationToken),
+                context.Entry(this)
+                    .Collection(m => m.BookingCharges)
                     .LoadAsync(cancellationToken)
             };
 
@@ -135,6 +141,9 @@ namespace CORE_API.Tms.Models.Entities
         {
             context.Entry(this)
                 .Collection(m => m.BookingContainers)
+                .Load();
+            context.Entry(this)
+                .Collection(m => m.BookingCharges)
                 .Load();
         }
     }

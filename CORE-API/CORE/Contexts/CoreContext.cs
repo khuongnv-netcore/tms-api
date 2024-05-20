@@ -61,6 +61,8 @@ namespace CORE_API.CORE.Contexts
 
             BookingContainer.OnModelCreating(builder);
 
+            BookingCharge.OnModelCreating(builder);
+
             BookingContainerDetail.OnModelCreating(builder);
 
             Driver.OnModelCreating(builder);
