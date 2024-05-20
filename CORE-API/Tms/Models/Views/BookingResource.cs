@@ -71,6 +71,7 @@ namespace CORE_API.Tms.Models.Views
         public Guid ModifiedBy { get; set; }
         public Guid ApprovedBy { get; set; }
         public List<BookingContainerInputResource> BookingContainers { get; set; }
+        public List<BookingChargeInputResource> BookingCharges { get; set; }
     }
 
     public class BookingOutputResource : CoreOutputResource
@@ -135,6 +136,7 @@ namespace CORE_API.Tms.Models.Views
         public Guid ModifiedBy { get; set; }
         public Guid ApprovedBy { get; set; }
         public List<BookingContainerOutputResource> BookingContainers { get; set; }
+        public List<BookingChargeInputResource> BookingCharges { get; set; }
     }
 
     public class BookingOutputResourceEx
