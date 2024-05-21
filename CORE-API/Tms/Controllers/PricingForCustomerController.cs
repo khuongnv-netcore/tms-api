@@ -82,25 +82,25 @@ namespace CORE_API.Tms.Controllers
             var where = PredicateBuilder.New<PricingForCustomer>();
             if (byFromDate.HasValue && byToDate.HasValue)
             {
-                where = where.And(p => p.FromDate >= byFromDate && p.ToDate <= byToDate);
+                where = where.And(p => p.FromDatePeriod >= byFromDate && p.ToDatePeriod <= byToDate);
             }
             else if (byFromDate.HasValue)
             {
-                where = where.And(p => p.FromDate >= byFromDate);
+                where = where.And(p => p.FromDatePeriod >= byFromDate);
             }
             else if (byToDate.HasValue)
             {
-                where = where.And(p => p.ToDate <= byToDate);
+                where = where.And(p => p.ToDatePeriod <= byToDate);
             }
 
             if (!byCustomer.IsNullOrEmpty())
             {
-                where = where.And(m => m.CustomerName.ToUpper().Contains(byCustomer.ToUpper()));
+                where = where.And(m => m.CustomerId.ToUpper().Contains(byCustomer.ToUpper()));
             }
 
             if (!bySaler.IsNullOrEmpty())
             {
-                where = where.And(m => m.EmployeeName.ToUpper().Contains(bySaler.ToUpper()));
+                where = where.And(m => m.SellerId.ToUpper().Contains(bySaler.ToUpper()));
             }
 
             var results = _entityService.FindAll(where).ToList();

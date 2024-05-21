@@ -1,37 +1,40 @@
 ﻿using System;
 using CORE_API.CORE.Models.Entities.Abstract;
+using CORE_API.CORE.Models.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Globalization;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
+using CORE_API.Tms.Models.Enums;
+using System.Reflection.Emit;
 
 namespace CORE_API.Tms.Models.Entities
 {
-    public class PricingForCustomer : CoreEntity
+    public class PricingForCustomerDetail : CoreEntity
     {
-        public DateTime FromDatePeriod { get; set; }
-        public DateTime ToDatePeriod { get; set; }
-        public string CustomerId {  get; set; }
-        public string SellerId { get; set; }
-        public string PricingMasterId { get; set; }
+        public Guid PricingMasterId {  get; set; }
+        public decimal UnitPrice { get; set; }
+        public decimal PriceForSale { get; set; }
+        public Guid PricingForCustomerId { get; set; }
         public Guid CreatedBy { get; set; }
         public Guid ModifiedBy { get; set; }
-
-        public virtual IList<PricingForCustomerDetail> PricingForCustomerDetails { get; set; }
 
         internal static void OnModelCreating(ModelBuilder builder)
         {
             // Config
-            string tableName = "PricingForCustomer";
+            string tableName = "PricingForCustomerDetail";
 
             // Generic
-            builder.Entity<PricingForCustomer>().ToTable(tableName);
-            builder.Entity<PricingForCustomer>().HasKey(m => m.Id);
-            builder.Entity<PricingForCustomer>().Property(m => m.Id).IsRequired().ValueGeneratedOnAdd();
-            builder.Entity<PricingForCustomer>().HasIndex(m => m.Created);
-            builder.Entity<PricingForCustomer>().HasIndex(m => m.Modified);
+            builder.Entity<PricingForCustomerDetail>().ToTable(tableName);
+            builder.Entity<PricingForCustomerDetail>().HasKey(m => m.Id);
+            builder.Entity<PricingForCustomerDetail>().Property(m => m.Id).IsRequired().ValueGeneratedOnAdd();
+            builder.Entity<PricingForCustomerDetail>().HasIndex(m => m.Created);
+            builder.Entity<PricingForCustomerDetail>().HasIndex(m => m.Modified);
 
-            builder.Entity<PricingForCustomer>()
+            builder.Entity<PricingForCustomerDetail>()
                 .HasQueryFilter(m => m.DeletedAt == null);
 
             // Relationship
@@ -41,7 +44,7 @@ namespace CORE_API.Tms.Models.Entities
         {
             var taskList = new List<Task>
             {
-                context.RemoveRangeAsync(PricingForCustomerDetails, cancellationToken)
+
             };
 
             await Task.WhenAll(taskList);
@@ -49,7 +52,7 @@ namespace CORE_API.Tms.Models.Entities
 
         public override void OnSoftDelete(SoftDeletes.Core.DbContext context)
         {
-            context.RemoveRange(PricingForCustomerDetails);
+
         }
 
         public override async Task LoadRelationsAsync(SoftDeletes.Core.DbContext context,
@@ -57,9 +60,7 @@ namespace CORE_API.Tms.Models.Entities
         {
             var taskList = new List<Task>
             {
-                context.Entry(this)
-                    .Collection(m => m.PricingForCustomerDetails)
-                    .LoadAsync(cancellationToken)
+
             };
 
             await Task.WhenAll(taskList);
@@ -67,9 +68,7 @@ namespace CORE_API.Tms.Models.Entities
 
         public override void LoadRelations(SoftDeletes.Core.DbContext context)
         {
-            context.Entry(this)
-                .Collection(m => m.PricingForCustomerDetails)
-                .Load();
+
         }
     }
 }

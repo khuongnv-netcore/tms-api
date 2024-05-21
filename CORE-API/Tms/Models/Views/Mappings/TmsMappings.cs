@@ -103,6 +103,11 @@ namespace CORE_API.Tms.Models.Views.Mappings
             CreateMap<PricingForCustomerInputResource, PricingForCustomer>();
             CreateMap<PricingForCustomer, PricingForCustomerOutputResource>();
             #endregion
+
+            #region Pricing For Customer Detail
+            CreateMap<PricingForCustomerDetailInputResource, PricingForCustomerDetail>();
+            CreateMap<PricingForCustomerDetail, PricingForCustomerDetailOutputResource>();
+            #endregion
         }
     }
 }
