@@ -5,38 +5,31 @@ using System;
 using CORE_API.Tms.Models.Enums;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
+using CORE_API.Tms.Models.Entities;
 
 namespace CORE_API.Tms.Models.Views
 {
     public class PricingForCustomerInputResource : CoreInputResource
     {
-        public DateTime FromDate { get; set; }
-        public DateTime ToDate { get; set; }
+        public DateTime FromDatePeriod { get; set; }
+        public DateTime ToDatePeriod { get; set; }
         public string CustomerId { get; set; }
-        public string CustomerName { get; set; }
-        public string EmployeeId { get; set; }
-        public string EmployeeName { get; set; }
+        public string SellerId { get; set; }
         public string PricingMasterId { get; set; }
-        public string ProductName { get; set; }
-        public decimal UnitPrice { get; set; }
-        public decimal SalePrice { get; set; }
         public Guid CreatedBy { get; set; }
         public Guid ModifiedBy { get; set; }
+        public List<PricingForCustomerDetailInputResource> PricingForCustomerDetails { get; set; }
     }
 
     public class PricingForCustomerOutputResource : CoreOutputResource
     {
-        public DateTime FromDate { get; set; }
-        public DateTime ToDate { get; set; }
+        public DateTime FromDatePeriod { get; set; }
+        public DateTime ToDatePeriod { get; set; }
         public string CustomerId { get; set; }
-        public string CustomerName { get; set; }
-        public string EmployeeId { get; set; }
-        public string EmployeeName { get; set; }
+        public string SellerId { get; set; }
         public string PricingMasterId { get; set; }
-        public string ProductName { get; set; }
-        public decimal UnitPrice { get; set; }
-        public decimal SalePrice { get; set; }
         public Guid CreatedBy { get; set; }
         public Guid ModifiedBy { get; set; }
+        public List<PricingForCustomerDetailOutputResource> PricingForCustomerDetails { get; set; }
     }
 }
