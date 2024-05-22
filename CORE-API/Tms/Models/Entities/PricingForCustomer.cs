@@ -11,9 +11,8 @@ namespace CORE_API.Tms.Models.Entities
     {
         public DateTime FromDatePeriod { get; set; }
         public DateTime ToDatePeriod { get; set; }
-        public string CustomerId {  get; set; }
-        public string SellerId { get; set; }
-        public string PricingMasterId { get; set; }
+        public Guid CustomerId {  get; set; }
+        public Guid SellerId { get; set; }
         public Guid CreatedBy { get; set; }
         public Guid ModifiedBy { get; set; }
 

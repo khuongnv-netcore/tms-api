@@ -77,7 +77,7 @@ namespace CORE_API.Tms.Controllers
         [HttpGet("Filter")]
         [SwaggerSummary("Filter Pricing For Customer")]
         // [Authorize(Roles = "Administrator")] 
-        public async Task<CoreListOutputResource<PricingForCustomerOutputResource>> Filter(DateTime? byFromDate, DateTime? byToDate, string byCustomer, string bySaler)
+        public async Task<CoreListOutputResource<PricingForCustomerOutputResource>> Filter(DateTime? byFromDate, DateTime? byToDate, Guid? byCustomer, Guid? bySaler)
         {
             var where = PredicateBuilder.New<PricingForCustomer>();
             if (byFromDate.HasValue && byToDate.HasValue)
@@ -93,14 +93,14 @@ namespace CORE_API.Tms.Controllers
                 where = where.And(p => p.ToDatePeriod <= byToDate);
             }
 
-            if (!byCustomer.IsNullOrEmpty())
+            if (byCustomer != Guid.Empty && byCustomer != null)
             {
-                where = where.And(m => m.CustomerId.ToUpper().Contains(byCustomer.ToUpper()));
+                where = where.And(m => m.CustomerId== byCustomer);
             }
 
-            if (!bySaler.IsNullOrEmpty())
+            if (bySaler != Guid.Empty && bySaler != null)
             {
-                where = where.And(m => m.SellerId.ToUpper().Contains(bySaler.ToUpper()));
+                where = where.And(m => m.SellerId== bySaler);
             }
 
             var results = _entityService.FindAll(where).ToList();
@@ -111,6 +111,25 @@ namespace CORE_API.Tms.Controllers
                 Entities = _mapper.Map<IEnumerable<PricingForCustomer>, IList<PricingForCustomerOutputResource>>(results),
                 TotalEntities = total
             };
+
+            return output;
+        }
+
+        [HttpGet("getPricingForCustomerPeriod")]
+        [SwaggerSummary("getPricingForCustomerPeriod")]
+        // [Authorize(Roles = "Administrator")] 
+        public PricingForCustomerOutputResource getPricingForCustomerPeriod(DateTime? currentDate, Guid customerId)
+        {
+            var where = PredicateBuilder.New<PricingForCustomer>();
+            if (currentDate.HasValue)
+            {
+                where = where.And(p => currentDate >= p.FromDatePeriod && currentDate <= p.ToDatePeriod);
+                where = where.And(m => m.CustomerId == customerId);
+            }
+
+            var result = _entityService.FindAll(where).ToList().FirstOrDefault();
+
+            var output = _mapper.Map<PricingForCustomer, PricingForCustomerOutputResource>(result);
 
             return output;
         }
