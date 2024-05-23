@@ -61,7 +61,7 @@ namespace CORE_API.Tms.Controllers
 
         [HttpGet]
         [SwaggerSummary("List Drivers")]
-        [Authorize(Roles = "Administrator")]
+        //[Authorize(Roles = "Administrator")]
         public override Task<CoreListOutputResource<DriverOutputResource>> List(int skip = 0, int count = 20)
         {
             return base.List(skip, count);

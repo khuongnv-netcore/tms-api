@@ -82,22 +82,38 @@ namespace CORE_API.Tms.Controllers
         [HttpGet("Filter")]
         [AllowAnonymous]
         [SwaggerSummary("Filter Bookings")]
-        public async Task<CoreListOutputResource<BookingOutputResource>> Filter(DateTime? Start, DateTime? End, [FromQuery(Name = "bookingNos[]")] List<string> bookingNos, int skip = 0, int count = 20)
+        public async Task<CoreListOutputResource<BookingOutputResource>> Filter(DateTime? Start, DateTime? End, 
+            [FromQuery(Name = "bookingNos[]")] List<string> bookingNos,
+            [FromQuery(Name = "bookingStatuses[]")] List<EBookingStatus> bookingStatuses,
+            [FromQuery(Name = "scheduleStatuses[]")] List<EScheduleStatusOfBooking> scheduleStatuses,
+            int skip = 0, int count = 20)
         {
 
             var where = PredicateBuilder.New<Booking>(true);
             if (Start.HasValue && End.HasValue)
             {
                 where = where.And(m => m.Created >= Start && m.Created <= End);
+                where = where.Or(m => m.Modified >= Start && m.Modified <= End);
             }
             else if (Start.HasValue) {
                 where = where.And(m => m.Created >= Start);
+                where = where.Or(m => m.Modified >= Start);
             }
 
             if (bookingNos.Count > 0) {
                 where = where.And(m => bookingNos.Contains(m.BookingNo));
             }
-            
+
+            if (bookingStatuses.Count > 0)
+            {
+                where = where.And(m => bookingStatuses.Contains(m.Status));
+            }
+
+            if (scheduleStatuses.Count > 0)
+            {
+                where = where.And(m => scheduleStatuses.Contains(m.ScheduleStatus));
+            }
+
             var results = _entityService.FindQueryableList(skip, count, where).ToList();
             var total = await _entityService.Count(where);
 

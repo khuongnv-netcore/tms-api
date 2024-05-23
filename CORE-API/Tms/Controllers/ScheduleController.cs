@@ -83,7 +83,11 @@ namespace CORE_API.Tms.Controllers
         [HttpGet("Filter")]
         [AllowAnonymous]
         [SwaggerSummary("Filter Schedules")]
-        public async Task<CoreListOutputResource<ScheduleOutputResource>> Filter(DateTime Start, DateTime End, [FromQuery(Name = "bookingNos[]")] List<String> bookingNos, string driverName, string containerTruckCode, int skip = 0, int count = 20)
+        public async Task<CoreListOutputResource<ScheduleOutputResource>> Filter(DateTime Start, DateTime End, 
+            [FromQuery(Name = "bookingNos[]")] List<String> bookingNos,
+            [FromQuery(Name = "drivers[]")] List<Guid> drivers,
+            [FromQuery(Name = "containerTrucks[]")] List<Guid> containerTrucks,
+            int skip = 0, int count = 20)
         {
 
             var where = PredicateBuilder.New<Schedule>();
@@ -95,12 +99,12 @@ namespace CORE_API.Tms.Controllers
             if (bookingNos.Count > 0) {
                 where = where.And(m => bookingNos.Contains(m.BookingNo));
             }
-            if (!driverName.IsNullOrEmpty()) {
-                where = where.And(m => m.DriverName == driverName);
+            if (drivers.Count > 0) {
+                where = where.And(m => drivers.Contains(m.DriverId));
             }
-            if (!containerTruckCode.IsNullOrEmpty())
+            if (containerTrucks.Count > 0)
             {
-                where = where.And(m => m.ContainerTruckCode == containerTruckCode);
+                where = where.And(m => containerTrucks.Contains(m.ContainerTruckId));
             }
 
             var results = _entityService.FindQueryableList(skip, count, where).ToList();
