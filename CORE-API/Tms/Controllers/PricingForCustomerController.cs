@@ -128,8 +128,10 @@ namespace CORE_API.Tms.Controllers
             }
 
             var result = _entityService.FindAll(where).ToList().FirstOrDefault();
-
-            var output = _mapper.Map<PricingForCustomer, PricingForCustomerOutputResource>(result);
+            var output = new PricingForCustomerOutputResource();
+            if (result != null) {
+                output = _mapper.Map<PricingForCustomer, PricingForCustomerOutputResource>(result);
+            }
 
             return output;
         }
