@@ -1,15 +1,8 @@
 ﻿using System;
 using CORE_API.CORE.Models.Entities.Abstract;
-using CORE_API.CORE.Models.Entities;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Globalization;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel;
-using CORE_API.Tms.Models.Enums;
-using System.Reflection.Emit;
 
 namespace CORE_API.Tms.Models.Entities
 {
@@ -42,12 +35,6 @@ namespace CORE_API.Tms.Models.Entities
         public override async Task OnSoftDeleteAsync(SoftDeletes.Core.DbContext context,
         CancellationToken cancellationToken = default)
         {
-            var taskList = new List<Task>
-            {
-
-            };
-
-            await Task.WhenAll(taskList);
         }
 
         public override void OnSoftDelete(SoftDeletes.Core.DbContext context)
@@ -58,12 +45,6 @@ namespace CORE_API.Tms.Models.Entities
         public override async Task LoadRelationsAsync(SoftDeletes.Core.DbContext context,
         CancellationToken cancellationToken = default)
         {
-            var taskList = new List<Task>
-            {
-
-            };
-
-            await Task.WhenAll(taskList);
         }
 
         public override void LoadRelations(SoftDeletes.Core.DbContext context)
