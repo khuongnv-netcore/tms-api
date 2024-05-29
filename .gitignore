@@ -40,5 +40,6 @@ LocalLogs/
 # Forks
 Hooky/
 .vs/CORE-API/v17/.suo
-CORE-API/obj
-CORE-API/LocalLogs
+CORE-API/obj/
+CORE-API/bin/
+CORE-API/LocalLogs/

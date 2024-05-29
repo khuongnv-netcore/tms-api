@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
@@ -150,6 +151,24 @@ namespace CORE_API.CORE.Services
         public async Task<int> Count(Expression<Func<TEntity, bool>> where = null)
         {
             return await _repository.CountAsync(where);
+        }
+
+        public async Task<SaveManyResponse<TEntity>> BulkInsertOrUpdate(List<TEntity> modelList)
+        {
+            var updatedList = new List<TEntity>();
+            try
+            {
+                _repository.BulkInsertOrUpdate(modelList);
+                await _repository.SaveChangesAsync();
+
+                return new SaveManyResponse<TEntity>(modelList);
+            }
+            catch (Exception ex)
+            {
+                //Do some logging
+                return new SaveManyResponse<TEntity>($"An error occured when saving the entity: {ex.Message}", ex);
+            }
+
         }
     }
 }

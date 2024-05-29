@@ -37,5 +37,7 @@ namespace CORE_API.CORE.Services.Abstract
         Task<SaveManyResponse<TEntity>> UpdateManyAsync(List<TEntity> modelList);
         
         Task<int> Count(Expression<Func<TEntity, bool>> where = null);
+
+        Task<SaveManyResponse<TEntity>> BulkInsertOrUpdate(List<TEntity> modelList);
     }
 }

@@ -22,6 +22,7 @@ using System;
 using System.Linq;
 using Microsoft.IdentityModel.Tokens;
 using CORE_API.Tms.Models.Enums;
+using System.Data.Entity;
 
 namespace CORE_API.Tms.Controllers
 {
@@ -206,12 +207,12 @@ namespace CORE_API.Tms.Controllers
             {
                 where = where.And(m => bookingIds.Contains(m.Id));
 
-                var bookings = _entityService.FindAll(where).ToList();
+                var bookings = _entityService.FindAll(where).AsNoTracking().ToList();
 
                 // Get Booking Containers
                 var bookingContainerWhere = PredicateBuilder.New<BookingContainer>();
                 bookingContainerWhere = bookingContainerWhere.And(m => bookingIds.Contains(m.BookingId));
-                var bookingContainers = _bookingContainerService.FindAll(bookingContainerWhere).ToList();
+                var bookingContainers = _bookingContainerService.FindAll(bookingContainerWhere).AsNoTracking().ToList();
 
                 // Get Booking Container Details For Booking Containters
                 var bookingContainerDetailWhere = PredicateBuilder.New<BookingContainerDetail>();
@@ -226,7 +227,7 @@ namespace CORE_API.Tms.Controllers
                 scheduleWhere = scheduleWhere.And(
                     m => bookingContainerDetails.Select(bcd => bcd.Id)
                                                 .Contains(m.BookingContainerDetailId));
-                var schedules = _scheduleService.FindAll(scheduleWhere).ToList();
+                var schedules = _scheduleService.FindAll(scheduleWhere).AsNoTracking().ToList();
 
                 // Update schedule for bookingContainerDetails
                 bookingContainerDetails.ForEach(bookingContainerDetail =>
@@ -246,27 +247,33 @@ namespace CORE_API.Tms.Controllers
 
                     // Make schedule for bookings
                     var schedules = booking.BookingContainers
-                                        .SelectMany(m => m.BookingContainerDetails)
-                                        .Select(x => x.Schedule ?? new Schedule {
-                                            BookingId = x.BookingId,
-                                            BookingNo = x.BookingNo,
-                                            ContainerId = x.ContainerId,
-                                            BookingContainerId = x.BookingContainerId,
-                                            BookingContainer = new BookingContainer {
-                                                ContainerCode = x.BookingContainer.ContainerCode
-                                            },
-                                            BookingContainerDetailId = x.Id,
-                                            ScheduleStatus = EScheduleStatus.ASSINGED,
-                                            PickupPlan = DateTime.UtcNow,
-                                            DeliveryPlan = DateTime.UtcNow
+                                        .SelectMany(m => m.BookingContainerDetails, (bookingContainer, BookingContainerDetail) => new ScheduleBookingOutputResource
+                                        {
+                                            Id = BookingContainerDetail.Schedule != null ? BookingContainerDetail.Schedule.Id : Guid.NewGuid(),
+                                            BookingId = BookingContainerDetail.BookingId,
+                                            BookingNo = BookingContainerDetail.BookingNo,
+                                            ContainerId = BookingContainerDetail.ContainerId,
+                                            BookingContainerId = BookingContainerDetail.BookingContainerId,
+                                            BookingContainerDetailId = BookingContainerDetail.Id,
+                                            ScheduleStatus = BookingContainerDetail.Schedule != null ? BookingContainerDetail.Schedule.ScheduleStatus : EScheduleStatus.ASSINGED,
+                                            PickupPlan = BookingContainerDetail.Schedule != null ? BookingContainerDetail.Schedule.PickupPlan : DateTime.UtcNow,
+                                            DeliveryPlan = BookingContainerDetail.Schedule != null ? BookingContainerDetail.Schedule.DeliveryPlan : DateTime.UtcNow,
+                                            PickupAddress = BookingContainerDetail.Schedule != null ? BookingContainerDetail.Schedule.PickupAddress : "",
+                                            DeliveryAddress = BookingContainerDetail.Schedule != null ? BookingContainerDetail.Schedule.DeliveryAddress : "",
+                                            DriverId = BookingContainerDetail.Schedule != null ? BookingContainerDetail.Schedule.DriverId : Guid.Empty,
+                                            DriverName = BookingContainerDetail.Schedule != null ? BookingContainerDetail.Schedule.DriverName : "",
+                                            ContainerTruckId = BookingContainerDetail.Schedule != null ? BookingContainerDetail.Schedule.ContainerTruckId : Guid.Empty,
+                                            ContainerTruckCode = BookingContainerDetail.Schedule != null ? BookingContainerDetail.Schedule.ContainerTruckCode : "",
+                                            TransportCost = BookingContainerDetail.Schedule != null ? BookingContainerDetail.Schedule.TransportCost : 0,
+                                            ContainerNo = BookingContainerDetail.ContainerNo,
+                                            ContainerCode = bookingContainer.ContainerCode
                                         }).ToList();
 
-                    var scheduleBookingOutputResource = _mapper.Map<IEnumerable<Schedule>, List<ScheduleBookingOutputResource>>(schedules);
                     var scheduleForBooking = new ScheduleForBookingOutputResource
                     {
                         BookingId = booking.Id,
                         BookingNo = booking.BookingNo,
-                        schedules = scheduleBookingOutputResource
+                        schedules = schedules
                     };
                     scheduleForBookings.Add(scheduleForBooking);
                 });

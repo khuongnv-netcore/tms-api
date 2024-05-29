@@ -65,6 +65,7 @@ namespace CORE_API.Tms.Models.Entities
         public virtual User ModifiedUser { get; set; }
         [NotMapped]
         public virtual BookingContainer BookingContainer { get; set; }
+        public virtual BookingContainerDetail BookingContainerDetail { get; set; }
 
 
         internal static void OnModelCreating(ModelBuilder builder)
@@ -85,6 +86,7 @@ namespace CORE_API.Tms.Models.Entities
             builder.Entity<Schedule>().HasQueryFilter(m => m.DeletedAt == null);
 
             //Relationship
+            builder.Entity<Schedule>().HasOne(m => m.BookingContainerDetail).WithOne(m => m.Schedule).HasForeignKey<Schedule>(m => m.BookingContainerDetailId);
         }
 
         public override async Task OnSoftDeleteAsync(SoftDeletes.Core.DbContext context,

@@ -68,7 +68,7 @@ namespace CORE_API.Tms.Models.Entities
         {
             var taskList = new List<Task>
             {
-                //context.RemoveRangeAsync(UserRoles, cancellationToken)
+                context.RemoveAsync(Schedule, cancellationToken)
             };
 
             await Task.WhenAll(taskList);
@@ -76,26 +76,14 @@ namespace CORE_API.Tms.Models.Entities
 
         public override void OnSoftDelete(SoftDeletes.Core.DbContext context)
         {
-            //context.RemoveRange(UserRoles);
+            context.Remove(Schedule);
         }
 
-        public override async Task LoadRelationsAsync(SoftDeletes.Core.DbContext context,
+        public override Task LoadRelationsAsync(SoftDeletes.Core.DbContext context,
             CancellationToken cancellationToken = default)
         {
-            var taskList = new List<Task>
-            {
-                //context.Entry(this)
-                //    .Collection(m => m.UserRoles)
-                //    .LoadAsync(cancellationToken)
-            };
-
-            await Task.WhenAll(taskList);
+            return Task.CompletedTask;
         }
-        public override void LoadRelations(SoftDeletes.Core.DbContext context)
-        {
-            //context.Entry(this)
-            //    .Collection(m => m.UserRoles)
-            //    .Load();
-        }
+        public override void LoadRelations(SoftDeletes.Core.DbContext context){}
     }
 }
