@@ -20,6 +20,7 @@ using System.Threading.Tasks;
 using System;
 using System.Linq;
 using Microsoft.IdentityModel.Tokens;
+using System.Data.Entity;
 
 namespace CORE_API.Tms.Controllers
 {
@@ -45,15 +46,10 @@ namespace CORE_API.Tms.Controllers
         [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> CreateOrUpdate(List<CreateOrUpdateScheduleInputResource> resource)
         {
-            var insertResource = resource.Where(m => m.Id == Guid.Empty).ToList();
-            var updateResource = resource.Where(m => m.Id != Guid.Empty).ToList();
+            var updateSchedules = _mapper.Map<IEnumerable<CreateOrUpdateScheduleInputResource>, List<Schedule>>(resource);
 
-            var insertSchedule = _mapper.Map<IEnumerable<CreateOrUpdateScheduleInputResource>, List<Schedule>>(insertResource);
-            var updateSchedule = _mapper.Map<IEnumerable<CreateOrUpdateScheduleInputResource>, List<Schedule>>(updateResource);
-            
-            var insertedResult = await _entityService.AddManyAsync(insertSchedule);
-            var updatedResult = await _entityService.UpdateManyAsync(updateSchedule);
-
+            await _entityService.BulkInsertOrUpdate(updateSchedules);
+           
             return Ok();
         }
 
