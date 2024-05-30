@@ -155,7 +155,6 @@ namespace CORE_API.CORE.Services
 
         public async Task<SaveManyResponse<TEntity>> BulkInsertOrUpdate(List<TEntity> modelList)
         {
-            var updatedList = new List<TEntity>();
             try
             {
                 _repository.BulkInsertOrUpdate(modelList);

@@ -10,8 +10,9 @@ namespace CORE_API.Tms.Services.Abstract
 {
     public interface IBookingService
     {
-        Task<List<BookingEx>> FilterBookingNo(string bookingNo);
+        Task<List<Booking>> FilterBookingNo(string bookingNo);
         Task<List<BookingEx>> FilterEx(DateTime? Start, DateTime? End, List<string> bookingNos, int skip = 0, int count = 20);
         Task<List<ScheduleForBookingOutputResource>> LoadScheduleForBookingsEx(List<string> bookingIds);
+        Task UpdateScheduleStatusForbooking(Guid bookingId);
     }
 }
