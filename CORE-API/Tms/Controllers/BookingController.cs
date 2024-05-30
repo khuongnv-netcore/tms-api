@@ -171,25 +171,6 @@ namespace CORE_API.Tms.Controllers
             return output;
         }
 
-        [HttpGet("FilterBookingNoEx")]
-        [AllowAnonymous]
-        [SwaggerSummary("Filter BookingNo Ex")]
-        public async Task<CoreListOutputResourceEx<BookingOutputResourceEx>> FilterBookingNoEx(string bookingNo)
-        {
-            // FilterBookingNo from External Database
-            #region
-            var results = await _bookingService.FilterBookingNo(bookingNo);
-            var total = results.Count;
-            var output = new CoreListOutputResourceEx<BookingOutputResourceEx>
-            {
-                Entities = _mapper.Map<IEnumerable<BookingEx>, IList<BookingOutputResourceEx>>(results),
-                TotalEntities = total
-            };
-            #endregion
-
-            return output;
-        }
-
         [HttpGet("LoadScheduleForBookings")]
         [AllowAnonymous]
         [SwaggerSummary("Load Schedule For Bookings")]
@@ -244,6 +225,10 @@ namespace CORE_API.Tms.Controllers
                 // Update BookingContainers of Booking
                 bookings.ForEach(booking => {
                     booking.BookingContainers = bookingContainers.Where(m => m.BookingId == booking.Id).ToList();
+                    var pickupAddress = booking.PickupAddress;
+                    var deliveryAddress = booking.DeliveryAddress;
+                    var pickupPlan = booking.PickUpDT;
+                    var deliveryPlan = booking.SaillingDueDate;
 
                     // Make schedule for bookings
                     var schedules = booking.BookingContainers
@@ -256,10 +241,10 @@ namespace CORE_API.Tms.Controllers
                                             BookingContainerId = BookingContainerDetail.BookingContainerId,
                                             BookingContainerDetailId = BookingContainerDetail.Id,
                                             ScheduleStatus = BookingContainerDetail.Schedule != null ? BookingContainerDetail.Schedule.ScheduleStatus : EScheduleStatus.ASSINGED,
-                                            PickupPlan = BookingContainerDetail.Schedule != null ? BookingContainerDetail.Schedule.PickupPlan : DateTime.UtcNow,
-                                            DeliveryPlan = BookingContainerDetail.Schedule != null ? BookingContainerDetail.Schedule.DeliveryPlan : DateTime.UtcNow,
-                                            PickupAddress = BookingContainerDetail.Schedule != null ? BookingContainerDetail.Schedule.PickupAddress : "",
-                                            DeliveryAddress = BookingContainerDetail.Schedule != null ? BookingContainerDetail.Schedule.DeliveryAddress : "",
+                                            PickupPlan = BookingContainerDetail.Schedule != null ? BookingContainerDetail.Schedule.PickupPlan : pickupPlan,
+                                            DeliveryPlan = BookingContainerDetail.Schedule != null ? BookingContainerDetail.Schedule.DeliveryPlan : deliveryPlan,
+                                            PickupAddress = BookingContainerDetail.Schedule != null ? BookingContainerDetail.Schedule.PickupAddress : pickupAddress,
+                                            DeliveryAddress = BookingContainerDetail.Schedule != null ? BookingContainerDetail.Schedule.DeliveryAddress : deliveryAddress,
                                             DriverId = BookingContainerDetail.Schedule != null ? BookingContainerDetail.Schedule.DriverId : Guid.Empty,
                                             DriverName = BookingContainerDetail.Schedule != null ? BookingContainerDetail.Schedule.DriverName : "",
                                             ContainerTruckId = BookingContainerDetail.Schedule != null ? BookingContainerDetail.Schedule.ContainerTruckId : Guid.Empty,

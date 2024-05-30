@@ -21,6 +21,9 @@ using System;
 using System.Linq;
 using Microsoft.IdentityModel.Tokens;
 using System.Data.Entity;
+using CORE_API.Tms.Services.Abstract;
+using CORE_API.Tms.Models.Enums;
+using CORE_API.Tms.Services;
 
 namespace CORE_API.Tms.Controllers
 {
@@ -28,9 +31,18 @@ namespace CORE_API.Tms.Controllers
     [ApiController]
     public class ScheduleController : GenericEntityController<Schedule, ScheduleInputResource, ScheduleOutputResource>
     {
-        public ScheduleController(IControllerHelper controllerHelper, IGenericEntityService<Schedule> entityService, IOptions<CoreConfigurationOptions> coreConfigurationOptions, IMapper mapper)
+        private IGenericEntityService<BookingContainerDetail> _bookingContainerDetailService;
+        private IBookingService _bookingService;
+
+        public ScheduleController(IControllerHelper controllerHelper, IGenericEntityService<Schedule> entityService, 
+            IOptions<CoreConfigurationOptions> coreConfigurationOptions, IMapper mapper,
+                        IGenericEntityService<BookingContainerDetail> bookingContainerDetailService,
+                        IBookingService bookingService
+            )
             : base(controllerHelper, entityService, coreConfigurationOptions, mapper)
         {
+            _bookingContainerDetailService = bookingContainerDetailService;
+            _bookingService = bookingService;
         }
 
         [HttpPost]
@@ -49,7 +61,18 @@ namespace CORE_API.Tms.Controllers
             var updateSchedules = _mapper.Map<IEnumerable<CreateOrUpdateScheduleInputResource>, List<Schedule>>(resource);
 
             await _entityService.BulkInsertOrUpdate(updateSchedules);
-           
+
+            //Update Container No to BookingContainerDetail
+
+            foreach (var schedule in updateSchedules)
+            {
+                var bookingContainerDetail = _bookingContainerDetailService.FindById(schedule.BookingContainerDetailId);
+                bookingContainerDetail.ContainerNo = schedule.ContainerNo;
+                await _bookingContainerDetailService.UpdateAsync(bookingContainerDetail);
+            }
+            //Update Schedule Status for Booking
+             await _bookingService.UpdateScheduleStatusForbooking(updateSchedules.Select(m => m.BookingId).FirstOrDefault());
+
             return Ok();
         }
 
