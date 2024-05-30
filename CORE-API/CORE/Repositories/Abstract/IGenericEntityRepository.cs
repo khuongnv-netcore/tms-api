@@ -22,5 +22,7 @@ namespace CORE_API.CORE.Repositories.Abstract
         TEntity Delete(TEntity entity);
 
         Task SaveChangesAsync();
+
+        void BulkInsertOrUpdate(List<TEntity> entities);
     }
 }

@@ -61,7 +61,7 @@ namespace CORE_API.Tms.Controllers
 
         [HttpGet]
         [SwaggerSummary("List Drivers")]
-        [Authorize(Roles = "Administrator")]
+        //[Authorize(Roles = "Administrator")]
         public override Task<CoreListOutputResource<DriverOutputResource>> List(int skip = 0, int count = 20)
         {
             return base.List(skip, count);
@@ -81,6 +81,57 @@ namespace CORE_API.Tms.Controllers
             }
 
             var results = _entityService.FindAll(where).ToList();
+            var total = await _entityService.Count(where);
+
+            var output = new CoreListOutputResource<DriverOutputResource>
+            {
+                Entities = _mapper.Map<IEnumerable<Driver>, IList<DriverOutputResource>>(results),
+                TotalEntities = total
+            };
+
+            return output;
+        }
+
+        [HttpDelete]
+        [SwaggerSummary("Delete one driver")]
+        //[Authorize(Roles = "Administrator")]
+        public override Task<DriverOutputResource> Delete(Guid id)
+        {
+            return base.Delete(id);
+        }
+
+        [HttpGet("Filter")]
+        [SwaggerSummary("Filter Drivers")]
+        //[Authorize(Roles = "Administrator")]
+        public async Task<CoreListOutputResource<DriverOutputResource>> Filter(
+            string byDriverCode,
+            string byDriverName,
+            DateTime? byBirthday,
+            string byCardNo)
+        {
+            var where = PredicateBuilder.New<Driver>(); // Use Employee here
+
+            if (!byDriverCode.IsNullOrEmpty())
+            {
+                where = where.And(m => m.DriverCode.ToUpper().Contains(byDriverCode.ToUpper()));
+            }
+
+            if (!byDriverName.IsNullOrEmpty())
+            {
+                where = where.And(m => m.Name.ToUpper().Contains(byDriverName.ToUpper()));
+            }
+
+            if (byBirthday.HasValue)
+            {
+                where = where.And(m => m.Birthday.Date == byBirthday.Value.Date);
+            }
+
+            if (!byCardNo.IsNullOrEmpty())
+            {
+                where = where.And(m => m.CardNo.ToUpper().Contains(byCardNo.ToUpper()));
+            }
+
+            var results = _entityService.FindAll(where).ToList(); // Use Employee here
             var total = await _entityService.Count(where);
 
             var output = new CoreListOutputResource<DriverOutputResource>

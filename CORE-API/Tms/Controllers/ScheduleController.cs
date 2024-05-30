@@ -20,6 +20,10 @@ using System.Threading.Tasks;
 using System;
 using System.Linq;
 using Microsoft.IdentityModel.Tokens;
+using System.Data.Entity;
+using CORE_API.Tms.Services.Abstract;
+using CORE_API.Tms.Models.Enums;
+using CORE_API.Tms.Services;
 
 namespace CORE_API.Tms.Controllers
 {
@@ -27,9 +31,18 @@ namespace CORE_API.Tms.Controllers
     [ApiController]
     public class ScheduleController : GenericEntityController<Schedule, ScheduleInputResource, ScheduleOutputResource>
     {
-        public ScheduleController(IControllerHelper controllerHelper, IGenericEntityService<Schedule> entityService, IOptions<CoreConfigurationOptions> coreConfigurationOptions, IMapper mapper)
+        private IGenericEntityService<BookingContainerDetail> _bookingContainerDetailService;
+        private IBookingService _bookingService;
+
+        public ScheduleController(IControllerHelper controllerHelper, IGenericEntityService<Schedule> entityService, 
+            IOptions<CoreConfigurationOptions> coreConfigurationOptions, IMapper mapper,
+                        IGenericEntityService<BookingContainerDetail> bookingContainerDetailService,
+                        IBookingService bookingService
+            )
             : base(controllerHelper, entityService, coreConfigurationOptions, mapper)
         {
+            _bookingContainerDetailService = bookingContainerDetailService;
+            _bookingService = bookingService;
         }
 
         [HttpPost]
@@ -45,14 +58,20 @@ namespace CORE_API.Tms.Controllers
         [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> CreateOrUpdate(List<CreateOrUpdateScheduleInputResource> resource)
         {
-            var insertResource = resource.Where(m => m.Id == Guid.Empty).ToList();
-            var updateResource = resource.Where(m => m.Id != Guid.Empty).ToList();
+            var updateSchedules = _mapper.Map<IEnumerable<CreateOrUpdateScheduleInputResource>, List<Schedule>>(resource);
 
-            var insertSchedule = _mapper.Map<IEnumerable<CreateOrUpdateScheduleInputResource>, List<Schedule>>(insertResource);
-            var updateSchedule = _mapper.Map<IEnumerable<CreateOrUpdateScheduleInputResource>, List<Schedule>>(updateResource);
-            
-            var insertedResult = await _entityService.AddManyAsync(insertSchedule);
-            var updatedResult = await _entityService.UpdateManyAsync(updateSchedule);
+            await _entityService.BulkInsertOrUpdate(updateSchedules);
+
+            //Update Container No to BookingContainerDetail
+
+            foreach (var schedule in updateSchedules)
+            {
+                var bookingContainerDetail = _bookingContainerDetailService.FindById(schedule.BookingContainerDetailId);
+                bookingContainerDetail.ContainerNo = schedule.ContainerNo;
+                await _bookingContainerDetailService.UpdateAsync(bookingContainerDetail);
+            }
+            //Update Schedule Status for Booking
+             await _bookingService.UpdateScheduleStatusForbooking(updateSchedules.Select(m => m.BookingId).FirstOrDefault());
 
             return Ok();
         }
@@ -83,7 +102,11 @@ namespace CORE_API.Tms.Controllers
         [HttpGet("Filter")]
         [AllowAnonymous]
         [SwaggerSummary("Filter Schedules")]
-        public async Task<CoreListOutputResource<ScheduleOutputResource>> Filter(DateTime Start, DateTime End, [FromQuery(Name = "bookingNos[]")] List<String> bookingNos, string driverName, string containerTruckCode, int skip = 0, int count = 20)
+        public async Task<CoreListOutputResource<ScheduleOutputResource>> Filter(DateTime Start, DateTime End, 
+            [FromQuery(Name = "bookingNos[]")] List<String> bookingNos,
+            [FromQuery(Name = "drivers[]")] List<Guid> drivers,
+            [FromQuery(Name = "containerTrucks[]")] List<Guid> containerTrucks,
+            int skip = 0, int count = 20)
         {
 
             var where = PredicateBuilder.New<Schedule>();
@@ -95,12 +118,12 @@ namespace CORE_API.Tms.Controllers
             if (bookingNos.Count > 0) {
                 where = where.And(m => bookingNos.Contains(m.BookingNo));
             }
-            if (!driverName.IsNullOrEmpty()) {
-                where = where.And(m => m.DriverName == driverName);
+            if (drivers.Count > 0) {
+                where = where.And(m => drivers.Contains(m.DriverId));
             }
-            if (!containerTruckCode.IsNullOrEmpty())
+            if (containerTrucks.Count > 0)
             {
-                where = where.And(m => m.ContainerTruckCode == containerTruckCode);
+                where = where.And(m => containerTrucks.Contains(m.ContainerTruckId));
             }
 
             var results = _entityService.FindQueryableList(skip, count, where).ToList();

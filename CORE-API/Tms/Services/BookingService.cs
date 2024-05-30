@@ -23,25 +23,28 @@ namespace CORE_API.Tms.Services
     {
         private BookingContext _bookingContext;
         private IGenericEntityService<Schedule> _scheduleService;
+        private IGenericEntityService<Booking> _bookingEntityService;
         private IMapper _mapper;
 
         public BookingService(BookingContext bookingContext,
                 IGenericEntityService<Schedule> scheduleService,
+                IGenericEntityService<Booking> bookingEntityService,
                 IMapper mapper
             ) { 
             _bookingContext = bookingContext;
             _scheduleService = scheduleService;
+            _bookingEntityService = bookingEntityService;
             _mapper = mapper;
         }
 
-        public async Task<List<BookingEx>> FilterBookingNo(string bookingNo) {
-            var bookings = new List<BookingEx>();
-            var where = PredicateBuilder.New<BookingEx>();
+        public async Task<List<Booking>> FilterBookingNo(string bookingNo) {
+            var bookings = new List<Booking>();
+            var where = PredicateBuilder.New<Booking>();
             if (!bookingNo.IsNullOrEmpty())
             {
                 where = where.And(m => m.BookingNo.ToUpper().Contains(bookingNo.ToUpper()));
             }
-            bookings = await _bookingContext.Set<BookingEx>().Where(where).ToListAsync();
+            bookings = await _bookingContext.Set<Booking>().Where(where).ToListAsync();
 
             return bookings;
         }
@@ -152,6 +155,24 @@ namespace CORE_API.Tms.Services
             }
             await _bookingContext.SaveChangesAsync();
             return scheduleForBookings;
+        }
+
+        public async Task UpdateScheduleStatusForbooking(Guid bookingId) {
+            var booking = _bookingEntityService.FindById(bookingId);
+            var bookingContainerDetails = booking.BookingContainers.SelectMany(m => m.BookingContainerDetails).ToList();
+            var needScheduleCount = bookingContainerDetails.Count;
+            var scheduledCount = bookingContainerDetails.Count(m => m.Schedule != null);
+            var scheduleStatus = EScheduleStatusOfBooking.EMPTY;
+            if (needScheduleCount == scheduledCount)
+            {
+                scheduleStatus = EScheduleStatusOfBooking.FULL;
+            }
+            else if (needScheduleCount > scheduledCount && scheduledCount > 0)
+            {
+                scheduleStatus = EScheduleStatusOfBooking.PARTIAL;
+            }
+            booking.ScheduleStatus = scheduleStatus;
+            await _bookingEntityService.UpdateAsync(booking);
         }
     }
 }

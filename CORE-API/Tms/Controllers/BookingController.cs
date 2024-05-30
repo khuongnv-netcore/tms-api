@@ -22,6 +22,7 @@ using System;
 using System.Linq;
 using Microsoft.IdentityModel.Tokens;
 using CORE_API.Tms.Models.Enums;
+using System.Data.Entity;
 
 namespace CORE_API.Tms.Controllers
 {
@@ -82,22 +83,38 @@ namespace CORE_API.Tms.Controllers
         [HttpGet("Filter")]
         [AllowAnonymous]
         [SwaggerSummary("Filter Bookings")]
-        public async Task<CoreListOutputResource<BookingOutputResource>> Filter(DateTime? Start, DateTime? End, [FromQuery(Name = "bookingNos[]")] List<string> bookingNos, int skip = 0, int count = 20)
+        public async Task<CoreListOutputResource<BookingOutputResource>> Filter(DateTime? Start, DateTime? End, 
+            [FromQuery(Name = "bookingNos[]")] List<string> bookingNos,
+            [FromQuery(Name = "bookingStatuses[]")] List<EBookingStatus> bookingStatuses,
+            [FromQuery(Name = "scheduleStatuses[]")] List<EScheduleStatusOfBooking> scheduleStatuses,
+            int skip = 0, int count = 20)
         {
 
-            var where = PredicateBuilder.New<Booking>();
+            var where = PredicateBuilder.New<Booking>(true);
             if (Start.HasValue && End.HasValue)
             {
                 where = where.And(m => m.Created >= Start && m.Created <= End);
+                where = where.Or(m => m.Modified >= Start && m.Modified <= End);
             }
             else if (Start.HasValue) {
                 where = where.And(m => m.Created >= Start);
+                where = where.Or(m => m.Modified >= Start);
             }
 
             if (bookingNos.Count > 0) {
                 where = where.And(m => bookingNos.Contains(m.BookingNo));
             }
-            
+
+            if (bookingStatuses.Count > 0)
+            {
+                where = where.And(m => bookingStatuses.Contains(m.Status));
+            }
+
+            if (scheduleStatuses.Count > 0)
+            {
+                where = where.And(m => scheduleStatuses.Contains(m.ScheduleStatus));
+            }
+
             var results = _entityService.FindQueryableList(skip, count, where).ToList();
             var total = await _entityService.Count(where);
 
@@ -154,25 +171,6 @@ namespace CORE_API.Tms.Controllers
             return output;
         }
 
-        [HttpGet("FilterBookingNoEx")]
-        [AllowAnonymous]
-        [SwaggerSummary("Filter BookingNo Ex")]
-        public async Task<CoreListOutputResourceEx<BookingOutputResourceEx>> FilterBookingNoEx(string bookingNo)
-        {
-            // FilterBookingNo from External Database
-            #region
-            var results = await _bookingService.FilterBookingNo(bookingNo);
-            var total = results.Count;
-            var output = new CoreListOutputResourceEx<BookingOutputResourceEx>
-            {
-                Entities = _mapper.Map<IEnumerable<BookingEx>, IList<BookingOutputResourceEx>>(results),
-                TotalEntities = total
-            };
-            #endregion
-
-            return output;
-        }
-
         [HttpGet("LoadScheduleForBookings")]
         [AllowAnonymous]
         [SwaggerSummary("Load Schedule For Bookings")]
@@ -190,12 +188,12 @@ namespace CORE_API.Tms.Controllers
             {
                 where = where.And(m => bookingIds.Contains(m.Id));
 
-                var bookings = _entityService.FindAll(where).ToList();
+                var bookings = _entityService.FindAll(where).AsNoTracking().ToList();
 
                 // Get Booking Containers
                 var bookingContainerWhere = PredicateBuilder.New<BookingContainer>();
                 bookingContainerWhere = bookingContainerWhere.And(m => bookingIds.Contains(m.BookingId));
-                var bookingContainers = _bookingContainerService.FindAll(bookingContainerWhere).ToList();
+                var bookingContainers = _bookingContainerService.FindAll(bookingContainerWhere).AsNoTracking().ToList();
 
                 // Get Booking Container Details For Booking Containters
                 var bookingContainerDetailWhere = PredicateBuilder.New<BookingContainerDetail>();
@@ -210,7 +208,7 @@ namespace CORE_API.Tms.Controllers
                 scheduleWhere = scheduleWhere.And(
                     m => bookingContainerDetails.Select(bcd => bcd.Id)
                                                 .Contains(m.BookingContainerDetailId));
-                var schedules = _scheduleService.FindAll(scheduleWhere).ToList();
+                var schedules = _scheduleService.FindAll(scheduleWhere).AsNoTracking().ToList();
 
                 // Update schedule for bookingContainerDetails
                 bookingContainerDetails.ForEach(bookingContainerDetail =>
@@ -227,30 +225,40 @@ namespace CORE_API.Tms.Controllers
                 // Update BookingContainers of Booking
                 bookings.ForEach(booking => {
                     booking.BookingContainers = bookingContainers.Where(m => m.BookingId == booking.Id).ToList();
+                    var pickupAddress = booking.PickupAddress;
+                    var deliveryAddress = booking.DeliveryAddress;
+                    var pickupPlan = booking.PickUpDT;
+                    var deliveryPlan = booking.SaillingDueDate;
 
                     // Make schedule for bookings
                     var schedules = booking.BookingContainers
-                                        .SelectMany(m => m.BookingContainerDetails)
-                                        .Select(x => x.Schedule ?? new Schedule {
-                                            BookingId = x.BookingId,
-                                            BookingNo = x.BookingNo,
-                                            ContainerId = x.ContainerId,
-                                            BookingContainerId = x.BookingContainerId,
-                                            BookingContainer = new BookingContainer {
-                                                ContainerCode = x.BookingContainer.ContainerCode
-                                            },
-                                            BookingContainerDetailId = x.Id,
-                                            ScheduleStatus = EScheduleStatus.ASSINGED,
-                                            PickupPlan = DateTime.UtcNow,
-                                            DeliveryPlan = DateTime.UtcNow
+                                        .SelectMany(m => m.BookingContainerDetails, (bookingContainer, BookingContainerDetail) => new ScheduleBookingOutputResource
+                                        {
+                                            Id = BookingContainerDetail.Schedule != null ? BookingContainerDetail.Schedule.Id : Guid.NewGuid(),
+                                            BookingId = BookingContainerDetail.BookingId,
+                                            BookingNo = BookingContainerDetail.BookingNo,
+                                            ContainerId = BookingContainerDetail.ContainerId,
+                                            BookingContainerId = BookingContainerDetail.BookingContainerId,
+                                            BookingContainerDetailId = BookingContainerDetail.Id,
+                                            ScheduleStatus = BookingContainerDetail.Schedule != null ? BookingContainerDetail.Schedule.ScheduleStatus : EScheduleStatus.ASSINGED,
+                                            PickupPlan = BookingContainerDetail.Schedule != null ? BookingContainerDetail.Schedule.PickupPlan : pickupPlan,
+                                            DeliveryPlan = BookingContainerDetail.Schedule != null ? BookingContainerDetail.Schedule.DeliveryPlan : deliveryPlan,
+                                            PickupAddress = BookingContainerDetail.Schedule != null ? BookingContainerDetail.Schedule.PickupAddress : pickupAddress,
+                                            DeliveryAddress = BookingContainerDetail.Schedule != null ? BookingContainerDetail.Schedule.DeliveryAddress : deliveryAddress,
+                                            DriverId = BookingContainerDetail.Schedule != null ? BookingContainerDetail.Schedule.DriverId : Guid.Empty,
+                                            DriverName = BookingContainerDetail.Schedule != null ? BookingContainerDetail.Schedule.DriverName : "",
+                                            ContainerTruckId = BookingContainerDetail.Schedule != null ? BookingContainerDetail.Schedule.ContainerTruckId : Guid.Empty,
+                                            ContainerTruckCode = BookingContainerDetail.Schedule != null ? BookingContainerDetail.Schedule.ContainerTruckCode : "",
+                                            TransportCost = BookingContainerDetail.Schedule != null ? BookingContainerDetail.Schedule.TransportCost : 0,
+                                            ContainerNo = BookingContainerDetail.ContainerNo,
+                                            ContainerCode = bookingContainer.ContainerCode
                                         }).ToList();
 
-                    var scheduleBookingOutputResource = _mapper.Map<IEnumerable<Schedule>, List<ScheduleBookingOutputResource>>(schedules);
                     var scheduleForBooking = new ScheduleForBookingOutputResource
                     {
                         BookingId = booking.Id,
                         BookingNo = booking.BookingNo,
-                        schedules = scheduleBookingOutputResource
+                        schedules = schedules
                     };
                     scheduleForBookings.Add(scheduleForBooking);
                 });

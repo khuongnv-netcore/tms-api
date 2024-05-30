@@ -61,11 +61,27 @@ namespace CORE_API.CORE.Contexts
 
             BookingContainer.OnModelCreating(builder);
 
+            BookingCharge.OnModelCreating(builder);
+
             BookingContainerDetail.OnModelCreating(builder);
 
             Driver.OnModelCreating(builder);
 
             FixedAsset.OnModelCreating(builder);
+
+            Customer.OnModelCreating(builder);
+
+            Location.OnModelCreating(builder);
+            
+            Employee.OnModelCreating(builder);
+
+            Container.OnModelCreating(builder);
+
+            PricingMaster.OnModelCreating(builder);
+
+            PricingForCustomer.OnModelCreating(builder);
+
+            PricingForCustomerDetail.OnModelCreating(builder);
         }
 
         public override int SaveChanges()

@@ -42,6 +42,14 @@ namespace CORE_API.Tms.Models.Views.Mappings
             CreateMap<BookingContainer, BookingContainerOutputResource>();
             #endregion
 
+            #region BookingCharge
+            // Resource Input to Entity
+            CreateMap<BookingChargeInputResource, BookingCharge>();
+
+            //Entity Output to Resource
+            CreateMap<BookingCharge, BookingChargeOutputResource>();
+            #endregion
+
             #region BookingContainerDetail
             // Resource Input to Entity
             CreateMap<BookingContainerDetailInputResource, BookingContainerDetail>();
@@ -64,6 +72,41 @@ namespace CORE_API.Tms.Models.Views.Mappings
 
             //Entity Output to Resource
             CreateMap<FixedAsset, FixedAssetOutputResource>();
+            #endregion
+
+            #region Customer
+            CreateMap<CustomerInputResource,Customer>();
+            CreateMap<Customer, CustomerOutputResource>();
+            #endregion
+
+            #region Location
+            CreateMap<LocationInputResource, Location>();
+            CreateMap<Location, LocationOutputResource>();
+            #endregion
+
+            #region Employee
+            CreateMap<EmployeeInputResource, Employee>();
+            CreateMap<Employee, EmployeeOutputResource>();
+            #endregion
+
+            #region Container
+            CreateMap<ContainerInputResource, Container>();
+            CreateMap<Container, ContainerOutputResource>();
+            #endregion
+
+            #region PricingMaster
+            CreateMap<PricingMasterInputResource, PricingMaster>();
+            CreateMap<PricingMaster , PricingMasterOutputResource>();
+            #endregion
+
+            #region Pricing For Customer
+            CreateMap<PricingForCustomerInputResource, PricingForCustomer>();
+            CreateMap<PricingForCustomer, PricingForCustomerOutputResource>();
+            #endregion
+
+            #region Pricing For Customer Detail
+            CreateMap<PricingForCustomerDetailInputResource, PricingForCustomerDetail>();
+            CreateMap<PricingForCustomerDetail, PricingForCustomerDetailOutputResource>();
             #endregion
         }
     }

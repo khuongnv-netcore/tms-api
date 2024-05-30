@@ -7,6 +7,8 @@ using System.Linq.Expressions;
 using CORE_API.CORE.Repositories.Abstract;
 using CORE_API.CORE.Models.Entities.Abstract;
 using CORE_API.CORE.Contexts;
+using EFCore.BulkExtensions;
+using Stripe;
 
 namespace CORE_API.CORE.Repositories
 {
@@ -89,6 +91,12 @@ namespace CORE_API.CORE.Repositories
         public async Task SaveChangesAsync()
         {
             await _context.SaveChangesAsync();
+        }
+
+        public void BulkInsertOrUpdate(List<TEntity> entities)
+        {
+            // Bulk insert or update the list of entities
+            _context.BulkInsertOrUpdate(entities);
         }
     }
 }

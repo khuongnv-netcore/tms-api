@@ -39,7 +39,7 @@ namespace CORE_API.CORE.Controllers
         [NonActionMethod(IgnoreApi = true)]
         public virtual async Task<CoreListOutputResource<TEntityOutputResource>> List(int skip = 0, int count = 20)
         {
-            var result = _entityService.FindQueryableList(skip, count);
+            var result = _entityService.FindQueryableList(skip, count).ToList();
 
             var total = await _entityService.Count();
 

@@ -14,6 +14,11 @@ namespace CORE_API.Tms.Models.Entities
 {
     public class FixedAsset : CoreEntity
     {
+        [MaxLength(200)] 
+        public string DriverName { get; set; }
+        public string DriverId { get; set; }
+        [MaxLength(50)]
+        public string DriverCode { get; set; }
         [MaxLength(300)]
         public string Manuafacture { get; set; }
         [MaxLength(50)]

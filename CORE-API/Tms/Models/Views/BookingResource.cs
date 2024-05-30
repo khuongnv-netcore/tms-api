@@ -5,6 +5,7 @@ using System;
 using CORE_API.Tms.Models.Enums;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
+using CORE_API.Tms.Models.Entities;
 
 namespace CORE_API.Tms.Models.Views
 {
@@ -69,6 +70,8 @@ namespace CORE_API.Tms.Models.Views
         public Guid CreatedBy { get; set; }
         public Guid ModifiedBy { get; set; }
         public Guid ApprovedBy { get; set; }
+        public List<BookingContainerInputResource> BookingContainers { get; set; }
+        public List<BookingChargeInputResource> BookingCharges { get; set; }
     }
 
     public class BookingOutputResource : CoreOutputResource
@@ -132,6 +135,8 @@ namespace CORE_API.Tms.Models.Views
         public Guid CreatedBy { get; set; }
         public Guid ModifiedBy { get; set; }
         public Guid ApprovedBy { get; set; }
+        public List<BookingContainerOutputResource> BookingContainers { get; set; }
+        public List<BookingChargeOutputResource> BookingCharges { get; set; }
     }
 
     public class BookingOutputResourceEx

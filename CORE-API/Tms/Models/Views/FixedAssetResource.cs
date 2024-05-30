@@ -10,6 +10,11 @@ namespace CORE_API.Tms.Models.Views
 {
     public class FixedAssetInputResource : CoreInputResource
     {
+        [MaxLength(200)]
+        public string DriverName { get; set; }
+        public string DriverId { get; set; }
+        [MaxLength(50)]
+        public string DriverCode { get; set; }
         [MaxLength(300)]
         public string Manuafacture { get; set; }
         [MaxLength(50)]
@@ -23,6 +28,11 @@ namespace CORE_API.Tms.Models.Views
 
     public class FixedAssetOutputResource : CoreOutputResource
     {
+        [MaxLength(200)]
+        public string DriverName { get; set; }
+        public string DriverId { get; set; }
+        [MaxLength(50)]
+        public string DriverCode { get; set; }
         [MaxLength(300)]
         public string Manuafacture { get; set; }
         [MaxLength(50)]
