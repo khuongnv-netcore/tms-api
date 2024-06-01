@@ -15,7 +15,7 @@ namespace CORE_API.Tms.Models.Views.Mappings
             //Entity Output to Resource
             CreateMap<Schedule, ScheduleOutputResource>();
             CreateMap<Schedule, ScheduleBookingOutputResource>()
-                .ForMember(dest => dest.ContainerCode, opt => opt.MapFrom(src => src.BookingContainer != null ? src.BookingContainer.ContainerCode : ""));
+                .ForMember(dest => dest.ContainerCode, opt => opt.MapFrom(src => src.BookingContainerDetail != null ? src.BookingContainerDetail.BookingContainer.ContainerCode : ""));
             
             // CreateOrUpdateScheduleInputResource to ScheduleInputResource
             CreateMap<CreateOrUpdateScheduleInputResource, Schedule>();
