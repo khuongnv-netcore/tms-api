@@ -127,13 +127,49 @@ namespace CORE_API.Tms.Controllers
             }
 
             var results = _entityService.FindQueryableList(skip, count, where).ToList();
+
+            var entities = results.Select(m => new ScheduleOutputResource {
+                Id = m.Id,
+                ContainerNo = m.ContainerNo,
+                BookingId = m.BookingId,
+                ContainerCode = m.BookingContainerDetail.BookingContainer.ContainerCode,
+                Created = m.Created,
+                Modified = m.Modified,
+                PickupPlan = m.PickupPlan,
+                DeliveryPlan = m.DeliveryPlan,
+                BookingNo = m.BookingNo,
+                DriverId = m.DriverId,
+                DriverName = m.DriverName,
+                ContainerId = m.ContainerId,
+                ScheduleStatus = m.ScheduleStatus,
+                ContainerTruckCode = m.ContainerTruckCode,
+                ContainerTruckId = m.ContainerTruckId,
+                TransportCost = m.TransportCost,
+                PickupAddress = m.PickupAddress,
+                DeliveryAddress = m.DeliveryAddress
+            });
             var total = await _entityService.Count(where);
 
             var output = new CoreListOutputResource<ScheduleOutputResource>
             {
-                Entities = _mapper.Map<IEnumerable<Schedule>, IList<ScheduleOutputResource>>(results),
+                Entities = entities,
                 TotalEntities = total
             };
+
+            return output;
+        }
+
+        [HttpDelete]
+        [SwaggerSummary("Delete Schedule")]
+        [Authorize(Roles = "Administrator")]
+        public async override Task<ScheduleOutputResource> Delete(Guid id)
+        {
+            var schedule = _entityService.FindById(id);
+            
+            var output = await base.Delete(id);
+
+            //Update Schedule Status for Booking
+            await _bookingService.UpdateScheduleStatusForbooking(schedule.BookingId);
 
             return output;
         }

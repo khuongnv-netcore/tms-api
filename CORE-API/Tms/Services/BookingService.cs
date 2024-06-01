@@ -161,7 +161,7 @@ namespace CORE_API.Tms.Services
             var booking = _bookingEntityService.FindById(bookingId);
             var bookingContainerDetails = booking.BookingContainers.SelectMany(m => m.BookingContainerDetails).ToList();
             var needScheduleCount = bookingContainerDetails.Count;
-            var scheduledCount = bookingContainerDetails.Count(m => m.Schedule != null);
+            var scheduledCount = bookingContainerDetails.Count(m => m.Schedule != null && m.Schedule.DeletedAt == null);
             var scheduleStatus = EScheduleStatusOfBooking.EMPTY;
             if (needScheduleCount == scheduledCount)
             {
