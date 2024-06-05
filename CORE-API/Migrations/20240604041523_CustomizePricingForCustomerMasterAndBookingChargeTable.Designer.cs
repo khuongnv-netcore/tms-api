@@ -4,6 +4,7 @@ using CORE_API.CORE.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CORE_API.Migrations
 {
     [DbContext(typeof(CoreContext))]
-    partial class CoreContextModelSnapshot : ModelSnapshot
+    [Migration("20240604041523_CustomizePricingForCustomerMasterAndBookingChargeTable")]
+    partial class CustomizePricingForCustomerMasterAndBookingChargeTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1198,9 +1201,6 @@ namespace CORE_API.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("PricingMasterDetailId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("PricingMasterId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid?>("ToLocationId")

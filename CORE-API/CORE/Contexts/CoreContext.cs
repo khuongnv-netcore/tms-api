@@ -79,6 +79,8 @@ namespace CORE_API.CORE.Contexts
 
             PricingMaster.OnModelCreating(builder);
 
+            PricingMasterDetail.OnModelCreating(builder);
+
             PricingForCustomer.OnModelCreating(builder);
 
             PricingForCustomerDetail.OnModelCreating(builder);

@@ -17,9 +17,11 @@ namespace CORE_API.Tms.Models.Entities
     {
         [MaxLength(255)]
         public string ProductName { get; set; }
-        public decimal UnitPrice { get; set; } = 0.00m;
+        public EFeeType FeeType { get; set; }
         public Guid CreatedBy { get; set; }
         public Guid ModifiedBy { get; set; }
+
+        public virtual IList<PricingMasterDetail> PricingMasterDetails { get; set; }
 
         internal static void OnModelCreating(ModelBuilder builder)
         {
@@ -43,7 +45,7 @@ namespace CORE_API.Tms.Models.Entities
         {
             var taskList = new List<Task>
             {
-
+                context.RemoveRangeAsync(PricingMasterDetails, cancellationToken)
             };
 
             await Task.WhenAll(taskList);
@@ -51,7 +53,7 @@ namespace CORE_API.Tms.Models.Entities
 
         public override void OnSoftDelete(SoftDeletes.Core.DbContext context)
         {
-
+            context.RemoveRange(PricingMasterDetails);
         }
 
         public override async Task LoadRelationsAsync(SoftDeletes.Core.DbContext context,
@@ -59,7 +61,9 @@ namespace CORE_API.Tms.Models.Entities
         {
             var taskList = new List<Task>
             {
-
+                context.Entry(this)
+                    .Collection(m => m.PricingMasterDetails)
+                    .LoadAsync(cancellationToken)
             };
 
             await Task.WhenAll(taskList);
@@ -67,7 +71,9 @@ namespace CORE_API.Tms.Models.Entities
 
         public override void LoadRelations(SoftDeletes.Core.DbContext context)
         {
-
+            context.Entry(this)
+                .Collection(m => m.PricingMasterDetails)
+                .Load();
         }
     }
 }

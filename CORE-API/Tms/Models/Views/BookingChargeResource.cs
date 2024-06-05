@@ -13,6 +13,9 @@ namespace CORE_API.Tms.Models.Views
     {
         public Guid BookingId { get; set; }
         public Guid ProductId { get; set; }
+        public Guid? ContainerId { get; set; }
+        public Guid? FromLocationId { get; set; }
+        public Guid? ToLocationId { get; set; }
         public double UnitPrice { get; set; }
         public int Vol { get; set; } = 0;
         public double Amount { get; set; } = 0;
@@ -27,6 +30,9 @@ namespace CORE_API.Tms.Models.Views
     {
         public Guid BookingId { get; set; }
         public Guid ProductId { get; set; }
+        public Guid? ContainerId { get; set; }
+        public Guid? FromLocationId { get; set; }
+        public Guid? ToLocationId { get; set; }
         public double UnitPrice { get; set; }
         public int Vol { get; set; } = 0;
         public double Amount { get; set; } = 0;
