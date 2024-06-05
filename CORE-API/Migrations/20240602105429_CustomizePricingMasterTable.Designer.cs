@@ -4,6 +4,7 @@ using CORE_API.CORE.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CORE_API.Migrations
 {
     [DbContext(typeof(CoreContext))]
-    partial class CoreContextModelSnapshot : ModelSnapshot
+    [Migration("20240602105429_CustomizePricingMasterTable")]
+    partial class CustomizePricingMasterTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -520,9 +523,6 @@ namespace CORE_API.Migrations
                     b.Property<Guid>("BookingId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("ContainerId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<DateTime>("Created")
                         .HasColumnType("datetime2");
 
@@ -534,9 +534,6 @@ namespace CORE_API.Migrations
 
                     b.Property<DateTime?>("DeletedAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("FromLocationId")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("Modified")
                         .HasColumnType("datetime2");
@@ -551,9 +548,6 @@ namespace CORE_API.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("ProductId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("ToLocationId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<double>("UnitPrice")
@@ -1170,9 +1164,6 @@ namespace CORE_API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("ContainerId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<DateTime>("Created")
                         .HasColumnType("datetime2");
 
@@ -1181,9 +1172,6 @@ namespace CORE_API.Migrations
 
                     b.Property<DateTime?>("DeletedAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("FromLocationId")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("Modified")
                         .HasColumnType("datetime2");
@@ -1198,12 +1186,6 @@ namespace CORE_API.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("PricingMasterDetailId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("PricingMasterId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("ToLocationId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<decimal>("UnitPrice")
