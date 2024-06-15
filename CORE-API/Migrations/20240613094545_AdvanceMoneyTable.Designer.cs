@@ -4,6 +4,7 @@ using CORE_API.CORE.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CORE_API.Migrations
 {
     [DbContext(typeof(CoreContext))]
-    partial class CoreContextModelSnapshot : ModelSnapshot
+    [Migration("20240613094545_AdvanceMoneyTable")]
+    partial class AdvanceMoneyTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -332,6 +335,7 @@ namespace CORE_API.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid?>("BookingId")
+                        .HasMaxLength(30)
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("Created")
@@ -360,8 +364,6 @@ namespace CORE_API.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BookingId");
-
                     b.HasIndex("Created");
 
                     b.HasIndex("Modified");
@@ -376,6 +378,7 @@ namespace CORE_API.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("AdvanceMoneyId")
+                        .HasMaxLength(30)
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("Created")
@@ -653,11 +656,8 @@ namespace CORE_API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("AdvanceMoneyDocumentId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<decimal>("Amount")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<double>("Amount")
+                        .HasColumnType("float");
 
                     b.Property<Guid>("BookingId")
                         .HasColumnType("uniqueidentifier");
@@ -692,23 +692,19 @@ namespace CORE_API.Migrations
                     b.Property<Guid?>("PricingForCustomerDetailId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("ProductId")
+                    b.Property<Guid>("ProductId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid?>("ToLocationId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<decimal>("UnitPrice")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<double>("UnitPrice")
+                        .HasColumnType("float");
 
                     b.Property<int>("Vol")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AdvanceMoneyDocumentId")
-                        .IsUnique()
-                        .HasFilter("[AdvanceMoneyDocumentId] IS NOT NULL");
 
                     b.HasIndex("BookingId");
 
@@ -1653,15 +1649,6 @@ namespace CORE_API.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("CORE_API.Tms.Models.Entities.AdvanceMoney", b =>
-                {
-                    b.HasOne("CORE_API.Tms.Models.Entities.Booking", "Booking")
-                        .WithMany()
-                        .HasForeignKey("BookingId");
-
-                    b.Navigation("Booking");
-                });
-
             modelBuilder.Entity("CORE_API.Tms.Models.Entities.AdvanceMoneyDocument", b =>
                 {
                     b.HasOne("CORE_API.Tms.Models.Entities.AdvanceMoney", null)
@@ -1694,10 +1681,6 @@ namespace CORE_API.Migrations
 
             modelBuilder.Entity("CORE_API.Tms.Models.Entities.BookingCharge", b =>
                 {
-                    b.HasOne("CORE_API.Tms.Models.Entities.AdvanceMoneyDocument", "AdvanceMoneyDocument")
-                        .WithOne("BookingCharge")
-                        .HasForeignKey("CORE_API.Tms.Models.Entities.BookingCharge", "AdvanceMoneyDocumentId");
-
                     b.HasOne("CORE_API.Tms.Models.Entities.Booking", null)
                         .WithMany("BookingCharges")
                         .HasForeignKey("BookingId")
@@ -1711,8 +1694,6 @@ namespace CORE_API.Migrations
                     b.HasOne("CORE_API.CORE.Models.Entities.User", "ModifiedUser")
                         .WithMany()
                         .HasForeignKey("ModifiedUserId");
-
-                    b.Navigation("AdvanceMoneyDocument");
 
                     b.Navigation("CreatedUser");
 
@@ -1872,11 +1853,6 @@ namespace CORE_API.Migrations
             modelBuilder.Entity("CORE_API.Tms.Models.Entities.AdvanceMoney", b =>
                 {
                     b.Navigation("AdvanceMoneyDocuments");
-                });
-
-            modelBuilder.Entity("CORE_API.Tms.Models.Entities.AdvanceMoneyDocument", b =>
-                {
-                    b.Navigation("BookingCharge");
                 });
 
             modelBuilder.Entity("CORE_API.Tms.Models.Entities.Booking", b =>

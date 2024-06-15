@@ -132,7 +132,7 @@ namespace CORE_API.Tms.Controllers
                 Id = m.Id,
                 ContainerNo = m.ContainerNo,
                 BookingId = m.BookingId,
-                ContainerCode = m.BookingContainerDetail.BookingContainer.ContainerCode,
+                ContainerCode = m.BookingContainerDetail.BookingContainer?.ContainerCode,
                 Created = m.Created,
                 Modified = m.Modified,
                 PickupPlan = m.PickupPlan,

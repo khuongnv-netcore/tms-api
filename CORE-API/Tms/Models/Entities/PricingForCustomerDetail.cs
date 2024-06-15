@@ -43,7 +43,6 @@ namespace CORE_API.Tms.Models.Entities
 
         public override void OnSoftDelete(SoftDeletes.Core.DbContext context)
         {
-
         }
 
         public override async Task LoadRelationsAsync(SoftDeletes.Core.DbContext context,
@@ -53,7 +52,6 @@ namespace CORE_API.Tms.Models.Entities
 
         public override void LoadRelations(SoftDeletes.Core.DbContext context)
         {
-
         }
     }
 }

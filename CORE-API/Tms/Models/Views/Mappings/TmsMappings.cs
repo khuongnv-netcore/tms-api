@@ -47,7 +47,8 @@ namespace CORE_API.Tms.Models.Views.Mappings
             CreateMap<BookingChargeInputResource, BookingCharge>();
 
             //Entity Output to Resource
-            CreateMap<BookingCharge, BookingChargeOutputResource>();
+            CreateMap<BookingCharge, BookingChargeOutputResource>()
+                .ForMember(dest => dest.DocumentName, opt => opt.MapFrom(src => src.AdvanceMoneyDocument != null ? src.AdvanceMoneyDocument.DocumentName : null));
             #endregion
 
             #region BookingContainerDetail
@@ -112,6 +113,22 @@ namespace CORE_API.Tms.Models.Views.Mappings
             #region Pricing For Customer Detail
             CreateMap<PricingForCustomerDetailInputResource, PricingForCustomerDetail>();
             CreateMap<PricingForCustomerDetail, PricingForCustomerDetailOutputResource>();
+            #endregion
+
+            #region Advance Money
+            CreateMap<AdvanceMoneyInputResource, AdvanceMoney>();
+            CreateMap<AdvanceMoney, AdvanceMoneyOutputResource>()
+                .ForMember(dest => dest.BookingNo, opt => opt.MapFrom(src => src.Booking != null ? src.Booking.BookingNo : ""));
+            #endregion
+
+            #region Advance Money Document
+            CreateMap<AdvanceMoneyDocumentInputResource, AdvanceMoneyDocument>();
+            CreateMap<AdvanceMoneyDocument, AdvanceMoneyDocumentOutputResource>();
+            #endregion
+
+            #region Auto Number
+            CreateMap<AutoNumberInputResource, AutoNumber>();
+            CreateMap<AutoNumber, AutoNumberOutputResource>();
             #endregion
         }
     }
