@@ -49,15 +49,18 @@ namespace CORE_API.Tms.Controllers
                 List<BookingCharge> bookingCharges = new List<BookingCharge>();
                 foreach (var item in advanceMoneyOutputResource.Result.AdvanceMoneyDocuments)
                 {
-                    var bookingCharge = new BookingCharge
-                    {
-                        AdvanceMoneyDocumentId = item.Id,
-                        UnitPrice = item.Money,
-                        Vol = 1,
-                        Amount = item.Money,
-                        BookingId = resource.BookingId??Guid.Empty
-                    };
-                    bookingCharges.Add(bookingCharge);
+                    if (!item.Internal) {
+                        var bookingCharge = new BookingCharge
+                        {
+                            AdvanceMoneyDocumentId = item.Id,
+                            UnitPrice = item.Money,
+                            Vol = 1,
+                            Amount = item.Money,
+                            BookingId = resource.BookingId ?? Guid.Empty
+                        };
+                        bookingCharges.Add(bookingCharge);
+                    }
+                    
                 }
                 _bookingChargeEntityService.AddManyAsync(bookingCharges);
             }
