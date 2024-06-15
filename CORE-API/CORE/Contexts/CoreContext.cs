@@ -84,6 +84,12 @@ namespace CORE_API.CORE.Contexts
             PricingForCustomer.OnModelCreating(builder);
 
             PricingForCustomerDetail.OnModelCreating(builder);
+
+            AutoNumber.OnModelCreating(builder);
+
+            AdvanceMoney.OnModelCreating(builder);
+
+            AdvanceMoneyDocument.OnModelCreating(builder);
         }
 
         public override int SaveChanges()

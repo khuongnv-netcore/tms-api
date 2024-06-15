@@ -17,6 +17,8 @@ namespace CORE_API.Tms.Models.Views
         public Guid SellerId { get; set; }
         public Guid CreatedBy { get; set; }
         public Guid ModifiedBy { get; set; }
+        public string ContractNo { get; set; }
+
         public List<PricingForCustomerDetailInputResource> PricingForCustomerDetails { get; set; }
     }
 
@@ -28,6 +30,7 @@ namespace CORE_API.Tms.Models.Views
         public Guid SellerId { get; set; }
         public Guid CreatedBy { get; set; }
         public Guid ModifiedBy { get; set; }
+        public string ContractNo { get; set; }
         public List<PricingForCustomerDetailOutputResource> PricingForCustomerDetails { get; set; }
     }
 }

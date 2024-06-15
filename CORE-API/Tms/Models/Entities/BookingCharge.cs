@@ -5,24 +5,28 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Reflection.Metadata;
 
 namespace CORE_API.Tms.Models.Entities
 {
     public class BookingCharge : CoreEntity
     {      
         public Guid BookingId { get; set; }
-        public Guid ProductId { get; set; }
-        public double UnitPrice { get; set; }
+        public Guid? ProductId { get; set; }
+        public decimal UnitPrice { get; set; }
         public Guid? ContainerId { get; set; }
         public Guid? FromLocationId { get; set; }
         public Guid? ToLocationId { get; set; }
         public int Vol { get; set; } = 0;
-        public double Amount { get; set; } = 0;
+        public decimal Amount { get; set; } = 0;
         public Guid? PricingForCustomerDetailId { get; set; }
+        public Guid? AdvanceMoneyDocumentId { get; set; }
         public Guid CreatedBy { get; set; }
         public virtual User CreatedUser { get; set; }
         public Guid ModifiedBy { get; set; }
         public virtual User ModifiedUser { get; set; }
+
+        public virtual AdvanceMoneyDocument? AdvanceMoneyDocument { get; set; }
 
         internal static void OnModelCreating(ModelBuilder builder)
         {
@@ -42,18 +46,20 @@ namespace CORE_API.Tms.Models.Entities
             //Relationship
         }
 
-        public override async Task OnSoftDeleteAsync(SoftDeletes.Core.DbContext context,
+        public override Task OnSoftDeleteAsync(SoftDeletes.Core.DbContext context,
             CancellationToken cancellationToken = default)
         {
+            return Task.CompletedTask;
         }
 
         public override void OnSoftDelete(SoftDeletes.Core.DbContext context)
         {
         }
 
-        public override async Task LoadRelationsAsync(SoftDeletes.Core.DbContext context,
+        public override Task LoadRelationsAsync(SoftDeletes.Core.DbContext context,
             CancellationToken cancellationToken = default)
         {
+            return Task.CompletedTask;
         }
         public override void LoadRelations(SoftDeletes.Core.DbContext context)
         {

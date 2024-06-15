@@ -12,7 +12,7 @@ namespace CORE_API.Tms.Models.Views
     public class BookingChargeInputResource : CoreInputResource
     {
         public Guid BookingId { get; set; }
-        public Guid ProductId { get; set; }
+        public Guid? ProductId { get; set; }
         public Guid? ContainerId { get; set; }
         public Guid? FromLocationId { get; set; }
         public Guid? ToLocationId { get; set; }
@@ -20,6 +20,7 @@ namespace CORE_API.Tms.Models.Views
         public int Vol { get; set; } = 0;
         public double Amount { get; set; } = 0;
         public Guid? PricingForCustomerDetailId { get; set; }
+        public Guid? AdvanceMoneyDocumentId { get; set; }
         public Guid CreatedBy { get; set; }
         public virtual User CreatedUser { get; set; }
         public Guid ModifiedBy { get; set; }
@@ -29,7 +30,7 @@ namespace CORE_API.Tms.Models.Views
     public class BookingChargeOutputResource : CoreOutputResource
     {
         public Guid BookingId { get; set; }
-        public Guid ProductId { get; set; }
+        public Guid? ProductId { get; set; }
         public Guid? ContainerId { get; set; }
         public Guid? FromLocationId { get; set; }
         public Guid? ToLocationId { get; set; }
@@ -37,6 +38,8 @@ namespace CORE_API.Tms.Models.Views
         public int Vol { get; set; } = 0;
         public double Amount { get; set; } = 0;
         public Guid? PricingForCustomerDetailId { get; set; }
+        public Guid? AdvanceMoneyDocumentId { get; set; }
+        public string DocumentName { get; set; }
         public Guid CreatedBy { get; set; }
         public virtual User CreatedUser { get; set; }
         public Guid ModifiedBy { get; set; }
