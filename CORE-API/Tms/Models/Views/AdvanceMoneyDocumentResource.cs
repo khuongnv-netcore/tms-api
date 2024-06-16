@@ -10,6 +10,7 @@ namespace CORE_API.Tms.Models.Views
         public decimal Money { get; set; }
         public string DocumentName { get; set; }
         public string DocumentFilePath { get; set; }
+        public bool Internal { set; get; }
         public Guid CreatedBy { get; set; }
         public virtual User CreatedUser { get; set; }
         public Guid ModifiedBy { get; set; }
@@ -22,6 +23,7 @@ namespace CORE_API.Tms.Models.Views
         public decimal Money { get; set; }
         public string DocumentName { get; set; }
         public string DocumentFilePath { get; set; }
+        public bool Internal { set; get; }
         public Guid CreatedBy { get; set; }
         public virtual User CreatedUser { get; set; }
         public Guid ModifiedBy { get; set; }

@@ -18,6 +18,7 @@ namespace CORE_API.Tms.Models.Entities
         public decimal Money { get; set; }
         public string DocumentName { get; set; }
         public string DocumentFilePath { get; set; }
+        public bool Internal { set; get; } = false;
         public Guid CreatedBy { get; set; }
         public Guid ModifiedBy { get; set; }
 
