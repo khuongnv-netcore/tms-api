@@ -39,6 +39,12 @@ namespace CORE_API.Tms.Models.Entities
                 .HasQueryFilter(m => m.DeletedAt == null);
 
             // Relationship
+            builder.Entity<AdvanceMoney>()
+                .HasMany(e => e.AdvanceMoneyDocuments)
+                .WithOne(e => e.AdvanceMoney)
+                .HasForeignKey(e => e.AdvanceMoneyId)
+                .OnDelete(DeleteBehavior.Cascade)
+                .IsRequired(false);
         }
         public override async Task OnSoftDeleteAsync(SoftDeletes.Core.DbContext context,
         CancellationToken cancellationToken = default)

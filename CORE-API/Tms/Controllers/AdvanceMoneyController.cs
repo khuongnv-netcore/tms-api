@@ -41,9 +41,10 @@ namespace CORE_API.Tms.Controllers
         [HttpPost]
         [SwaggerSummary("Create AdvanceMoney")]
         // [Authorize(Roles = "Administrator")] 
-        public override Task<AdvanceMoneyOutputResource> Create(AdvanceMoneyInputResource resource)
+        public async override Task<AdvanceMoneyOutputResource> Create(AdvanceMoneyInputResource resource)
         {
             var advanceMoneyOutputResource = base.Create(resource);
+
             if (resource.BookingId != null && resource.BookingId != Guid.Empty)
             {
                 List<BookingCharge> bookingCharges = new List<BookingCharge>();
@@ -62,10 +63,10 @@ namespace CORE_API.Tms.Controllers
                     }
                     
                 }
-                _bookingChargeEntityService.AddManyAsync(bookingCharges);
+                await _bookingChargeEntityService.AddManyAsync(bookingCharges);
             }
             
-            return advanceMoneyOutputResource;
+            return advanceMoneyOutputResource.Result;
         }
 
         [HttpPut]
