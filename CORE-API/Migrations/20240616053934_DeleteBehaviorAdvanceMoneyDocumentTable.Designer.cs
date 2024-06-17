@@ -4,6 +4,7 @@ using CORE_API.CORE.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CORE_API.Migrations
 {
     [DbContext(typeof(CoreContext))]
-    partial class CoreContextModelSnapshot : ModelSnapshot
+    [Migration("20240616053934_DeleteBehaviorAdvanceMoneyDocumentTable")]
+    partial class DeleteBehaviorAdvanceMoneyDocumentTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1667,12 +1670,11 @@ namespace CORE_API.Migrations
 
             modelBuilder.Entity("CORE_API.Tms.Models.Entities.AdvanceMoneyDocument", b =>
                 {
-                    b.HasOne("CORE_API.Tms.Models.Entities.AdvanceMoney", "AdvanceMoney")
+                    b.HasOne("CORE_API.Tms.Models.Entities.AdvanceMoney", null)
                         .WithMany("AdvanceMoneyDocuments")
                         .HasForeignKey("AdvanceMoneyId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.Navigation("AdvanceMoney");
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("CORE_API.Tms.Models.Entities.Booking", b =>

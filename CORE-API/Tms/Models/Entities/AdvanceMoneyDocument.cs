@@ -23,6 +23,8 @@ namespace CORE_API.Tms.Models.Entities
         public Guid ModifiedBy { get; set; }
 
         public virtual BookingCharge? BookingCharge { get; set; }
+        public virtual AdvanceMoney AdvanceMoney { get; set; }
+        
 
         internal static void OnModelCreating(ModelBuilder builder)
         {
@@ -44,6 +46,7 @@ namespace CORE_API.Tms.Models.Entities
             .HasOne(e => e.BookingCharge)
             .WithOne(e => e.AdvanceMoneyDocument)
             .HasForeignKey<BookingCharge>(e => e.AdvanceMoneyDocumentId)
+            .OnDelete(DeleteBehavior.Cascade)
             .IsRequired(false);
         }
         public override async Task OnSoftDeleteAsync(SoftDeletes.Core.DbContext context,
