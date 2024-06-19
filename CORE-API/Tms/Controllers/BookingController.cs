@@ -72,6 +72,14 @@ namespace CORE_API.Tms.Controllers
             return base.Read(id);
         }
 
+        [HttpDelete]
+        [SwaggerSummary("Delete one Booking")]
+        // [Authorize(Roles = "Administrator")] 
+        public override Task<BookingOutputResource> Delete(Guid id)
+        {
+            return base.Delete(id);
+        }
+
         [HttpGet]
         [SwaggerSummary("List Bookings")]
         [Authorize(Roles = "Administrator")]

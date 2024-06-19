@@ -84,7 +84,7 @@ namespace CORE_API.CORE.Repositories
 
         public TEntity Delete(TEntity entity)
         {
-            _context.Set<TEntity>().Remove(entity);
+            _context.Remove(entity);
             return entity;
         }
 

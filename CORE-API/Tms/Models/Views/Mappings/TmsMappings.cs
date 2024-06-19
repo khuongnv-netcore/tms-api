@@ -97,7 +97,9 @@ namespace CORE_API.Tms.Models.Views.Mappings
 
             #region PricingMaster
             CreateMap<PricingMasterInputResource, PricingMaster>();
+            CreateMap<UpdatePricingMasterInputResource, PricingMaster>();
             CreateMap<PricingMaster , PricingMasterOutputResource>();
+            CreateMap<PricingMasterInputResource, UpdatePricingMasterInputResource>();
             #endregion
 
             #region Pricing Master Detail
@@ -107,7 +109,9 @@ namespace CORE_API.Tms.Models.Views.Mappings
 
             #region Pricing For Customer
             CreateMap<PricingForCustomerInputResource, PricingForCustomer>();
+            CreateMap<UpdatePricingForCustomerInputResource, PricingForCustomer>();
             CreateMap<PricingForCustomer, PricingForCustomerOutputResource>();
+            CreateMap<PricingForCustomerInputResource, UpdatePricingForCustomerInputResource>();
             #endregion
 
             #region Pricing For Customer Detail
@@ -117,8 +121,10 @@ namespace CORE_API.Tms.Models.Views.Mappings
 
             #region Advance Money
             CreateMap<AdvanceMoneyInputResource, AdvanceMoney>();
+            CreateMap<UpdateAdvanceMoneyInputResource, AdvanceMoney>();
             CreateMap<AdvanceMoney, AdvanceMoneyOutputResource>()
                 .ForMember(dest => dest.BookingNo, opt => opt.MapFrom(src => src.Booking != null ? src.Booking.BookingNo : ""));
+            CreateMap<AdvanceMoneyInputResource, UpdateAdvanceMoneyInputResource>();
             #endregion
 
             #region Advance Money Document

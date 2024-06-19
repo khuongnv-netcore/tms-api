@@ -43,8 +43,7 @@ namespace CORE_API.Tms.Models.Entities
                 .HasMany(e => e.AdvanceMoneyDocuments)
                 .WithOne(e => e.AdvanceMoney)
                 .HasForeignKey(e => e.AdvanceMoneyId)
-                .OnDelete(DeleteBehavior.Cascade)
-                .IsRequired(false);
+                .OnDelete(DeleteBehavior.ClientCascade);
         }
         public override async Task OnSoftDeleteAsync(SoftDeletes.Core.DbContext context,
         CancellationToken cancellationToken = default)
@@ -69,7 +68,7 @@ namespace CORE_API.Tms.Models.Entities
             {
                 context.Entry(this)
                     .Collection(m => m.AdvanceMoneyDocuments)
-                    .LoadAsync(cancellationToken)
+                    .LoadAsync()
             };
 
             await Task.WhenAll(taskList);

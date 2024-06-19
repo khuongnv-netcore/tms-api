@@ -22,6 +22,7 @@ using System.Linq;
 using Microsoft.IdentityModel.Tokens;
 using CORE_API.Tms.Models.Enums;
 using Twilio.TwiML.Voice;
+using CORE_API.Tms.Services.Abstract;
 
 namespace CORE_API.Tms.Controllers
 {
@@ -30,12 +31,15 @@ namespace CORE_API.Tms.Controllers
     public class AdvanceMoneyController : GenericEntityController<AdvanceMoney, AdvanceMoneyInputResource, AdvanceMoneyOutputResource>
     {
         private IGenericEntityService<BookingCharge> _bookingChargeEntityService;
+        private IAdvanceMoneyService _advanceMoneyService;
         public AdvanceMoneyController(IControllerHelper controllerHelper, IGenericEntityService<AdvanceMoney> entityService,
                                       IGenericEntityService<BookingCharge> bookingChargeEntityService,
+                                      IAdvanceMoneyService advanceMoneyService,
                                       IOptions<CoreConfigurationOptions> coreConfigurationOptions, IMapper mapper)
           : base(controllerHelper, entityService, coreConfigurationOptions, mapper)
         {
             _bookingChargeEntityService = bookingChargeEntityService;
+            _advanceMoneyService = advanceMoneyService;
         }
 
         [HttpPost]
@@ -74,7 +78,7 @@ namespace CORE_API.Tms.Controllers
         // [Authorize(Roles = "Administrator")] 
         public override Task<AdvanceMoneyOutputResource> Update(Guid Id, AdvanceMoneyInputResource resource)
         {
-            return base.Update(Id, resource);
+            return _advanceMoneyService.updateAdvanceMoney(Id, resource);
         }
 
         [HttpGet("{id}")]

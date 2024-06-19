@@ -33,4 +33,15 @@ namespace CORE_API.Tms.Models.Views
         public string ContractNo { get; set; }
         public List<PricingForCustomerDetailOutputResource> PricingForCustomerDetails { get; set; }
     }
+
+    public class UpdatePricingForCustomerInputResource : CoreInputResource
+    {
+        public DateTime FromDatePeriod { get; set; }
+        public DateTime ToDatePeriod { get; set; }
+        public Guid CustomerId { get; set; }
+        public Guid SellerId { get; set; }
+        public Guid CreatedBy { get; set; }
+        public Guid ModifiedBy { get; set; }
+        public string ContractNo { get; set; }
+    }
 }
