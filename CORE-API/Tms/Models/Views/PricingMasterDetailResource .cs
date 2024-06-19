@@ -6,6 +6,7 @@ namespace CORE_API.Tms.Models.Views
 {
     public class PricingMasterDetailInputResource : CoreInputResource
     {
+        public Guid Id { get; set; }
         public Guid PricingMasterId { get; set; }
         public decimal UnitPrice { get; set; }
         public Guid? ContainerId { get; set; }

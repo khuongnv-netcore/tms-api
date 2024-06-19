@@ -6,6 +6,7 @@ namespace CORE_API.Tms.Models.Views
 {
     public class AdvanceMoneyDocumentInputResource : CoreInputResource
     {
+        public Guid Id { get; set; }
         public Guid AdvanceMoneyId { get; set; }
         public decimal Money { get; set; }
         public string DocumentName { get; set; }

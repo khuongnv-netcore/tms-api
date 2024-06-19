@@ -9,6 +9,7 @@ using System.Globalization;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 using CORE_API.Tms.Models.Enums;
+using NetTopologySuite.Index.HPRtree;
 
 namespace CORE_API.Tms.Models.Entities
 {
@@ -46,25 +47,51 @@ namespace CORE_API.Tms.Models.Entities
             .HasOne(e => e.BookingCharge)
             .WithOne(e => e.AdvanceMoneyDocument)
             .HasForeignKey<BookingCharge>(e => e.AdvanceMoneyDocumentId)
-            .OnDelete(DeleteBehavior.Cascade)
+            .OnDelete(DeleteBehavior.ClientCascade)
             .IsRequired(false);
         }
         public override async Task OnSoftDeleteAsync(SoftDeletes.Core.DbContext context,
         CancellationToken cancellationToken = default)
         {
+            var taskList = new List<Task>
+            {
+                context.RemoveAsync(BookingCharge, cancellationToken)
+            };
+
+            await Task.WhenAll(taskList);
         }
 
         public override void OnSoftDelete(SoftDeletes.Core.DbContext context)
         {
+            if (BookingCharge != null) {
+                context.Remove(BookingCharge);
+            }
+            
         }
 
-        public override async Task LoadRelationsAsync(SoftDeletes.Core.DbContext context,
+        public override Task LoadRelationsAsync(SoftDeletes.Core.DbContext context,
         CancellationToken cancellationToken = default)
         {
+            return Task.CompletedTask;
         }
 
         public override void LoadRelations(SoftDeletes.Core.DbContext context)
         {
+        }
+
+        public void OnAddItem(SoftDeletes.Core.DbContext context) {
+            if(AdvanceMoney.BookingId != null)
+            {
+                var bookingCharge = new BookingCharge
+                {
+                    BookingId = AdvanceMoney.BookingId??Guid.Empty,
+                    AdvanceMoneyDocumentId = Id,
+                    UnitPrice = Money,
+                    Vol = 1,
+                    Amount = Money
+                };
+                context.AddAsync(bookingCharge);
+            }
         }
     }
 }

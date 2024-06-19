@@ -31,4 +31,15 @@ namespace CORE_API.Tms.Models.Views
         public Guid ModifiedBy { get; set; }
         public List<AdvanceMoneyDocumentOutputResource> AdvanceMoneyDocuments { get; set; }
     }
+
+    public class UpdateAdvanceMoneyInputResource : CoreInputResource
+    {
+        public Guid? BookingId { get; set; }
+        public Guid? EmployeeId { get; set; }
+        public decimal Money { get; set; }
+        public string Note { get; set; }
+        public Guid CreatedBy { get; set; }
+        public Guid ModifiedBy { get; set; }
+    }
+    
 }

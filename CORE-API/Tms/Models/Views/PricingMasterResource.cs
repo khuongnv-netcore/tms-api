@@ -27,4 +27,13 @@ namespace CORE_API.Tms.Models.Views
         public Guid ModifiedBy { get; set; }
         public List<PricingMasterDetailOutputResource> PricingMasterDetails { get; set; }
     }
+
+    public class UpdatePricingMasterInputResource : CoreInputResource
+    {
+        [MaxLength(255)]
+        public string ProductName { get; set; }
+        public EFeeType FeeType { get; set; }
+        public Guid CreatedBy { get; set; }
+        public Guid ModifiedBy { get; set; }
+    }
 }

@@ -21,6 +21,7 @@ using System;
 using System.Linq;
 using Microsoft.IdentityModel.Tokens;
 using CORE_API.Tms.Models.Enums;
+using CORE_API.Tms.Services.Abstract;
 
 namespace CORE_API.Tms.Controllers
 {
@@ -28,11 +29,13 @@ namespace CORE_API.Tms.Controllers
     [ApiController]
     public class PricingForCustomerController : GenericEntityController<PricingForCustomer, PricingForCustomerInputResource, PricingForCustomerOutputResource>
     {
-
+        private IPricingForCustomerService _pricingForCustomerService;
         public PricingForCustomerController(IControllerHelper controllerHelper, IGenericEntityService<PricingForCustomer> entityService,
+                                      IPricingForCustomerService pricingForCustomerService,
                                       IOptions<CoreConfigurationOptions> coreConfigurationOptions, IMapper mapper)
           : base(controllerHelper, entityService, coreConfigurationOptions, mapper)
         {
+            _pricingForCustomerService = pricingForCustomerService;
         }
 
         [HttpPost]
@@ -48,7 +51,7 @@ namespace CORE_API.Tms.Controllers
         // [Authorize(Roles = "Administrator")] 
         public override Task<PricingForCustomerOutputResource> Update(Guid Id, PricingForCustomerInputResource resource)
         {
-            return base.Update(Id, resource);
+            return _pricingForCustomerService.updatePricingForCustomer(Id, resource);
         }
 
         [HttpGet("{id}")]
