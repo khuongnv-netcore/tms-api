@@ -23,6 +23,7 @@ using System.Linq;
 using Microsoft.IdentityModel.Tokens;
 using CORE_API.Tms.Models.Enums;
 using System.Data.Entity;
+using CORE_API.Tms.Services;
 
 namespace CORE_API.Tms.Controllers
 {
@@ -62,7 +63,7 @@ namespace CORE_API.Tms.Controllers
         [Authorize(Roles = "Administrator")]
         public override Task<BookingOutputResource> Update(Guid Id, BookingInputResource resource)
         {
-            return base.Update(Id, resource);
+            return _bookingService.updateBooking(Id, resource);
         }
 
         [HttpGet("{id}")]

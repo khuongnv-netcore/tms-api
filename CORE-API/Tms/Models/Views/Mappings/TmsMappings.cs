@@ -24,9 +24,10 @@ namespace CORE_API.Tms.Models.Views.Mappings
             #region Booking
             // Resource Input to Entity
             CreateMap<BookingInputResource, Booking>();
-
+            CreateMap<UpdateBookingInputResource, Booking>();
             //Entity Output to Resource
             CreateMap<Booking, BookingOutputResource>();
+            CreateMap<BookingInputResource, UpdateBookingInputResource>();
             #endregion
 
             #region BookingEx

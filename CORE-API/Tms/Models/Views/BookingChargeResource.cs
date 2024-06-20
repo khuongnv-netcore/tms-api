@@ -11,6 +11,7 @@ namespace CORE_API.Tms.Models.Views
 {
     public class BookingChargeInputResource : CoreInputResource
     {
+        public Guid Id { get; set; }
         public Guid BookingId { get; set; }
         public Guid? ProductId { get; set; }
         public Guid? ContainerId { get; set; }

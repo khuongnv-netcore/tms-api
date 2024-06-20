@@ -24,16 +24,25 @@ namespace CORE_API.Tms.Services
         private BookingContext _bookingContext;
         private IGenericEntityService<Schedule> _scheduleService;
         private IGenericEntityService<Booking> _bookingEntityService;
+        private IGenericEntityService<BookingContainer> _bookingContainerEntityService;
+        private IGenericEntityService<BookingContainerDetail> _bookingContainerDetailEntityService;
+        private IGenericEntityService<BookingCharge> _bookingChargeEntityService;
         private IMapper _mapper;
 
         public BookingService(BookingContext bookingContext,
                 IGenericEntityService<Schedule> scheduleService,
                 IGenericEntityService<Booking> bookingEntityService,
+                IGenericEntityService<BookingContainer> bookingContainerEntityService,
+                IGenericEntityService<BookingContainerDetail> bookingContainerDetailEntityService,
+                IGenericEntityService<BookingCharge> bookingChargeEntityService,
                 IMapper mapper
             ) { 
             _bookingContext = bookingContext;
             _scheduleService = scheduleService;
             _bookingEntityService = bookingEntityService;
+            _bookingContainerEntityService = bookingContainerEntityService;
+            _bookingContainerDetailEntityService = bookingContainerDetailEntityService;
+            _bookingChargeEntityService = bookingChargeEntityService;
             _mapper = mapper;
         }
 
@@ -173,6 +182,63 @@ namespace CORE_API.Tms.Services
             }
             booking.ScheduleStatus = scheduleStatus;
             await _bookingEntityService.UpdateAsync(booking);
+        }
+
+        public async Task<BookingOutputResource> updateBooking(Guid id, BookingInputResource resource)
+        {
+            var entity = _bookingEntityService.FindById(id);
+
+            var updateBookingInput = _mapper.Map<BookingInputResource, UpdateBookingInputResource>(resource);
+
+            entity = _mapper.Map<UpdateBookingInputResource, Booking>(updateBookingInput, entity);
+
+            // Update Booking Containers
+            var bookingContainers = _mapper.Map<IEnumerable<BookingContainerInputResource>, List<BookingContainer>>(resource.BookingContainers);
+
+            var bookingContainersResponse = await _bookingContainerEntityService.BulkInsertOrUpdate(bookingContainers);
+
+            // Delete Booking Containers
+            var deletedEntites = entity.BookingContainers.ToList().FindAll(m => !bookingContainers.Select(m => m.Id).Contains(m.Id));
+            entity.BookingContainers = entity.BookingContainers.Where(item => !deletedEntites.Select(m => m.Id).Contains(item.Id)).ToList();
+            await _bookingContainerEntityService.DeleteMany(deletedEntites);
+
+            foreach (var bookingContainer in resource.BookingContainers) {
+                // Update Booking Container Details
+                var bookingContainerDetails = _mapper.Map<IEnumerable<BookingContainerDetailInputResource>, List<BookingContainerDetail>>(bookingContainer.bookingContainerDetails);
+                var bookingContainerDetailsResponse = await _bookingContainerDetailEntityService.BulkInsertOrUpdate(bookingContainerDetails);
+                // Delete Booking Container Details
+                var deletedBookingContainerDetailEntites = entity.BookingContainers
+                    . Where(m => m.Id == bookingContainer.Id)
+                    .SelectMany(m => m.BookingContainerDetails)
+                    .ToList().FindAll(m => !bookingContainerDetails.Select(m => m.Id).Contains(m.Id));
+
+                await _bookingContainerDetailEntityService.DeleteMany(deletedBookingContainerDetailEntites);
+
+            }
+
+            // Update Booking Charges
+            var bookingCharges = _mapper.Map<IEnumerable<BookingChargeInputResource>, List<BookingCharge>>(resource.BookingCharges);
+
+            var bookingChargesResponse = await _bookingChargeEntityService.BulkInsertOrUpdate(bookingCharges);
+
+
+            // Delete Booking Charges
+            var deletedBookingChargeEntites = entity.BookingCharges.ToList().FindAll(m => !bookingCharges.Select(m => m.Id).Contains(m.Id));
+            entity.BookingCharges = entity.BookingCharges.Where(item => !deletedBookingChargeEntites.Select(m => m.Id).Contains(item.Id)).ToList();
+            await _bookingChargeEntityService.DeleteMany(deletedBookingChargeEntites);
+
+
+            // Update Booking
+            var result = await _bookingEntityService.UpdateAsync(entity);
+
+            if (!result.Success)
+            {
+                //TODO Throw Error
+            }
+
+            var output = _mapper.Map<Booking, BookingOutputResource>(result.Entity);
+
+            return output;
         }
     }
 }
