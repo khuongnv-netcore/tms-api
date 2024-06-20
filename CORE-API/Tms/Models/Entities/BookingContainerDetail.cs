@@ -76,7 +76,9 @@ namespace CORE_API.Tms.Models.Entities
 
         public override void OnSoftDelete(SoftDeletes.Core.DbContext context)
         {
-            context.Remove(Schedule);
+            if (Schedule != null) {
+                context.Remove(Schedule);
+            }
         }
 
         public override Task LoadRelationsAsync(SoftDeletes.Core.DbContext context,
