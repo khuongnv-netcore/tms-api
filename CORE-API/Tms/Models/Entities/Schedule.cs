@@ -26,15 +26,12 @@ namespace CORE_API.Tms.Models.Entities
         public DateTime PickupPlan { get; set; }
         public DateTime? ActTd { get; set; }
         public DateTime DeliveryPlan { get; set; }
-        [DefaultValue(null)]
-        public DateTime? CompletedDate { get; set; }
-        [DefaultValue(null)]
-        public DateTime? InprocessDate { get; set; }
-        [DefaultValue(null)]
         public DateTime? AssignedDate { get; set; }
-        [DefaultValue(null)]
+        public DateTime? InprocessDate { get; set; }
         public DateTime? RefuseDate { get; set; }
-        [DefaultValue(null)]
+        public DateTime? CompletedPickupDate { get; set; }
+        public DateTime? CompletedDeliveryDate { get; set; }
+        public DateTime? CompletedDate { get; set; }
         public DateTime? CancelDate { get; set; }
         public DateTime? ActTa { get; set; }
         public Guid ContainerTruckId { get; set; }
