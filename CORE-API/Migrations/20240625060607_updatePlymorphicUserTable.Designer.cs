@@ -4,6 +4,7 @@ using CORE_API.CORE.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CORE_API.Migrations
 {
     [DbContext(typeof(CoreContext))]
-    partial class CoreContextModelSnapshot : ModelSnapshot
+    [Migration("20240625060607_updatePlymorphicUserTable")]
+    partial class updatePlymorphicUserTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -337,9 +340,6 @@ namespace CORE_API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime?>("AdvanceMoneyDate")
-                        .HasColumnType("datetime2");
-
                     b.Property<Guid?>("BookingId")
                         .HasColumnType("uniqueidentifier");
 
@@ -396,9 +396,6 @@ namespace CORE_API.Migrations
                     b.Property<DateTime?>("DeletedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("DocumentDate")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("DocumentFilePath")
                         .HasColumnType("nvarchar(max)");
 
@@ -407,9 +404,6 @@ namespace CORE_API.Migrations
 
                     b.Property<bool>("Internal")
                         .HasColumnType("bit");
-
-                    b.Property<Guid>("KindOfFeeId")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("Modified")
                         .HasColumnType("datetime2");
@@ -527,9 +521,6 @@ namespace CORE_API.Migrations
                     b.Property<Guid>("ConsigneeId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("ContractId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<DateTime>("Created")
                         .HasColumnType("datetime2");
 
@@ -631,9 +622,6 @@ namespace CORE_API.Migrations
 
                     b.Property<int>("ScheduleStatus")
                         .HasColumnType("int");
-
-                    b.Property<Guid?>("SellerId")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("ShipperId")
                         .HasColumnType("uniqueidentifier");
@@ -985,9 +973,6 @@ namespace CORE_API.Migrations
                     b.Property<string>("SalesRepOffice")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("SellerId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("TaxCode")
                         .HasColumnType("nvarchar(max)");
 
@@ -1009,39 +994,6 @@ namespace CORE_API.Migrations
                     b.HasIndex("Modified");
 
                     b.ToTable("Customer", (string)null);
-                });
-
-            modelBuilder.Entity("CORE_API.Tms.Models.Entities.Device", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("Created")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("Modified")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Token")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Created");
-
-                    b.HasIndex("Modified");
-
-                    b.ToTable("Device", (string)null);
                 });
 
             modelBuilder.Entity("CORE_API.Tms.Models.Entities.Driver", b =>
@@ -1133,54 +1085,6 @@ namespace CORE_API.Migrations
                     b.HasIndex("ModifiedUserId");
 
                     b.ToTable("Driver", (string)null);
-                });
-
-            modelBuilder.Entity("CORE_API.Tms.Models.Entities.DriverLocation", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("Created")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("DriverId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("GpsDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<double>("Latitude")
-                        .HasColumnType("float");
-
-                    b.Property<string>("Location")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("Longitude")
-                        .HasColumnType("float");
-
-                    b.Property<DateTime>("Modified")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("OperationType")
-                        .HasColumnType("int");
-
-                    b.Property<Guid?>("ScheduleId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Created");
-
-                    b.HasIndex("Modified");
-
-                    b.ToTable("DriverLocation", (string)null);
                 });
 
             modelBuilder.Entity("CORE_API.Tms.Models.Entities.Employee", b =>
@@ -1334,46 +1238,6 @@ namespace CORE_API.Migrations
                     b.ToTable("FixedAsset", (string)null);
                 });
 
-            modelBuilder.Entity("CORE_API.Tms.Models.Entities.KindOfFee", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("Created")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FeeName")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<DateTime>("Modified")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("ModifiedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Created");
-
-                    b.HasIndex("FeeName")
-                        .IsUnique()
-                        .HasFilter("[FeeName] IS NOT NULL");
-
-                    b.HasIndex("Modified");
-
-                    b.ToTable("KindOfFee", (string)null);
-                });
-
             modelBuilder.Entity("CORE_API.Tms.Models.Entities.Location", b =>
                 {
                     b.Property<Guid>("Id")
@@ -1414,45 +1278,6 @@ namespace CORE_API.Migrations
                     b.HasIndex("Modified");
 
                     b.ToTable("Location", (string)null);
-                });
-
-            modelBuilder.Entity("CORE_API.Tms.Models.Entities.Notification", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Body")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("Created")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("Modified")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("NotificationType")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("Open")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Created");
-
-                    b.HasIndex("Modified");
-
-                    b.ToTable("Notification", (string)null);
                 });
 
             modelBuilder.Entity("CORE_API.Tms.Models.Entities.PricingForCustomer", b =>
@@ -1684,12 +1509,6 @@ namespace CORE_API.Migrations
                     b.Property<DateTime?>("CompletedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("CompletedDeliveryDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("CompletedPickupDate")
-                        .HasColumnType("datetime2");
-
                     b.Property<Guid?>("ContainerId")
                         .HasColumnType("uniqueidentifier");
 
@@ -1868,7 +1687,7 @@ namespace CORE_API.Migrations
 
             modelBuilder.Entity("CORE_API.Tms.Models.Entities.Booking", b =>
                 {
-                    b.HasOne("CORE_API.Tms.Models.Entities.Employee", "ApprovedUser")
+                    b.HasOne("CORE_API.CORE.Models.Entities.User", "ApprovedUser")
                         .WithMany()
                         .HasForeignKey("ApprovedUserId");
 

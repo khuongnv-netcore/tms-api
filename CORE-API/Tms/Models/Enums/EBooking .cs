@@ -9,7 +9,10 @@ namespace CORE_API.Tms.Models.Enums
     {
         ORDER,
         VIRTUAL,
-        BOOKING
+        BOOKING,
+        APPROVED,
+        INPROCESS,
+        DONE
     }
     public enum EScheduleStatusOfBooking
     {
@@ -20,7 +23,8 @@ namespace CORE_API.Tms.Models.Enums
     public enum EBookingType
     {
         IMPORT,
-        EXPORT
+        EXPORT,
+        DOOR
     }
     public enum EUnitType
     {

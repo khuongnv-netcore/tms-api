@@ -18,8 +18,10 @@ namespace CORE_API.Tms.Models.Entities
         public Guid AdvanceMoneyId { get; set; }
         public decimal Money { get; set; }
         public string DocumentName { get; set; }
+        public DateTime? DocumentDate { get; set; }
         public string DocumentFilePath { get; set; }
         public bool Internal { set; get; } = false;
+        public Guid KindOfFeeId { get; set; }
         public Guid CreatedBy { get; set; }
         public Guid ModifiedBy { get; set; }
 

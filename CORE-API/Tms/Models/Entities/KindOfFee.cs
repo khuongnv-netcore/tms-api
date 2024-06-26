@@ -12,46 +12,30 @@ using CORE_API.Tms.Models.Enums;
 
 namespace CORE_API.Tms.Models.Entities
 {
-    public class Customer : CoreEntity
+    public class KindOfFee : CoreEntity
     {
-        public string CustomerCode { get; set; }
-        public string LegalName { get; set; }
-        public string LanguageName { get; set; }
-        public string LocationCode { get; set; }
-        public string TaxCode { get; set; }
-        [MaxLength(30)]
-        public string Address { get; set; }
-        public string CountryCode { get; set; }
-        [MaxLength(30)]
-        public string City { get; set; }
-        [MaxLength(50)]
-        public string ZipCode { get; set; }
-        public string Email { get; set; }
-        public string Tel { get; set; }
-        public string SalesOffice { get; set; }
-        public string SalesRepOffice {  get; set; }
-        public Guid? SellerId { get; set; } // Employee
+        public string FeeName { get; set; }
+        public string Description { get; set; }
         public Guid CreatedBy { get; set; }
         public Guid ModifiedBy { get; set; }
 
         internal static void OnModelCreating(ModelBuilder builder)
         {
             // Config
-            string tableName = "Customer";
+            string tableName = "KindOfFee";
 
             // Generic
-            builder.Entity<Customer>().ToTable(tableName);
-            builder.Entity<Customer>().HasKey(m => m.Id);
-            builder.Entity<Customer>().Property(m => m.Id).IsRequired().ValueGeneratedOnAdd();
-            builder.Entity<Customer>().HasIndex(m => m.Email).IsUnique(); // Unique email index
-            builder.Entity<Customer>().HasIndex(m => m.Created);
-            builder.Entity<Customer>().HasIndex(m => m.Modified);
+            builder.Entity<KindOfFee>().ToTable(tableName);
+            builder.Entity<KindOfFee>().HasKey(m => m.Id);
+            builder.Entity<KindOfFee>().Property(m => m.Id).IsRequired().ValueGeneratedOnAdd();
+            builder.Entity<KindOfFee>().HasIndex(m => m.FeeName).IsUnique(true);
+            builder.Entity<KindOfFee>().HasIndex(m => m.Created);
+            builder.Entity<KindOfFee>().HasIndex(m => m.Modified);
 
-            builder.Entity<Customer>()
+            builder.Entity<KindOfFee>()
                 .HasQueryFilter(m => m.DeletedAt == null);
 
             // Relationship
-            
         }
         public override async Task OnSoftDeleteAsync(SoftDeletes.Core.DbContext context,
         CancellationToken cancellationToken = default)

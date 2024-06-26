@@ -10,6 +10,8 @@ namespace CORE_API.Tms.Models.Enums
         ASSINGED,
         INPROCESS,
         REFUSE,
+        PICKUPED,
+        DELIVERIED,
         COMPLETED,
         DELAY,
         ONTIME,

@@ -90,6 +90,14 @@ namespace CORE_API.CORE.Contexts
             AdvanceMoney.OnModelCreating(builder);
 
             AdvanceMoneyDocument.OnModelCreating(builder);
+
+            KindOfFee.OnModelCreating(builder);
+
+            DriverLocation.OnModelCreating(builder);
+
+            Device.OnModelCreating(builder);
+
+            Notification.OnModelCreating(builder);
         }
 
         public override int SaveChanges()

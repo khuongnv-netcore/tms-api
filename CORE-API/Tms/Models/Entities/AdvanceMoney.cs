@@ -18,6 +18,7 @@ namespace CORE_API.Tms.Models.Entities
         public Guid? EmployeeId { get; set; }
         public decimal Money { get; set; }
         public string Note { get; set; }
+        public DateTime? AdvanceMoneyDate { get; set; }
         public Guid CreatedBy { get; set; }
         public Guid ModifiedBy { get; set; }
         public virtual Booking Booking { get; set; }

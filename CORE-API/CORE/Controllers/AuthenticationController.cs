@@ -22,22 +22,33 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.IdentityModel.Tokens.Jwt;
 using LinqKit;
+using Auth0.ManagementApi;
+using Auth0.AuthenticationApi;
+using Auth0.AuthenticationApi.Models;
+using UserAuth0 = Auth0.ManagementApi.Models;
 
 namespace CORE_API.CORE
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize, Authorize(Roles = "Administrator,Integration")]
     public class AuthenticationController : GenericEntityController<Authentication, AuthenticationInputResource, AuthenticationOutputResource>
     {
         private readonly IGenericEntityService<User> _userEntityService;
-        public AuthenticationController(IGenericEntityService<User> userEntityService, IControllerHelper controllerHelper, IGenericEntityService<Authentication> entityService, IOptions<CoreConfigurationOptions> coreConfigurationOptions, IMapper mapper)
+        private readonly AuthenticationApiClient _authClient;
+        private readonly ManagementApiClient _managementClient;
+
+        public AuthenticationController(IGenericEntityService<User> userEntityService, IControllerHelper controllerHelper, IGenericEntityService<Authentication> entityService,
+
+            IOptions<CoreConfigurationOptions> coreConfigurationOptions, IMapper mapper)
             : base(controllerHelper, entityService, coreConfigurationOptions, mapper)
         {
             _userEntityService = userEntityService;
+            _authClient = new AuthenticationApiClient(new System.Uri(_coreConfigurationOptions.AuthenticationOptions.Domain));
+            _managementClient = new ManagementApiClient(_coreConfigurationOptions.AuthenticationOptions.TokenUrl, new System.Uri(_coreConfigurationOptions.AuthenticationOptions.ManagementAudience));
         }
 
         [HttpPost]
+        [Authorize, Authorize(Roles = "Administrator,Integration")]
         [SwaggerSummary("Create AuthenticationController")]
         public async Task<AuthenticationOutputResource> CreateToken()
         {
@@ -81,6 +92,7 @@ namespace CORE_API.CORE
         }
 
         [HttpGet]
+        [Authorize, Authorize(Roles = "Administrator,Integration")]
         [SwaggerSummary("List AuthenticationController")]
         public override async Task<CoreListOutputResource<AuthenticationOutputResource>> List(int skip = 0, int count = 20)
         {
@@ -106,6 +118,7 @@ namespace CORE_API.CORE
         }
 
         [HttpGet("{id}")]
+        [Authorize, Authorize(Roles = "Administrator,Integration")]
         [SwaggerSummary("Read One AuthenticationController")]
         public override AuthenticationOutputResource Read(Guid id)
         {
@@ -113,6 +126,7 @@ namespace CORE_API.CORE
         }
 
         [HttpPut]
+        [Authorize, Authorize(Roles = "Administrator,Integration")]
         [SwaggerSummary("Update AuthenticationController")]
         public override Task<AuthenticationOutputResource> Update(Guid id, AuthenticationInputResource resource)
         {
@@ -120,10 +134,76 @@ namespace CORE_API.CORE
         }
 
         [HttpDelete]
+        [Authorize, Authorize(Roles = "Administrator,Integration")]
         [SwaggerSummary("Delete AuthenticationController")]
         public override Task<AuthenticationOutputResource> Delete(Guid id)
         {
             return base.Delete(id);
         }
+
+        [HttpPost("login")]
+        [SwaggerSummary("Login AuthenticationController")]
+        public async Task<LoginResponse> Login([FromBody] LoginRequest loginRequest)
+        {
+           var loginResponse = new LoginResponse
+            {
+                ResponseCode = "401",
+                message = "Fail",
+                UserInfo = null 
+            };
+            var result = await _authClient.GetTokenAsync(new ResourceOwnerTokenRequest
+            {
+                ClientId = _coreConfigurationOptions.AuthenticationOptions.ApiClientId,
+                ClientSecret = _coreConfigurationOptions.AuthenticationOptions.ManagementClientSecret,
+                Scope = "openid profile email",
+                Username = loginRequest.Username,
+                Password = loginRequest.Password
+            });
+
+            if (result == null)
+            {
+                return loginResponse;
+            }
+
+            var userInfo = await _authClient.GetUserInfoAsync(result.AccessToken);
+
+            var existingUser = _userEntityService.FindOne(m => m.EmailAddress == userInfo.Email);
+
+            if (existingUser != null) {
+                var userOutputResource = _mapper.Map<User, UserOutputResource>(existingUser);
+                loginResponse.ResponseCode = "200";
+                loginResponse.message = "Success";
+                loginResponse.UserInfo = new UserInfo
+                {
+                    token = result.AccessToken,
+                    UserId = userOutputResource.Id,
+                    FullName = existingUser.GetFullName(),
+                    UserRoles = userOutputResource.Roles
+                };
+            }
+            return loginResponse;
+        }
+    }
+
+    public class LoginRequest
+    {
+        public string Username { get; set; }
+        public string Password { get; set; }
+    }
+
+    public class LoginResponse
+    {
+        public string message { get; set; }
+        public string ResponseCode { get; set; }
+        public UserInfo? UserInfo { get; set; }
+    }
+
+    public class UserInfo
+    {
+        public string token { get; set; }
+        public Guid UserId { get; set; }
+        public string FullName { get; set; }
+        public Guid EmployeeId { get; set; }
+        public List<RoleOutputResource> UserRoles { get; set; }
     }
 }

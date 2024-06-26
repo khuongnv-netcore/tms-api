@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
+using CORE_API.CORE.Models.Enums;
+using CORE_API.Tms.Models.Entities;
 
 namespace CORE_API.CORE.Models.Entities
 {
@@ -19,6 +21,8 @@ namespace CORE_API.CORE.Models.Entities
         public string SubscriptionProduct { get; set; }
         public DateTime? SubscriptionEndDate { get; set; }
         public string PhoneNumber { get; set; }
+        public EUserType? UserType { get; set; }
+        public Guid? EmployeeId { get; set; }
 
         public virtual IList<UserRole> UserRoles { get; set; }
         public virtual IList<UserOrganization> UserOrganizations { get; set; }

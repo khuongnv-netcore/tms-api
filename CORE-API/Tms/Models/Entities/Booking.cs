@@ -71,18 +71,14 @@ namespace CORE_API.Tms.Models.Entities
         public DateTime PickUpDT { get; set; } = DateTime.Now;
         public DateTime ETBDT { get; set; } = DateTime.Now;
         public EBookingStatus Status { get; set; } = EBookingStatus.ORDER;
+        public Guid? ContractId { get; set; } // Pricing For Customer
+        public Guid? SellerId { get; set; } // Employee
         public Guid CreatedBy { get; set; }
         public virtual User CreatedUser { get; set; }
         public Guid ModifiedBy { get; set; }
         public virtual User ModifiedUser { get; set; }
-        public Guid ApprovedBy { get; set; }
-        public virtual User ApprovedUser { get; set; }
-
-        //[ForeignKey("UnitTypeId")]
-        //public UnitType? UnitType { get; set; }
-        //public List<ForwaderBooking>? ForwaderBookings { get; set; }
-        //public List<RefundMoney>? RefundMoneys { get; set; }
-        //public List<ShipperBooking>? ShipperBookings { get; set; }
+        public Guid ApprovedBy { get; set; } // Employee
+        public virtual Employee ApprovedUser { get; set; }
         public virtual IList<BookingContainer> BookingContainers { get; set; }
         public virtual IList<BookingCharge> BookingCharges { get; set; }
 

@@ -12,46 +12,30 @@ using CORE_API.Tms.Models.Enums;
 
 namespace CORE_API.Tms.Models.Entities
 {
-    public class Customer : CoreEntity
+    public class Notification : CoreEntity
     {
-        public string CustomerCode { get; set; }
-        public string LegalName { get; set; }
-        public string LanguageName { get; set; }
-        public string LocationCode { get; set; }
-        public string TaxCode { get; set; }
-        [MaxLength(30)]
-        public string Address { get; set; }
-        public string CountryCode { get; set; }
-        [MaxLength(30)]
-        public string City { get; set; }
-        [MaxLength(50)]
-        public string ZipCode { get; set; }
-        public string Email { get; set; }
-        public string Tel { get; set; }
-        public string SalesOffice { get; set; }
-        public string SalesRepOffice {  get; set; }
-        public Guid? SellerId { get; set; } // Employee
-        public Guid CreatedBy { get; set; }
-        public Guid ModifiedBy { get; set; }
+        public string Title { get; set; }
+        public string Body { get; set; }
+        public bool Open { get; set; }
+        public Guid UserId { get; set; }
+        public ENotificationType NotificationType { get; set; }
 
         internal static void OnModelCreating(ModelBuilder builder)
         {
             // Config
-            string tableName = "Customer";
+            string tableName = "Notification";
 
             // Generic
-            builder.Entity<Customer>().ToTable(tableName);
-            builder.Entity<Customer>().HasKey(m => m.Id);
-            builder.Entity<Customer>().Property(m => m.Id).IsRequired().ValueGeneratedOnAdd();
-            builder.Entity<Customer>().HasIndex(m => m.Email).IsUnique(); // Unique email index
-            builder.Entity<Customer>().HasIndex(m => m.Created);
-            builder.Entity<Customer>().HasIndex(m => m.Modified);
+            builder.Entity<Notification>().ToTable(tableName);
+            builder.Entity<Notification>().HasKey(m => m.Id);
+            builder.Entity<Notification>().Property(m => m.Id).IsRequired().ValueGeneratedOnAdd();
+            builder.Entity<Notification>().HasIndex(m => m.Created);
+            builder.Entity<Notification>().HasIndex(m => m.Modified);
 
-            builder.Entity<Customer>()
+            builder.Entity<Notification>()
                 .HasQueryFilter(m => m.DeletedAt == null);
 
             // Relationship
-            
         }
         public override async Task OnSoftDeleteAsync(SoftDeletes.Core.DbContext context,
         CancellationToken cancellationToken = default)

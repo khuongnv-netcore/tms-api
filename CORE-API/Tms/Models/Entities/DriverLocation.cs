@@ -12,46 +12,33 @@ using CORE_API.Tms.Models.Enums;
 
 namespace CORE_API.Tms.Models.Entities
 {
-    public class Customer : CoreEntity
+    public class DriverLocation : CoreEntity
     {
-        public string CustomerCode { get; set; }
-        public string LegalName { get; set; }
-        public string LanguageName { get; set; }
-        public string LocationCode { get; set; }
-        public string TaxCode { get; set; }
-        [MaxLength(30)]
-        public string Address { get; set; }
-        public string CountryCode { get; set; }
-        [MaxLength(30)]
-        public string City { get; set; }
-        [MaxLength(50)]
-        public string ZipCode { get; set; }
-        public string Email { get; set; }
-        public string Tel { get; set; }
-        public string SalesOffice { get; set; }
-        public string SalesRepOffice {  get; set; }
-        public Guid? SellerId { get; set; } // Employee
-        public Guid CreatedBy { get; set; }
-        public Guid ModifiedBy { get; set; }
+        public EOperationType OperationType { get; set; }
+        public Guid? ScheduleId { get; set; }
+        public Guid? DriverId { get; set; }
+        public Guid? UserId { get; set; }
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
+        public string Location { get; set; }
+        public DateTime GpsDate { get; set; }
 
         internal static void OnModelCreating(ModelBuilder builder)
         {
             // Config
-            string tableName = "Customer";
+            string tableName = "DriverLocation";
 
             // Generic
-            builder.Entity<Customer>().ToTable(tableName);
-            builder.Entity<Customer>().HasKey(m => m.Id);
-            builder.Entity<Customer>().Property(m => m.Id).IsRequired().ValueGeneratedOnAdd();
-            builder.Entity<Customer>().HasIndex(m => m.Email).IsUnique(); // Unique email index
-            builder.Entity<Customer>().HasIndex(m => m.Created);
-            builder.Entity<Customer>().HasIndex(m => m.Modified);
+            builder.Entity<DriverLocation>().ToTable(tableName);
+            builder.Entity<DriverLocation>().HasKey(m => m.Id);
+            builder.Entity<DriverLocation>().Property(m => m.Id).IsRequired().ValueGeneratedOnAdd();
+            builder.Entity<DriverLocation>().HasIndex(m => m.Created);
+            builder.Entity<DriverLocation>().HasIndex(m => m.Modified);
 
-            builder.Entity<Customer>()
+            builder.Entity<Location>()
                 .HasQueryFilter(m => m.DeletedAt == null);
 
             // Relationship
-            
         }
         public override async Task OnSoftDeleteAsync(SoftDeletes.Core.DbContext context,
         CancellationToken cancellationToken = default)

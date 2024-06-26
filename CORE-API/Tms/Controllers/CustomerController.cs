@@ -54,7 +54,7 @@ namespace CORE_API.Tms.Controllers
         }
 
         [HttpGet("{id}")]
-        //[SwaggerSummary("Read One Customer")]
+        [SwaggerSummary("Read One Customer")]
         public override CustomerOutputResource Read(Guid id)
         {
             return base.Read(id);
