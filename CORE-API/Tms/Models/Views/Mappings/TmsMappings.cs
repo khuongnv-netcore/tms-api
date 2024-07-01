@@ -137,6 +137,11 @@ namespace CORE_API.Tms.Models.Views.Mappings
             CreateMap<AutoNumberInputResource, AutoNumber>();
             CreateMap<AutoNumber, AutoNumberOutputResource>();
             #endregion
+
+            #region
+            CreateMap<KindOfFeeInputResource, KindOfFee>();
+            CreateMap<KindOfFee, KindOfFeeOutputResource>();
+            #endregion
         }
     }
 }
