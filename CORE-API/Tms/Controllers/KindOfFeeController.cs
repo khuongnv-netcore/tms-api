@@ -75,7 +75,7 @@ namespace CORE_API.Tms.Controllers
 
         [HttpGet("Filter")]
         [SwaggerSummary("Filter Kind Of Fee")]
-        [Authorize(Roles = "Administrator")] 
+        // [Authorize(Roles = "Administrator")] 
         public async Task<CoreListOutputResource<KindOfFeeOutputResource>> Filter(string byFeeName)
         {
             var where = PredicateBuilder.New<KindOfFee>();
