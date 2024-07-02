@@ -72,5 +72,29 @@ namespace CORE_API.Tms.Controllers
         {
             return base.Delete(id);
         }
+
+        [HttpGet("Filter")]
+        [SwaggerSummary("Filter Kind Of Fee")]
+        [Authorize(Roles = "Administrator")] 
+        public async Task<CoreListOutputResource<KindOfFeeOutputResource>> Filter(string byFeeName)
+        {
+            var where = PredicateBuilder.New<KindOfFee>();
+
+            if (!byFeeName.IsNullOrEmpty())
+            {
+                where = where.And(m => m.FeeName.ToUpper().Contains(byFeeName.ToUpper()));
+            }
+
+            var results = _entityService.FindAll(where).ToList();
+            var total = await _entityService.Count(where);
+
+            var output = new CoreListOutputResource<KindOfFeeOutputResource>
+            {
+                Entities = _mapper.Map<IEnumerable<KindOfFee>, IList<KindOfFeeOutputResource>>(results),
+                TotalEntities = total
+            };
+
+            return output;
+        }
     }
 }
